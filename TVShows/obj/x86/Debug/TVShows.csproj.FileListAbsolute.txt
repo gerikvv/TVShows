@@ -1,0 +1,15 @@
+E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.exe
+E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.pdb
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\MainWindow.baml
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\MainWindow.g.cs
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\App.g.cs
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows_MarkupCompile.cache
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.g.resources
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.Properties.Resources.resources
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.exe
+E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.pdb
+E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.Data.dll
+E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.Data.pdb

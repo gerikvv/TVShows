@@ -1,0 +1,6 @@
+E:\Desktop\TVShows\TVShows.Data\obj\Debug\ResolveAssemblyReference.cache
+E:\Desktop\TVShows\TVShows.Data\bin\Debug\TVShows.Data.dll
+E:\Desktop\TVShows\TVShows.Data\bin\Debug\TVShows.Data.pdb
+E:\Desktop\TVShows\TVShows.Data\obj\Debug\TVShows.Data.dll
+E:\Desktop\TVShows\TVShows.Data\obj\Debug\TVShows.Data.pdb
+E:\Desktop\TVShows\TVShows.Data\bin\Debug\TVShows.Data.dll.config

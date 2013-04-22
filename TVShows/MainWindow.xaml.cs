@@ -31,17 +31,23 @@ namespace TVShows
             Class_user.Items = user.Get(Class_user.Dtable);
             if (Class_user.Items.Count > 0)
             {
-                user = (Class_user) Class_user.Items[0];
-                user.Name = "lololo";
+                user = (Class_user)Class_user.Items[0];
+                user.Name = "tom";
                 user.Update(Class_user.Dtable);
-                //user.Delete(Class_user.Dtable, user.Id);
+                user.Delete(Class_user.Dtable, user.Id);
             }
 
-            var admin = new Class_administrator();
-            Class_administrator.Items = admin.Get(Class_administrator.Dtable);
+            //var dateTime = new DateTime(1969, 11, 13);
+            //new Class_actor("Джерард Батлер", dateTime, "Пейсли, Шотландия, Великобритания", 43, "link");
+
+            //var dateTime = new DateTime(1941, 2, 10);
+            //new Class_director("Майкл Эптед", dateTime, "Олсбери, Букингемшир, Великобритания", 72, "link");
+
+            //var admin = new Class_administrator();
+            //Class_administrator.Items = admin.Get(Class_administrator.Dtable);
 
             new Class_user("gerik", "user1", "15042013");
-            new Class_administrator("gerik", "user1", "15042013");
+            //new Class_administrator("gerik", "user1", "15042013");
         }
     }
 }

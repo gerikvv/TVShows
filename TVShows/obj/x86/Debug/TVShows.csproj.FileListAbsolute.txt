@@ -13,3 +13,4 @@ E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.exe
 E:\Desktop\TVShows\TVShows\obj\x86\Debug\TVShows.pdb
 E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.Data.dll
 E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.Data.pdb
+E:\Desktop\TVShows\TVShows\bin\Debug\TVShows.exe.config

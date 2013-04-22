@@ -44,6 +44,10 @@ namespace TVShows.Data {
         
         private TVShowsDataTable tableTVShows;
         
+        private _TVShows_ActorsDataTable _tableTVShows_Actors;
+        
+        private _TVShows_DirectorsDataTable _tableTVShows_Directors;
+        
         private _TVShows_GenresDataTable _tableTVShows_Genres;
         
         private UsersDataTable tableUsers;
@@ -54,15 +58,27 @@ namespace TVShows.Data {
         
         private global::System.Data.DataRelation relationTVShowsComments;
         
+        private global::System.Data.DataRelation relationUsersComments;
+        
         private global::System.Data.DataRelation _relationDirectorsDirectors_Genres;
         
         private global::System.Data.DataRelation _relationGenresDirectors_Genres;
         
         private global::System.Data.DataRelation relationTVShowsFavorites;
         
+        private global::System.Data.DataRelation relationUsersFavorites;
+        
         private global::System.Data.DataRelation _relationTVShowsRatedTVShows_Users;
         
-        private global::System.Data.DataRelation relationDirectorsTVShows;
+        private global::System.Data.DataRelation _relationUsersRatedTVShows_Users;
+        
+        private global::System.Data.DataRelation _relationActorsTVShows_Actors;
+        
+        private global::System.Data.DataRelation _relationTVShowsTVShows_Actors;
+        
+        private global::System.Data.DataRelation _relationDirectorsTVShows_Directors;
+        
+        private global::System.Data.DataRelation _relationTVShowsTVShows_Directors;
         
         private global::System.Data.DataRelation _relationGenresTVShows_Genres;
         
@@ -125,6 +141,12 @@ namespace TVShows.Data {
                 }
                 if ((ds.Tables["TVShows"] != null)) {
                     base.Tables.Add(new TVShowsDataTable(ds.Tables["TVShows"]));
+                }
+                if ((ds.Tables["TVShows&Actors"] != null)) {
+                    base.Tables.Add(new _TVShows_ActorsDataTable(ds.Tables["TVShows&Actors"]));
+                }
+                if ((ds.Tables["TVShows&Directors"] != null)) {
+                    base.Tables.Add(new _TVShows_DirectorsDataTable(ds.Tables["TVShows&Directors"]));
                 }
                 if ((ds.Tables["TVShows&Genres"] != null)) {
                     base.Tables.Add(new _TVShows_GenresDataTable(ds.Tables["TVShows&Genres"]));
@@ -254,6 +276,26 @@ namespace TVShows.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _TVShows_ActorsDataTable _TVShows_Actors {
+            get {
+                return this._tableTVShows_Actors;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _TVShows_DirectorsDataTable _TVShows_Directors {
+            get {
+                return this._tableTVShows_Directors;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public _TVShows_GenresDataTable _TVShows_Genres {
             get {
                 return this._tableTVShows_Genres;
@@ -367,6 +409,12 @@ namespace TVShows.Data {
                 if ((ds.Tables["TVShows"] != null)) {
                     base.Tables.Add(new TVShowsDataTable(ds.Tables["TVShows"]));
                 }
+                if ((ds.Tables["TVShows&Actors"] != null)) {
+                    base.Tables.Add(new _TVShows_ActorsDataTable(ds.Tables["TVShows&Actors"]));
+                }
+                if ((ds.Tables["TVShows&Directors"] != null)) {
+                    base.Tables.Add(new _TVShows_DirectorsDataTable(ds.Tables["TVShows&Directors"]));
+                }
                 if ((ds.Tables["TVShows&Genres"] != null)) {
                     base.Tables.Add(new _TVShows_GenresDataTable(ds.Tables["TVShows&Genres"]));
                 }
@@ -466,6 +514,18 @@ namespace TVShows.Data {
                     this.tableTVShows.InitVars();
                 }
             }
+            this._tableTVShows_Actors = ((_TVShows_ActorsDataTable)(base.Tables["TVShows&Actors"]));
+            if ((initTable == true)) {
+                if ((this._tableTVShows_Actors != null)) {
+                    this._tableTVShows_Actors.InitVars();
+                }
+            }
+            this._tableTVShows_Directors = ((_TVShows_DirectorsDataTable)(base.Tables["TVShows&Directors"]));
+            if ((initTable == true)) {
+                if ((this._tableTVShows_Directors != null)) {
+                    this._tableTVShows_Directors.InitVars();
+                }
+            }
             this._tableTVShows_Genres = ((_TVShows_GenresDataTable)(base.Tables["TVShows&Genres"]));
             if ((initTable == true)) {
                 if ((this._tableTVShows_Genres != null)) {
@@ -481,11 +541,17 @@ namespace TVShows.Data {
             this._relationActorsActors_Genres = this.Relations["ActorsActors&Genres"];
             this._relationGenresActors_Genres = this.Relations["GenresActors&Genres"];
             this.relationTVShowsComments = this.Relations["TVShowsComments"];
+            this.relationUsersComments = this.Relations["UsersComments"];
             this._relationDirectorsDirectors_Genres = this.Relations["DirectorsDirectors&Genres"];
             this._relationGenresDirectors_Genres = this.Relations["GenresDirectors&Genres"];
             this.relationTVShowsFavorites = this.Relations["TVShowsFavorites"];
+            this.relationUsersFavorites = this.Relations["UsersFavorites"];
             this._relationTVShowsRatedTVShows_Users = this.Relations["TVShowsRatedTVShows&Users"];
-            this.relationDirectorsTVShows = this.Relations["DirectorsTVShows"];
+            this._relationUsersRatedTVShows_Users = this.Relations["UsersRatedTVShows&Users"];
+            this._relationActorsTVShows_Actors = this.Relations["ActorsTVShows&Actors"];
+            this._relationTVShowsTVShows_Actors = this.Relations["TVShowsTVShows&Actors"];
+            this._relationDirectorsTVShows_Directors = this.Relations["DirectorsTVShows&Directors"];
+            this._relationTVShowsTVShows_Directors = this.Relations["TVShowsTVShows&Directors"];
             this._relationGenresTVShows_Genres = this.Relations["GenresTVShows&Genres"];
             this._relationTVShowsTVShows_Genres = this.Relations["TVShowsTVShows&Genres"];
         }
@@ -518,6 +584,10 @@ namespace TVShows.Data {
             base.Tables.Add(this._tableRatedTVShows_Users);
             this.tableTVShows = new TVShowsDataTable();
             base.Tables.Add(this.tableTVShows);
+            this._tableTVShows_Actors = new _TVShows_ActorsDataTable();
+            base.Tables.Add(this._tableTVShows_Actors);
+            this._tableTVShows_Directors = new _TVShows_DirectorsDataTable();
+            base.Tables.Add(this._tableTVShows_Directors);
             this._tableTVShows_Genres = new _TVShows_GenresDataTable();
             base.Tables.Add(this._tableTVShows_Genres);
             this.tableUsers = new UsersDataTable();
@@ -534,6 +604,10 @@ namespace TVShows.Data {
                         this.tableTVShows.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableComments.ID_TVShowColumn}, false);
             this.Relations.Add(this.relationTVShowsComments);
+            this.relationUsersComments = new global::System.Data.DataRelation("UsersComments", new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableComments.ID_UserColumn}, false);
+            this.Relations.Add(this.relationUsersComments);
             this._relationDirectorsDirectors_Genres = new global::System.Data.DataRelation("DirectorsDirectors&Genres", new global::System.Data.DataColumn[] {
                         this.tableDirectors.IDColumn}, new global::System.Data.DataColumn[] {
                         this._tableDirectors_Genres.ID_DirectorColumn}, false);
@@ -546,14 +620,34 @@ namespace TVShows.Data {
                         this.tableTVShows.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableFavorites.ID_TVShowColumn}, false);
             this.Relations.Add(this.relationTVShowsFavorites);
+            this.relationUsersFavorites = new global::System.Data.DataRelation("UsersFavorites", new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFavorites.ID_UserColumn}, false);
+            this.Relations.Add(this.relationUsersFavorites);
             this._relationTVShowsRatedTVShows_Users = new global::System.Data.DataRelation("TVShowsRatedTVShows&Users", new global::System.Data.DataColumn[] {
                         this.tableTVShows.IDColumn}, new global::System.Data.DataColumn[] {
                         this._tableRatedTVShows_Users.ID_TVShowColumn}, false);
             this.Relations.Add(this._relationTVShowsRatedTVShows_Users);
-            this.relationDirectorsTVShows = new global::System.Data.DataRelation("DirectorsTVShows", new global::System.Data.DataColumn[] {
+            this._relationUsersRatedTVShows_Users = new global::System.Data.DataRelation("UsersRatedTVShows&Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this._tableRatedTVShows_Users.ID_UserColumn}, false);
+            this.Relations.Add(this._relationUsersRatedTVShows_Users);
+            this._relationActorsTVShows_Actors = new global::System.Data.DataRelation("ActorsTVShows&Actors", new global::System.Data.DataColumn[] {
+                        this.tableActors.IDColumn}, new global::System.Data.DataColumn[] {
+                        this._tableTVShows_Actors.ID_ActorColumn}, false);
+            this.Relations.Add(this._relationActorsTVShows_Actors);
+            this._relationTVShowsTVShows_Actors = new global::System.Data.DataRelation("TVShowsTVShows&Actors", new global::System.Data.DataColumn[] {
+                        this.tableTVShows.IDColumn}, new global::System.Data.DataColumn[] {
+                        this._tableTVShows_Actors.ID_TVShowColumn}, false);
+            this.Relations.Add(this._relationTVShowsTVShows_Actors);
+            this._relationDirectorsTVShows_Directors = new global::System.Data.DataRelation("DirectorsTVShows&Directors", new global::System.Data.DataColumn[] {
                         this.tableDirectors.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTVShows.ID_DirectorColumn}, false);
-            this.Relations.Add(this.relationDirectorsTVShows);
+                        this._tableTVShows_Directors.ID_DirectorColumn}, false);
+            this.Relations.Add(this._relationDirectorsTVShows_Directors);
+            this._relationTVShowsTVShows_Directors = new global::System.Data.DataRelation("TVShowsTVShows&Directors", new global::System.Data.DataColumn[] {
+                        this.tableTVShows.IDColumn}, new global::System.Data.DataColumn[] {
+                        this._tableTVShows_Directors.ID_TVShowColumn}, false);
+            this.Relations.Add(this._relationTVShowsTVShows_Directors);
             this._relationGenresTVShows_Genres = new global::System.Data.DataRelation("GenresTVShows&Genres", new global::System.Data.DataColumn[] {
                         this.tableGenres.IDColumn}, new global::System.Data.DataColumn[] {
                         this._tableTVShows_Genres.ID_GenreColumn}, false);
@@ -621,6 +715,18 @@ namespace TVShows.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeTVShows() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerialize_TVShows_Actors() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerialize_TVShows_Directors() {
             return false;
         }
         
@@ -720,6 +826,12 @@ namespace TVShows.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void TVShowsRowChangeEventHandler(object sender, TVShowsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void _TVShows_ActorsRowChangeEventHandler(object sender, _TVShows_ActorsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void _TVShows_DirectorsRowChangeEventHandler(object sender, _TVShows_DirectorsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void _TVShows_GenresRowChangeEventHandler(object sender, _TVShows_GenresRowChangeEvent e);
@@ -1781,15 +1893,18 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CommentsRow AddCommentsRow(TVShowsRow parentTVShowsRowByTVShowsComments, int ID_User, string Comment) {
+            public CommentsRow AddCommentsRow(TVShowsRow parentTVShowsRowByTVShowsComments, UsersRow parentUsersRowByUsersComments, string Comment) {
                 CommentsRow rowCommentsRow = ((CommentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        ID_User,
+                        null,
                         Comment};
                 if ((parentTVShowsRowByTVShowsComments != null)) {
                     columnValuesArray[1] = parentTVShowsRowByTVShowsComments[0];
+                }
+                if ((parentUsersRowByUsersComments != null)) {
+                    columnValuesArray[2] = parentUsersRowByUsersComments[0];
                 }
                 rowCommentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCommentsRow);
@@ -2709,14 +2824,17 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FavoritesRow AddFavoritesRow(TVShowsRow parentTVShowsRowByTVShowsFavorites, int ID_User) {
+            public FavoritesRow AddFavoritesRow(TVShowsRow parentTVShowsRowByTVShowsFavorites, UsersRow parentUsersRowByUsersFavorites) {
                 FavoritesRow rowFavoritesRow = ((FavoritesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        ID_User};
+                        null};
                 if ((parentTVShowsRowByTVShowsFavorites != null)) {
                     columnValuesArray[1] = parentTVShowsRowByTVShowsFavorites[0];
+                }
+                if ((parentUsersRowByUsersFavorites != null)) {
+                    columnValuesArray[2] = parentUsersRowByUsersFavorites[0];
                 }
                 rowFavoritesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFavoritesRow);
@@ -3287,15 +3405,18 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public _RatedTVShows_UsersRow Add_RatedTVShows_UsersRow(TVShowsRow _parentTVShowsRowByTVShowsRatedTVShows_Users, int ID_User, int Rating) {
+            public _RatedTVShows_UsersRow Add_RatedTVShows_UsersRow(TVShowsRow _parentTVShowsRowByTVShowsRatedTVShows_Users, UsersRow _parentUsersRowByUsersRatedTVShows_Users, int Rating) {
                 _RatedTVShows_UsersRow row_RatedTVShows_UsersRow = ((_RatedTVShows_UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        ID_User,
+                        null,
                         Rating};
                 if ((_parentTVShowsRowByTVShowsRatedTVShows_Users != null)) {
                     columnValuesArray[1] = _parentTVShowsRowByTVShowsRatedTVShows_Users[0];
+                }
+                if ((_parentUsersRowByUsersRatedTVShows_Users != null)) {
+                    columnValuesArray[2] = _parentUsersRowByUsersRatedTVShows_Users[0];
                 }
                 row_RatedTVShows_UsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(row_RatedTVShows_UsersRow);
@@ -3495,8 +3616,6 @@ namespace TVShows.Data {
             
             private global::System.Data.DataColumn columnSlogan;
             
-            private global::System.Data.DataColumn columnID_Director;
-            
             private global::System.Data.DataColumn columnScriptWriter;
             
             private global::System.Data.DataColumn columnProducer;
@@ -3581,14 +3700,6 @@ namespace TVShows.Data {
             public global::System.Data.DataColumn SloganColumn {
                 get {
                     return this.columnSlogan;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ID_DirectorColumn {
-                get {
-                    return this.columnID_Director;
                 }
             }
             
@@ -3685,7 +3796,7 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TVShowsRow AddTVShowsRow(string Title, int Year_TVShow, string Country, string Slogan, DirectorsRow parentDirectorsRowByDirectorsTVShows, string ScriptWriter, string Producer, int Budget, int Global_Charges, System.DateTime Time, int Overall_Rating, string Link_Image) {
+            public TVShowsRow AddTVShowsRow(string Title, int Year_TVShow, string Country, string Slogan, string ScriptWriter, string Producer, int Budget, int Global_Charges, System.DateTime Time, int Overall_Rating, string Link_Image) {
                 TVShowsRow rowTVShowsRow = ((TVShowsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3693,7 +3804,6 @@ namespace TVShows.Data {
                         Year_TVShow,
                         Country,
                         Slogan,
-                        null,
                         ScriptWriter,
                         Producer,
                         Budget,
@@ -3701,9 +3811,6 @@ namespace TVShows.Data {
                         Time,
                         Overall_Rating,
                         Link_Image};
-                if ((parentDirectorsRowByDirectorsTVShows != null)) {
-                    columnValuesArray[5] = parentDirectorsRowByDirectorsTVShows[0];
-                }
                 rowTVShowsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTVShowsRow);
                 return rowTVShowsRow;
@@ -3738,7 +3845,6 @@ namespace TVShows.Data {
                 this.columnYear_TVShow = base.Columns["Year TVShow"];
                 this.columnCountry = base.Columns["Country"];
                 this.columnSlogan = base.Columns["Slogan"];
-                this.columnID_Director = base.Columns["ID Director"];
                 this.columnScriptWriter = base.Columns["ScriptWriter"];
                 this.columnProducer = base.Columns["Producer"];
                 this.columnBudget = base.Columns["Budget"];
@@ -3761,8 +3867,6 @@ namespace TVShows.Data {
                 base.Columns.Add(this.columnCountry);
                 this.columnSlogan = new global::System.Data.DataColumn("Slogan", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSlogan);
-                this.columnID_Director = new global::System.Data.DataColumn("ID Director", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_Director);
                 this.columnScriptWriter = new global::System.Data.DataColumn("ScriptWriter", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnScriptWriter);
                 this.columnProducer = new global::System.Data.DataColumn("Producer", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3876,6 +3980,600 @@ namespace TVShows.Data {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "TVShowsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _TVShows_ActorsDataTable : global::System.Data.TypedTableBase<_TVShows_ActorsRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnID_TVShow;
+            
+            private global::System.Data.DataColumn columnID_Actor;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsDataTable() {
+                this.TableName = "TVShows&Actors";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _TVShows_ActorsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected _TVShows_ActorsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_TVShowColumn {
+                get {
+                    return this.columnID_TVShow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_ActorColumn {
+                get {
+                    return this.columnID_Actor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow this[int index] {
+                get {
+                    return ((_TVShows_ActorsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_ActorsRowChangeEventHandler _TVShows_ActorsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_ActorsRowChangeEventHandler _TVShows_ActorsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_ActorsRowChangeEventHandler _TVShows_ActorsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_ActorsRowChangeEventHandler _TVShows_ActorsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Add_TVShows_ActorsRow(_TVShows_ActorsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow Add_TVShows_ActorsRow(TVShowsRow _parentTVShowsRowByTVShowsTVShows_Actors, ActorsRow _parentActorsRowByActorsTVShows_Actors) {
+                _TVShows_ActorsRow row_TVShows_ActorsRow = ((_TVShows_ActorsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null};
+                if ((_parentTVShowsRowByTVShowsTVShows_Actors != null)) {
+                    columnValuesArray[1] = _parentTVShowsRowByTVShowsTVShows_Actors[0];
+                }
+                if ((_parentActorsRowByActorsTVShows_Actors != null)) {
+                    columnValuesArray[2] = _parentActorsRowByActorsTVShows_Actors[0];
+                }
+                row_TVShows_ActorsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_TVShows_ActorsRow);
+                return row_TVShows_ActorsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow FindByID(int ID) {
+                return ((_TVShows_ActorsRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                _TVShows_ActorsDataTable cln = ((_TVShows_ActorsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _TVShows_ActorsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnID_TVShow = base.Columns["ID TVShow"];
+                this.columnID_Actor = base.Columns["ID Actor"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnID_TVShow = new global::System.Data.DataColumn("ID TVShow", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_TVShow);
+                this.columnID_Actor = new global::System.Data.DataColumn("ID Actor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Actor);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tableTVShows_Actors");
+                this.ExtendedProperties.Add("Generator_UserTableName", "TVShows&Actors");
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow New_TVShows_ActorsRow() {
+                return ((_TVShows_ActorsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _TVShows_ActorsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(_TVShows_ActorsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._TVShows_ActorsRowChanged != null)) {
+                    this._TVShows_ActorsRowChanged(this, new _TVShows_ActorsRowChangeEvent(((_TVShows_ActorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._TVShows_ActorsRowChanging != null)) {
+                    this._TVShows_ActorsRowChanging(this, new _TVShows_ActorsRowChangeEvent(((_TVShows_ActorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._TVShows_ActorsRowDeleted != null)) {
+                    this._TVShows_ActorsRowDeleted(this, new _TVShows_ActorsRowChangeEvent(((_TVShows_ActorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._TVShows_ActorsRowDeleting != null)) {
+                    this._TVShows_ActorsRowDeleting(this, new _TVShows_ActorsRowChangeEvent(((_TVShows_ActorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Remove_TVShows_ActorsRow(_TVShows_ActorsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SMonitoring_DataBaseDataSet ds = new SMonitoring_DataBaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_TVShows_ActorsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _TVShows_DirectorsDataTable : global::System.Data.TypedTableBase<_TVShows_DirectorsRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnID_TVShow;
+            
+            private global::System.Data.DataColumn columnID_Director;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsDataTable() {
+                this.TableName = "TVShows&Directors";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _TVShows_DirectorsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected _TVShows_DirectorsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_TVShowColumn {
+                get {
+                    return this.columnID_TVShow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_DirectorColumn {
+                get {
+                    return this.columnID_Director;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow this[int index] {
+                get {
+                    return ((_TVShows_DirectorsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_DirectorsRowChangeEventHandler _TVShows_DirectorsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_DirectorsRowChangeEventHandler _TVShows_DirectorsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_DirectorsRowChangeEventHandler _TVShows_DirectorsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _TVShows_DirectorsRowChangeEventHandler _TVShows_DirectorsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Add_TVShows_DirectorsRow(_TVShows_DirectorsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow Add_TVShows_DirectorsRow(TVShowsRow _parentTVShowsRowByTVShowsTVShows_Directors, DirectorsRow _parentDirectorsRowByDirectorsTVShows_Directors) {
+                _TVShows_DirectorsRow row_TVShows_DirectorsRow = ((_TVShows_DirectorsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null};
+                if ((_parentTVShowsRowByTVShowsTVShows_Directors != null)) {
+                    columnValuesArray[1] = _parentTVShowsRowByTVShowsTVShows_Directors[0];
+                }
+                if ((_parentDirectorsRowByDirectorsTVShows_Directors != null)) {
+                    columnValuesArray[2] = _parentDirectorsRowByDirectorsTVShows_Directors[0];
+                }
+                row_TVShows_DirectorsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_TVShows_DirectorsRow);
+                return row_TVShows_DirectorsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow FindByID(int ID) {
+                return ((_TVShows_DirectorsRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                _TVShows_DirectorsDataTable cln = ((_TVShows_DirectorsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _TVShows_DirectorsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnID_TVShow = base.Columns["ID TVShow"];
+                this.columnID_Director = base.Columns["ID Director"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnID_TVShow = new global::System.Data.DataColumn("ID TVShow", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_TVShow);
+                this.columnID_Director = new global::System.Data.DataColumn("ID Director", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Director);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tableTVShows_Directors");
+                this.ExtendedProperties.Add("Generator_UserTableName", "TVShows&Directors");
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow New_TVShows_DirectorsRow() {
+                return ((_TVShows_DirectorsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _TVShows_DirectorsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(_TVShows_DirectorsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._TVShows_DirectorsRowChanged != null)) {
+                    this._TVShows_DirectorsRowChanged(this, new _TVShows_DirectorsRowChangeEvent(((_TVShows_DirectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._TVShows_DirectorsRowChanging != null)) {
+                    this._TVShows_DirectorsRowChanging(this, new _TVShows_DirectorsRowChangeEvent(((_TVShows_DirectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._TVShows_DirectorsRowDeleted != null)) {
+                    this._TVShows_DirectorsRowDeleted(this, new _TVShows_DirectorsRowChangeEvent(((_TVShows_DirectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._TVShows_DirectorsRowDeleting != null)) {
+                    this._TVShows_DirectorsRowDeleting(this, new _TVShows_DirectorsRowChangeEvent(((_TVShows_DirectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Remove_TVShows_DirectorsRow(_TVShows_DirectorsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SMonitoring_DataBaseDataSet ds = new SMonitoring_DataBaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_TVShows_DirectorsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4694,6 +5392,17 @@ namespace TVShows.Data {
                     return ((_Actors_GenresRow[])(base.GetChildRows(this.Table.ChildRelations["ActorsActors&Genres"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow[] _GetTVShows_ActorsRows() {
+                if ((this.Table.ChildRelations["ActorsTVShows&Actors"] == null)) {
+                    return new _TVShows_ActorsRow[0];
+                }
+                else {
+                    return ((_TVShows_ActorsRow[])(base.GetChildRows(this.Table.ChildRelations["ActorsTVShows&Actors"])));
+                }
+            }
         }
         
         /// <summary>
@@ -4996,6 +5705,17 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["UsersComments"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["UsersComments"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_TVShowNull() {
                 return this.IsNull(this.tableComments.ID_TVShowColumn);
             }
@@ -5209,12 +5929,12 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TVShowsRow[] GetTVShowsRows() {
-                if ((this.Table.ChildRelations["DirectorsTVShows"] == null)) {
-                    return new TVShowsRow[0];
+            public _TVShows_DirectorsRow[] _GetTVShows_DirectorsRows() {
+                if ((this.Table.ChildRelations["DirectorsTVShows&Directors"] == null)) {
+                    return new _TVShows_DirectorsRow[0];
                 }
                 else {
-                    return ((TVShowsRow[])(base.GetChildRows(this.Table.ChildRelations["DirectorsTVShows"])));
+                    return ((_TVShows_DirectorsRow[])(base.GetChildRows(this.Table.ChildRelations["DirectorsTVShows&Directors"])));
                 }
             }
         }
@@ -5388,6 +6108,17 @@ namespace TVShows.Data {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["TVShowsFavorites"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["UsersFavorites"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["UsersFavorites"]);
                 }
             }
             
@@ -5589,6 +6320,17 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["UsersRatedTVShows&Users"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["UsersRatedTVShows&Users"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_TVShowNull() {
                 return this.IsNull(this._tableRatedTVShows_Users.ID_TVShowColumn);
             }
@@ -5715,22 +6457,6 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ID_Director {
-                get {
-                    try {
-                        return ((int)(this[this.tableTVShows.ID_DirectorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID Director\' в таблице \'TVShows\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTVShows.ID_DirectorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ScriptWriter {
                 get {
                     try {
@@ -5843,17 +6569,6 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DirectorsRow DirectorsRow {
-                get {
-                    return ((DirectorsRow)(this.GetParentRow(this.Table.ParentRelations["DirectorsTVShows"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["DirectorsTVShows"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tableTVShows.TitleColumn);
             }
@@ -5898,18 +6613,6 @@ namespace TVShows.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSloganNull() {
                 this[this.tableTVShows.SloganColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsID_DirectorNull() {
-                return this.IsNull(this.tableTVShows.ID_DirectorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetID_DirectorNull() {
-                this[this.tableTVShows.ID_DirectorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6031,6 +6734,28 @@ namespace TVShows.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow[] _GetTVShows_ActorsRows() {
+                if ((this.Table.ChildRelations["TVShowsTVShows&Actors"] == null)) {
+                    return new _TVShows_ActorsRow[0];
+                }
+                else {
+                    return ((_TVShows_ActorsRow[])(base.GetChildRows(this.Table.ChildRelations["TVShowsTVShows&Actors"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow[] _GetTVShows_DirectorsRows() {
+                if ((this.Table.ChildRelations["TVShowsTVShows&Directors"] == null)) {
+                    return new _TVShows_DirectorsRow[0];
+                }
+                else {
+                    return ((_TVShows_DirectorsRow[])(base.GetChildRows(this.Table.ChildRelations["TVShowsTVShows&Directors"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public _TVShows_GenresRow[] _GetTVShows_GenresRows() {
                 if ((this.Table.ChildRelations["TVShowsTVShows&Genres"] == null)) {
                     return new _TVShows_GenresRow[0];
@@ -6038,6 +6763,214 @@ namespace TVShows.Data {
                 else {
                     return ((_TVShows_GenresRow[])(base.GetChildRows(this.Table.ChildRelations["TVShowsTVShows&Genres"])));
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class _TVShows_ActorsRow : global::System.Data.DataRow {
+            
+            private _TVShows_ActorsDataTable _tableTVShows_Actors;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _TVShows_ActorsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this._tableTVShows_Actors = ((_TVShows_ActorsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this._tableTVShows_Actors.IDColumn]));
+                }
+                set {
+                    this[this._tableTVShows_Actors.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID_TVShow {
+                get {
+                    try {
+                        return ((int)(this[this._tableTVShows_Actors.ID_TVShowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID TVShow\' в таблице \'TVShows&Actors\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableTVShows_Actors.ID_TVShowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID_Actor {
+                get {
+                    try {
+                        return ((int)(this[this._tableTVShows_Actors.ID_ActorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID Actor\' в таблице \'TVShows&Actors\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableTVShows_Actors.ID_ActorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ActorsRow ActorsRow {
+                get {
+                    return ((ActorsRow)(this.GetParentRow(this.Table.ParentRelations["ActorsTVShows&Actors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ActorsTVShows&Actors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TVShowsRow TVShowsRow {
+                get {
+                    return ((TVShowsRow)(this.GetParentRow(this.Table.ParentRelations["TVShowsTVShows&Actors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["TVShowsTVShows&Actors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_TVShowNull() {
+                return this.IsNull(this._tableTVShows_Actors.ID_TVShowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_TVShowNull() {
+                this[this._tableTVShows_Actors.ID_TVShowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_ActorNull() {
+                return this.IsNull(this._tableTVShows_Actors.ID_ActorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_ActorNull() {
+                this[this._tableTVShows_Actors.ID_ActorColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class _TVShows_DirectorsRow : global::System.Data.DataRow {
+            
+            private _TVShows_DirectorsDataTable _tableTVShows_Directors;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _TVShows_DirectorsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this._tableTVShows_Directors = ((_TVShows_DirectorsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this._tableTVShows_Directors.IDColumn]));
+                }
+                set {
+                    this[this._tableTVShows_Directors.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID_TVShow {
+                get {
+                    try {
+                        return ((int)(this[this._tableTVShows_Directors.ID_TVShowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID TVShow\' в таблице \'TVShows&Directors\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableTVShows_Directors.ID_TVShowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID_Director {
+                get {
+                    try {
+                        return ((int)(this[this._tableTVShows_Directors.ID_DirectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID Director\' в таблице \'TVShows&Directors\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableTVShows_Directors.ID_DirectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DirectorsRow DirectorsRow {
+                get {
+                    return ((DirectorsRow)(this.GetParentRow(this.Table.ParentRelations["DirectorsTVShows&Directors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["DirectorsTVShows&Directors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TVShowsRow TVShowsRow {
+                get {
+                    return ((TVShowsRow)(this.GetParentRow(this.Table.ParentRelations["TVShowsTVShows&Directors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["TVShowsTVShows&Directors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_TVShowNull() {
+                return this.IsNull(this._tableTVShows_Directors.ID_TVShowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_TVShowNull() {
+                this[this._tableTVShows_Directors.ID_TVShowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_DirectorNull() {
+                return this.IsNull(this._tableTVShows_Directors.ID_DirectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_DirectorNull() {
+                this[this._tableTVShows_Directors.ID_DirectorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6252,6 +7185,39 @@ namespace TVShows.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPasswordNull() {
                 this[this.tableUsers.PasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CommentsRow[] GetCommentsRows() {
+                if ((this.Table.ChildRelations["UsersComments"] == null)) {
+                    return new CommentsRow[0];
+                }
+                else {
+                    return ((CommentsRow[])(base.GetChildRows(this.Table.ChildRelations["UsersComments"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public FavoritesRow[] GetFavoritesRows() {
+                if ((this.Table.ChildRelations["UsersFavorites"] == null)) {
+                    return new FavoritesRow[0];
+                }
+                else {
+                    return ((FavoritesRow[])(base.GetChildRows(this.Table.ChildRelations["UsersFavorites"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _RatedTVShows_UsersRow[] _GetRatedTVShows_UsersRows() {
+                if ((this.Table.ChildRelations["UsersRatedTVShows&Users"] == null)) {
+                    return new _RatedTVShows_UsersRow[0];
+                }
+                else {
+                    return ((_RatedTVShows_UsersRow[])(base.GetChildRows(this.Table.ChildRelations["UsersRatedTVShows&Users"])));
+                }
             }
         }
         
@@ -6581,6 +7547,74 @@ namespace TVShows.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TVShowsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class _TVShows_ActorsRowChangeEvent : global::System.EventArgs {
+            
+            private _TVShows_ActorsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRowChangeEvent(_TVShows_ActorsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_ActorsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class _TVShows_DirectorsRowChangeEvent : global::System.EventArgs {
+            
+            private _TVShows_DirectorsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRowChangeEvent(_TVShows_DirectorsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _TVShows_DirectorsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -10182,7 +11216,6 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Year TVShow", "Year TVShow");
             tableMapping.ColumnMappings.Add("Country", "Country");
             tableMapping.ColumnMappings.Add("Slogan", "Slogan");
-            tableMapping.ColumnMappings.Add("ID Director", "ID Director");
             tableMapping.ColumnMappings.Add("ScriptWriter", "ScriptWriter");
             tableMapping.ColumnMappings.Add("Producer", "Producer");
             tableMapping.ColumnMappings.Add("Budget", "Budget");
@@ -10193,7 +11226,7 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `TVShows` WHERE ((`ID` = ?) AND ((? = 1 AND `Title` IS NULL) OR (`Title` = ?)) AND ((? = 1 AND `Year TVShow` IS NULL) OR (`Year TVShow` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `Slogan` IS NULL) OR (`Slogan` = ?)) AND ((? = 1 AND `ID Director` IS NULL) OR (`ID Director` = ?)) AND ((? = 1 AND `ScriptWriter` IS NULL) OR (`ScriptWriter` = ?)) AND ((? = 1 AND `Producer` IS NULL) OR (`Producer` = ?)) AND ((? = 1 AND `Budget` IS NULL) OR (`Budget` = ?)) AND ((? = 1 AND `Global Charges` IS NULL) OR (`Global Charges` = ?)) AND ((? = 1 AND `Time` IS NULL) OR (`Time` = ?)) AND ((? = 1 AND `Overall Rating` IS NULL) OR (`Overall Rating` = ?)) AND ((? = 1 AND `Link Image` IS NULL) OR (`Link Image` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `TVShows` WHERE ((`ID` = ?) AND ((? = 1 AND `Title` IS NULL) OR (`Title` = ?)) AND ((? = 1 AND `Year TVShow` IS NULL) OR (`Year TVShow` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `Slogan` IS NULL) OR (`Slogan` = ?)) AND ((? = 1 AND `ScriptWriter` IS NULL) OR (`ScriptWriter` = ?)) AND ((? = 1 AND `Producer` IS NULL) OR (`Producer` = ?)) AND ((? = 1 AND `Budget` IS NULL) OR (`Budget` = ?)) AND ((? = 1 AND `Global Charges` IS NULL) OR (`Global Charges` = ?)) AND ((? = 1 AND `Time` IS NULL) OR (`Time` = ?)) AND ((? = 1 AND `Overall Rating` IS NULL) OR (`Overall Rating` = ?)) AND ((? = 1 AND `Link Image` IS NULL) OR (`Link Image` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Title", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Title", global::System.Data.DataRowVersion.Original, true, null));
@@ -10204,8 +11237,6 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Country", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Country", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Slogan", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Slogan", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScriptWriter", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScriptWriter", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Producer", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Producer", global::System.Data.DataRowVersion.Original, true, null));
@@ -10222,15 +11253,14 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Link_Image", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Link Image", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `TVShows` (`Title`, `Year TVShow`, `Country`, `Slogan`, `ID Director`" +
-                ", `ScriptWriter`, `Producer`, `Budget`, `Global Charges`, `Time`, `Overall Ratin" +
-                "g`, `Link Image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `TVShows` (`Title`, `Year TVShow`, `Country`, `Slogan`, `ScriptWriter" +
+                "`, `Producer`, `Budget`, `Global Charges`, `Time`, `Overall Rating`, `Link Image" +
+                "`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Title", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Title", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Year_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Year TVShow", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Country", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Country", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Slogan", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScriptWriter", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Producer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Producer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Budget", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Budget", global::System.Data.DataRowVersion.Current, false, null));
@@ -10240,13 +11270,12 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Link_Image", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Link Image", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `TVShows` SET `Title` = ?, `Year TVShow` = ?, `Country` = ?, `Slogan` = ?, `ID Director` = ?, `ScriptWriter` = ?, `Producer` = ?, `Budget` = ?, `Global Charges` = ?, `Time` = ?, `Overall Rating` = ?, `Link Image` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Title` IS NULL) OR (`Title` = ?)) AND ((? = 1 AND `Year TVShow` IS NULL) OR (`Year TVShow` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `Slogan` IS NULL) OR (`Slogan` = ?)) AND ((? = 1 AND `ID Director` IS NULL) OR (`ID Director` = ?)) AND ((? = 1 AND `ScriptWriter` IS NULL) OR (`ScriptWriter` = ?)) AND ((? = 1 AND `Producer` IS NULL) OR (`Producer` = ?)) AND ((? = 1 AND `Budget` IS NULL) OR (`Budget` = ?)) AND ((? = 1 AND `Global Charges` IS NULL) OR (`Global Charges` = ?)) AND ((? = 1 AND `Time` IS NULL) OR (`Time` = ?)) AND ((? = 1 AND `Overall Rating` IS NULL) OR (`Overall Rating` = ?)) AND ((? = 1 AND `Link Image` IS NULL) OR (`Link Image` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `TVShows` SET `Title` = ?, `Year TVShow` = ?, `Country` = ?, `Slogan` = ?, `ScriptWriter` = ?, `Producer` = ?, `Budget` = ?, `Global Charges` = ?, `Time` = ?, `Overall Rating` = ?, `Link Image` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Title` IS NULL) OR (`Title` = ?)) AND ((? = 1 AND `Year TVShow` IS NULL) OR (`Year TVShow` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `Slogan` IS NULL) OR (`Slogan` = ?)) AND ((? = 1 AND `ScriptWriter` IS NULL) OR (`ScriptWriter` = ?)) AND ((? = 1 AND `Producer` IS NULL) OR (`Producer` = ?)) AND ((? = 1 AND `Budget` IS NULL) OR (`Budget` = ?)) AND ((? = 1 AND `Global Charges` IS NULL) OR (`Global Charges` = ?)) AND ((? = 1 AND `Time` IS NULL) OR (`Time` = ?)) AND ((? = 1 AND `Overall Rating` IS NULL) OR (`Overall Rating` = ?)) AND ((? = 1 AND `Link Image` IS NULL) OR (`Link Image` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Title", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Title", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Year_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Year TVShow", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Country", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Country", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Slogan", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ScriptWriter", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Producer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Producer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Budget", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Budget", global::System.Data.DataRowVersion.Current, false, null));
@@ -10263,8 +11292,6 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Country", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Country", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Slogan", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Slogan", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Slogan", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ScriptWriter", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ScriptWriter", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ScriptWriter", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Producer", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Producer", global::System.Data.DataRowVersion.Original, true, null));
@@ -10294,9 +11321,8 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Title, [Year TVShow], Country, Slogan, [ID Director], ScriptWriter, Pr" +
-                "oducer, Budget, [Global Charges], [Time], [Overall Rating], [Link Image] FROM TV" +
-                "Shows";
+            this._commandCollection[0].CommandText = "SELECT ID, Title, [Year TVShow], Country, Slogan, ScriptWriter, Producer, Budget," +
+                " [Global Charges], [Time], [Overall Rating], [Link Image] FROM TVShows";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10357,7 +11383,7 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Title, global::System.Nullable<int> Original_Year_TVShow, string Original_Country, string Original_Slogan, global::System.Nullable<int> Original_ID_Director, string Original_ScriptWriter, string Original_Producer, global::System.Nullable<int> Original_Budget, global::System.Nullable<int> Original_Global_Charges, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<int> Original_Overall_Rating, string Original_Link_Image) {
+        public virtual int Delete(int Original_ID, string Original_Title, global::System.Nullable<int> Original_Year_TVShow, string Original_Country, string Original_Slogan, string Original_ScriptWriter, string Original_Producer, global::System.Nullable<int> Original_Budget, global::System.Nullable<int> Original_Global_Charges, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<int> Original_Overall_Rating, string Original_Link_Image) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Title == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -10391,69 +11417,61 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Slogan));
             }
-            if ((Original_ID_Director.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_ID_Director.Value));
-            }
-            else {
+            if ((Original_ScriptWriter == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_ScriptWriter == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ScriptWriter));
+            }
+            if ((Original_Producer == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_ScriptWriter));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Producer));
             }
-            if ((Original_Producer == null)) {
+            if ((Original_Budget.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Budget.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Producer));
-            }
-            if ((Original_Budget.HasValue == true)) {
+            if ((Original_Global_Charges.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Budget.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Global_Charges.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_Global_Charges.HasValue == true)) {
+            if ((Original_Time.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_Global_Charges.Value));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Time.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_Time.HasValue == true)) {
+            if ((Original_Overall_Rating.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Time.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_Overall_Rating.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((Original_Overall_Rating.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_Overall_Rating.Value));
-            }
-            else {
+            if ((Original_Link_Image == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_Link_Image == null)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Link_Image));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Link_Image));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10475,7 +11493,7 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, global::System.Nullable<int> Year_TVShow, string Country, string Slogan, global::System.Nullable<int> ID_Director, string ScriptWriter, string Producer, global::System.Nullable<int> Budget, global::System.Nullable<int> Global_Charges, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<int> Overall_Rating, string Link_Image) {
+        public virtual int Insert(string Title, global::System.Nullable<int> Year_TVShow, string Country, string Slogan, string ScriptWriter, string Producer, global::System.Nullable<int> Budget, global::System.Nullable<int> Global_Charges, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<int> Overall_Rating, string Link_Image) {
             if ((Title == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10500,53 +11518,47 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Slogan));
             }
-            if ((ID_Director.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ID_Director.Value));
-            }
-            else {
+            if ((ScriptWriter == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ScriptWriter == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ScriptWriter));
+            }
+            if ((Producer == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ScriptWriter));
-            }
-            if ((Producer == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Producer));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Producer));
             }
             if ((Budget.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Budget.Value));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Budget.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Global_Charges.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Global_Charges.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Global_Charges.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Global_Charges.Value));
+            if ((Time.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Time.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Time.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(Time.Value));
+            if ((Overall_Rating.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Overall_Rating.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Overall_Rating.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Overall_Rating.Value));
-            }
-            else {
+            if ((Link_Image == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Link_Image == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Link_Image));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Link_Image));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10573,7 +11585,6 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     global::System.Nullable<int> Year_TVShow, 
                     string Country, 
                     string Slogan, 
-                    global::System.Nullable<int> ID_Director, 
                     string ScriptWriter, 
                     string Producer, 
                     global::System.Nullable<int> Budget, 
@@ -10586,7 +11597,6 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     global::System.Nullable<int> Original_Year_TVShow, 
                     string Original_Country, 
                     string Original_Slogan, 
-                    global::System.Nullable<int> Original_ID_Director, 
                     string Original_ScriptWriter, 
                     string Original_Producer, 
                     global::System.Nullable<int> Original_Budget, 
@@ -10618,150 +11628,834 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Slogan));
             }
-            if ((ID_Director.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID_Director.Value));
-            }
-            else {
+            if ((ScriptWriter == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ScriptWriter == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ScriptWriter));
+            }
+            if ((Producer == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ScriptWriter));
-            }
-            if ((Producer == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Producer));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Producer));
             }
             if ((Budget.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Budget.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Budget.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Global_Charges.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Global_Charges.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Global_Charges.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Global_Charges.Value));
+            if ((Time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Time.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Time.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Time.Value));
+            if ((Overall_Rating.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Overall_Rating.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Overall_Rating.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Overall_Rating.Value));
-            }
-            else {
+            if ((Link_Image == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Link_Image == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Link_Image));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Link_Image));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ID));
             if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Title));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Title));
             }
             if ((Original_Year_TVShow.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Year_TVShow.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Year_TVShow.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_Country == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Country));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Country));
             }
             if ((Original_Slogan == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Slogan));
-            }
-            if ((Original_ID_Director.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ID_Director.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Slogan));
             }
             if ((Original_ScriptWriter == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_ScriptWriter));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_ScriptWriter));
             }
             if ((Original_Producer == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Producer));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Producer));
             }
             if ((Original_Budget.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Budget.Value));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Budget.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             if ((Original_Global_Charges.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_Global_Charges.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Global_Charges.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             if ((Original_Time.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(Original_Time.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_Time.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             if ((Original_Overall_Rating.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_Overall_Rating.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_Overall_Rating.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             if ((Original_Link_Image == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Link_Image));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Link_Image));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TVShows_ActorsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public TVShows_ActorsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TVShows&Actors";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("ID TVShow", "ID TVShow");
+            tableMapping.ColumnMappings.Add("ID Actor", "ID Actor");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `TVShows&Actors` WHERE ((`ID` = ?) AND ((? = 1 AND `ID TVShow` IS NUL" +
+                "L) OR (`ID TVShow` = ?)) AND ((? = 1 AND `ID Actor` IS NULL) OR (`ID Actor` = ?)" +
+                "))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `TVShows&Actors` (`ID TVShow`, `ID Actor`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `TVShows&Actors` SET `ID TVShow` = ?, `ID Actor` = ? WHERE ((`ID` = ?) AND" +
+                " ((? = 1 AND `ID TVShow` IS NULL) OR (`ID TVShow` = ?)) AND ((? = 1 AND `ID Acto" +
+                "r` IS NULL) OR (`ID Actor` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Actor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Actor", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::TVShows.Data.Properties.Settings.Default.SMonitoring_DataBaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, [ID TVShow], [ID Actor] FROM [TVShows&Actors]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SMonitoring_DataBaseDataSet._TVShows_ActorsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SMonitoring_DataBaseDataSet._TVShows_ActorsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SMonitoring_DataBaseDataSet._TVShows_ActorsDataTable dataTable = new SMonitoring_DataBaseDataSet._TVShows_ActorsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SMonitoring_DataBaseDataSet._TVShows_ActorsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SMonitoring_DataBaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "TVShows&Actors");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_ID_TVShow, global::System.Nullable<int> Original_ID_Actor) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_ID_TVShow.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Actor.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ID_Actor.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> ID_TVShow, global::System.Nullable<int> ID_Actor) {
+            if ((ID_TVShow.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Actor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_Actor.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ID_TVShow, global::System.Nullable<int> ID_Actor, int Original_ID, global::System.Nullable<int> Original_ID_TVShow, global::System.Nullable<int> Original_ID_Actor) {
+            if ((ID_TVShow.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Actor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID_Actor.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID));
+            if ((Original_ID_TVShow.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Actor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_Actor.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TVShows_DirectorsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public TVShows_DirectorsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TVShows&Directors";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("ID TVShow", "ID TVShow");
+            tableMapping.ColumnMappings.Add("ID Director", "ID Director");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `TVShows&Directors` WHERE ((`ID` = ?) AND ((? = 1 AND `ID TVShow` IS " +
+                "NULL) OR (`ID TVShow` = ?)) AND ((? = 1 AND `ID Director` IS NULL) OR (`ID Direc" +
+                "tor` = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `TVShows&Directors` (`ID TVShow`, `ID Director`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `TVShows&Directors` SET `ID TVShow` = ?, `ID Director` = ? WHERE ((`ID` = " +
+                "?) AND ((? = 1 AND `ID TVShow` IS NULL) OR (`ID TVShow` = ?)) AND ((? = 1 AND `I" +
+                "D Director` IS NULL) OR (`ID Director` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_TVShow", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID TVShow", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Director", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID Director", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::TVShows.Data.Properties.Settings.Default.SMonitoring_DataBaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, [ID TVShow], [ID Director] FROM [TVShows&Directors]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SMonitoring_DataBaseDataSet._TVShows_DirectorsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SMonitoring_DataBaseDataSet._TVShows_DirectorsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SMonitoring_DataBaseDataSet._TVShows_DirectorsDataTable dataTable = new SMonitoring_DataBaseDataSet._TVShows_DirectorsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SMonitoring_DataBaseDataSet._TVShows_DirectorsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SMonitoring_DataBaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "TVShows&Directors");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_ID_TVShow, global::System.Nullable<int> Original_ID_Director) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_ID_TVShow.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Director.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ID_Director.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> ID_TVShow, global::System.Nullable<int> ID_Director) {
+            if ((ID_TVShow.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Director.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_Director.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ID_TVShow, global::System.Nullable<int> ID_Director, int Original_ID, global::System.Nullable<int> Original_ID_TVShow, global::System.Nullable<int> Original_ID_Director) {
+            if ((ID_TVShow.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Director.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID_Director.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID));
+            if ((Original_ID_TVShow.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_TVShow.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Director.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_Director.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11546,6 +13240,10 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         
         private TVShowsTableAdapter _tVShowsTableAdapter;
         
+        private TVShows_ActorsTableAdapter _tVShows_ActorsTableAdapter;
+        
+        private TVShows_DirectorsTableAdapter _tVShows_DirectorsTableAdapter;
+        
         private TVShows_GenresTableAdapter _tVShows_GenresTableAdapter;
         
         private UsersTableAdapter _usersTableAdapter;
@@ -11710,6 +13408,34 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public TVShows_ActorsTableAdapter TVShows_ActorsTableAdapter {
+            get {
+                return this._tVShows_ActorsTableAdapter;
+            }
+            set {
+                this._tVShows_ActorsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public TVShows_DirectorsTableAdapter TVShows_DirectorsTableAdapter {
+            get {
+                return this._tVShows_DirectorsTableAdapter;
+            }
+            set {
+                this._tVShows_DirectorsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public TVShows_GenresTableAdapter TVShows_GenresTableAdapter {
             get {
                 return this._tVShows_GenresTableAdapter;
@@ -11792,6 +13518,14 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                             && (this._tVShowsTableAdapter.Connection != null))) {
                     return this._tVShowsTableAdapter.Connection;
                 }
+                if (((this._tVShows_ActorsTableAdapter != null) 
+                            && (this._tVShows_ActorsTableAdapter.Connection != null))) {
+                    return this._tVShows_ActorsTableAdapter.Connection;
+                }
+                if (((this._tVShows_DirectorsTableAdapter != null) 
+                            && (this._tVShows_DirectorsTableAdapter.Connection != null))) {
+                    return this._tVShows_DirectorsTableAdapter.Connection;
+                }
                 if (((this._tVShows_GenresTableAdapter != null) 
                             && (this._tVShows_GenresTableAdapter.Connection != null))) {
                     return this._tVShows_GenresTableAdapter.Connection;
@@ -11843,6 +13577,12 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                 if ((this._tVShowsTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._tVShows_ActorsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tVShows_DirectorsTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._tVShows_GenresTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -11860,6 +13600,15 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(SMonitoring_DataBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._directorsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Directors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -11896,57 +13645,12 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tVShows_GenresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._TVShows_Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tVShows_ActorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._TVShows_Actors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tVShows_GenresTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._ratedTVShows_UsersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._RatedTVShows_Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._ratedTVShows_UsersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._administratorsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._administratorsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._actors_GenresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._Actors_Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._actors_GenresTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._commentsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._commentsTableAdapter.Update(updatedRows));
+                    result = (result + this._tVShows_ActorsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11959,12 +13663,66 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tVShows_GenresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._TVShows_Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tVShows_GenresTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tVShows_DirectorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._TVShows_Directors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tVShows_DirectorsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._directors_GenresTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet._Directors_Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._directors_GenresTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._commentsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._administratorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._administratorsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._ratedTVShows_UsersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._RatedTVShows_Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._ratedTVShows_UsersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._actors_GenresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._Actors_Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._actors_GenresTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11978,6 +13736,14 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(SMonitoring_DataBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._directorsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Directors.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -12010,51 +13776,11 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tVShows_GenresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._TVShows_Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tVShows_ActorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._TVShows_Actors.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tVShows_GenresTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._ratedTVShows_UsersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._RatedTVShows_Users.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._ratedTVShows_UsersTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._administratorsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._administratorsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._actors_GenresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._Actors_Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._actors_GenresTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._commentsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._commentsTableAdapter.Update(addedRows));
+                    result = (result + this._tVShows_ActorsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12066,11 +13792,59 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tVShows_GenresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._TVShows_Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tVShows_GenresTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tVShows_DirectorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._TVShows_Directors.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tVShows_DirectorsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._directors_GenresTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet._Directors_Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._directors_GenresTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._commentsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._administratorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._administratorsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._ratedTVShows_UsersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._RatedTVShows_Users.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._ratedTVShows_UsersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._actors_GenresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._Actors_Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._actors_GenresTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12084,51 +13858,11 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(SMonitoring_DataBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._directors_GenresTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._Directors_Genres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._directors_GenresTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._favoritesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Favorites.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._favoritesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._commentsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._commentsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._actors_GenresTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet._Actors_Genres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._actors_GenresTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._administratorsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._administratorsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12140,11 +13874,59 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._administratorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Administrators.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._administratorsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Comments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._commentsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._directors_GenresTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._Directors_Genres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._directors_GenresTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tVShows_DirectorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._TVShows_Directors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tVShows_DirectorsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tVShows_GenresTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet._TVShows_Genres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tVShows_GenresTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._favoritesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Favorites.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._favoritesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tVShows_ActorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._TVShows_Actors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tVShows_ActorsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12177,6 +13959,14 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._directorsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12266,6 +14056,16 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
             }
             if (((this._tVShowsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tVShowsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._tVShows_ActorsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tVShows_ActorsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._tVShows_DirectorsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tVShows_DirectorsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -12401,6 +14201,24 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tVShowsTableAdapter.Adapter);
                     }
                 }
+                if ((this._tVShows_ActorsTableAdapter != null)) {
+                    revertConnections.Add(this._tVShows_ActorsTableAdapter, this._tVShows_ActorsTableAdapter.Connection);
+                    this._tVShows_ActorsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._tVShows_ActorsTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._tVShows_ActorsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tVShows_ActorsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tVShows_ActorsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tVShows_DirectorsTableAdapter != null)) {
+                    revertConnections.Add(this._tVShows_DirectorsTableAdapter, this._tVShows_DirectorsTableAdapter.Connection);
+                    this._tVShows_DirectorsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._tVShows_DirectorsTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._tVShows_DirectorsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tVShows_DirectorsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tVShows_DirectorsTableAdapter.Adapter);
+                    }
+                }
                 if ((this._tVShows_GenresTableAdapter != null)) {
                     revertConnections.Add(this._tVShows_GenresTableAdapter, this._tVShows_GenresTableAdapter.Connection);
                     this._tVShows_GenresTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
@@ -12516,6 +14334,14 @@ namespace TVShows.Data.SMonitoring_DataBaseDataSetTableAdapters {
                 if ((this._tVShowsTableAdapter != null)) {
                     this._tVShowsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tVShowsTableAdapter]));
                     this._tVShowsTableAdapter.Transaction = null;
+                }
+                if ((this._tVShows_ActorsTableAdapter != null)) {
+                    this._tVShows_ActorsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tVShows_ActorsTableAdapter]));
+                    this._tVShows_ActorsTableAdapter.Transaction = null;
+                }
+                if ((this._tVShows_DirectorsTableAdapter != null)) {
+                    this._tVShows_DirectorsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tVShows_DirectorsTableAdapter]));
+                    this._tVShows_DirectorsTableAdapter.Transaction = null;
                 }
                 if ((this._tVShows_GenresTableAdapter != null)) {
                     this._tVShows_GenresTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tVShows_GenresTableAdapter]));

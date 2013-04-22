@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Data.OleDb;
 
 namespace TVShows.Data
@@ -43,7 +42,7 @@ namespace TVShows.Data
         private static OleDbCommand select;
         private static DataTable table;
 
-        public static void Initialize(string dtable)
+        private static void Initialize(string dtable)
         {
             _connection.ConnectionString = ConnectionString;
             var adapter = new OleDbDataAdapter();
@@ -56,44 +55,41 @@ namespace TVShows.Data
                 select = new OleDbCommand(string.Format("SELECT * FROM {0}", dtable), _connection);
                 adapter.SelectCommand = select;
                 cmdbuilder.DataAdapter = adapter;
-                Get_commands(adapter, cmdbuilder, dtable);
+                Get_commands(adapter, cmdbuilder);
                 adapter.Fill(table);
             }
         }
 
-        public void Save(string dtable)
+        private static void Initialize_table (string dtable)
         {
             if (table == null) Initialize(dtable);
             if (table.TableName != dtable) Initialize(dtable);
             _connection.ConnectionString = ConnectionString;
+        }
+
+        public void Save(string dtable)
+        {
+            Initialize_table(dtable);
             
-            var command = insert;
-            var len = command.Parameters.Count;
-            
-            for (int i = 0; i < len; i++)
-                command.Parameters[string.Format("p{0}", i + 1)].Value = Objparams[i+1];
+            for (int i = 0; i < insert.Parameters.Count; i++)
+                insert.Parameters[string.Format("p{0}", i + 1)].Value = Objparams[i + 1];
             
             using (_connection)
             {
                 _connection.Open();
-                command.ExecuteNonQuery();
+                insert.ExecuteNonQuery();
                 _connection.Close();
             }
         }
 
-        public void Update (string dtable)
+        public void Update(string dtable)
         {
-            if (table == null) Initialize(dtable);
-            if (table.TableName != dtable) Initialize(dtable);
-            _connection.ConnectionString = ConnectionString;
-
-            for (int i = 0; i < Objparams.Length-1; i++)
-                update.Parameters[string.Format("p{0}", i + 1)].Value = Objparams[i+1];
+            Initialize_table(dtable);
+            
+            for (int i = 0; i < Objparams.Length - 1; i++)
+                update.Parameters[string.Format("p{0}", i + 1)].Value = Objparams[i + 1];
             update.Parameters[string.Format("p{0}", Objparams.Length)].Value = Objparams[0];
 
-            for (int i = Objparams.Length + 1; i < update.Parameters.Count; i++)
-                update.Parameters[string.Format("p{0}", i + 1)].Value = 1;
-            
             using (_connection)
             {
                 _connection.Open();
@@ -104,14 +100,12 @@ namespace TVShows.Data
 
         public void Delete(string dtable, Int32 id_obj)
         {
-            if (table == null) Initialize(dtable);
-            if (table.TableName != dtable) Initialize(dtable);
-            _connection.ConnectionString = ConnectionString;
+            Initialize_table(dtable);
 
             using (_connection)
             {
                 _connection.Open();
-                delete.Parameters["@ID"].Value = id_obj;
+                delete.Parameters[string.Format("p{0}", 1)].Value = id_obj;
                 delete.ExecuteNonQuery();
             }
             _connection.Close();
@@ -119,9 +113,7 @@ namespace TVShows.Data
 
         public List<T> Get(string dtable)
         {
-            if (table == null) Initialize(dtable);
-            if (table.TableName != dtable) Initialize(dtable);
-            _connection.ConnectionString = ConnectionString;
+            Initialize_table(dtable);
 
             var tlist = new List<T>();
             select.Connection = _connection;
@@ -143,15 +135,23 @@ namespace TVShows.Data
             return tlist;
         }
         
-        private static void Get_commands(OleDbDataAdapter adapter, OleDbCommandBuilder cmdbuilder, string dtable)
+        private static void Get_commands(OleDbDataAdapter adapter, OleDbCommandBuilder cmdbuilder)
         {
             adapter.InsertCommand = cmdbuilder.GetInsertCommand();
             adapter.UpdateCommand = cmdbuilder.GetUpdateCommand();
-            adapter.DeleteCommand = new OleDbCommand(string.Format("DELETE FROM {0} WHERE `ID`=@ID", dtable), _connection);
+            adapter.DeleteCommand = cmdbuilder.GetDeleteCommand();
+            delete = adapter.DeleteCommand;
+            delete.CommandText = Receive_request(adapter.DeleteCommand.CommandText);
             insert = adapter.InsertCommand;
             update = adapter.UpdateCommand;
-            delete = adapter.DeleteCommand;
-            delete.Parameters.Add(new OleDbParameter("@ID", ""));
+            update.CommandText = Receive_request(adapter.UpdateCommand.CommandText);
+        }
+
+        private static string Receive_request (string request)
+        {
+            request = request.Remove(request.IndexOf('('), 1);
+            request = request.Remove(request.IndexOf(" AND"));
+            return request;
         }
     }
 }

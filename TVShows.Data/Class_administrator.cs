@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TVShows.Data
+﻿namespace TVShows.Data
 {
     public class Class_administrator : Class_man
     {

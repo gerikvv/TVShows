@@ -2,7 +2,7 @@
 
 namespace TVShows.Data
 {
-    class Class_tvshow : Class_base<Class_tvshow>
+    public class Class_tvshow : Class_base<Class_tvshow>
     {
         public static string Dtable = "TVShows";
 
@@ -55,9 +55,10 @@ namespace TVShows.Data
         }
         public Class_tvshow(){}
 
-        public Class_tvshow(int year, string country, string slogan, string script_writer, string producer,
-        int budget, int global_charges, DateTime time, int overall_rating, string link_image)
+        public Class_tvshow(string name, int year, string country, string slogan, string script_writer, 
+        string producer, int budget, int global_charges, DateTime time, int overall_rating, string link_image)
         {
+            Name = name;
             Year = year;
             Country = country;
             Slogan = slogan;

@@ -41,11 +41,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class_actor.cs" />
+    <Compile Include="Class_actor_and_genre.cs" />
+    <Compile Include="Class_actor_and_tvshow.cs" />
     <Compile Include="Class_administrator.cs" />
     <Compile Include="Class_base.cs" />
+    <Compile Include="Class_comment.cs" />
+    <Compile Include="Class_director_and_genre.cs" />
+    <Compile Include="Class_director_and_tvshow.cs" />
+    <Compile Include="Class_favorite.cs" />
+    <Compile Include="Class_genre.cs" />
     <Compile Include="Class_man.cs" />
     <Compile Include="Class_member_team.cs" />
+    <Compile Include="Class_ratedtvshow_and_user.cs" />
     <Compile Include="Class_tvshow.cs" />
+    <Compile Include="Class_tvshow_and_genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

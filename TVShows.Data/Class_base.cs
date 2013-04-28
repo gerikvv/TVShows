@@ -80,6 +80,9 @@ namespace TVShows.Data
                 insert.ExecuteNonQuery();
                 _connection.Close();
             }
+
+            Items = Get(dtable);
+            Id = Items[Items.Count - 1].Id;
         }
 
         public void Update(string dtable)
@@ -96,6 +99,8 @@ namespace TVShows.Data
                 update.ExecuteNonQuery();
                 _connection.Close();
             }
+
+            Items = Get(dtable);
         }
 
         public void Delete(string dtable, Int32 id_obj)
@@ -109,6 +114,8 @@ namespace TVShows.Data
                 delete.ExecuteNonQuery();
             }
             _connection.Close();
+
+            Items = Get(dtable);
         }
 
         public List<T> Get(string dtable)

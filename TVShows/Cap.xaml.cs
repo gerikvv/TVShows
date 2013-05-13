@@ -52,5 +52,17 @@ namespace TVShows
             var service = NavigationService.GetNavigationService(this);
             if (service != null) service.Navigate(new Uri("UsersView.xaml", UriKind.Relative));
         }
+
+        private void Add_tv_click(object sender, RoutedEventArgs e)
+        {
+            var service = NavigationService.GetNavigationService(this);
+            if (service != null) service.Navigate(new Uri("AddTV.xaml", UriKind.Relative));
+        }
+
+        private void Favorites_click(object sender, RoutedEventArgs e)
+        {
+            var service = NavigationService.GetNavigationService(this);
+            if (service != null) service.Navigate(new Uri("Favorites.xaml", UriKind.Relative));
+        }
 	}
 }

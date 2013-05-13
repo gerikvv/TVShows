@@ -1,0 +1,4 @@
+﻿<NavigationWindow x:Class="TVShows.Main_window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Smonitoring" Height="650" Width="700" Icon="/TVShows;component/Images/favicon.ico" Source="Home.xaml"  Style="{StaticResource NavigationWindow}">
+</NavigationWindow>

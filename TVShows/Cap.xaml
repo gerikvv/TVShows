@@ -65,9 +65,13 @@
 			<Button Content="Главная" Height="20" x:Name="BtnHome" Width="60" Style="{StaticResource DBButton}" Click="Home_click" />
             <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" />
             <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" />
-            <Button Content="Add TV" Height="20" Name="BtnAddTV" Style="{StaticResource SimpleButton}" Width="60" Click="Add_tv_click" />
-            <Button Content="Add User" Height="20" Name="BtnAddUser" Style="{StaticResource SimpleButton}" Width="60" Click="Add_user_click" />
             <Button Content="Users view" Height="20" Name="BtnUsersView" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" />
+            <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed">
+                <ComboBoxItem Name="Add_user" Content="Add User" />
+                <ComboBoxItem Name="Add_tvshow" Content="Add TVShow" />
+                <ComboBoxItem Name="Add_actor" Content="Add Actor" />
+                <ComboBoxItem Name="Add_director" Content="Add Director" />
+            </ComboBox>
             <TextBox Height="20" x:Name="textBox1" OpacityMask="White" />
         </DockPanel>
 		<DockPanel Height="10" x:Name="Lower_panel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="570">

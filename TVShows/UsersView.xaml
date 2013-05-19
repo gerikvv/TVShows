@@ -18,7 +18,7 @@ Title="Smonitoring - UsersView" Height="600" Width="700" xmlns:xctk="http://sche
 
             <TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
             <DockPanel Margin="53,73,52,0" Name="dockPanel3">
-                    <xcdg:DataGridControl Name="dataGridControl1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,0,4,30">
+                    <xcdg:DataGridControl Name="dataGridControl1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,0,4,30" BorderBrush="{x:Null}" Foreground="#FFF85F03" Focusable="False" BorderThickness="0" NavigationBehavior="None">
                     <xcdg:DataGridControl.Resources>
                         <ResourceDictionary>
                         </ResourceDictionary>

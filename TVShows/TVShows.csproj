@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddMemberTeam.xaml.cs">
+      <DependentUpon>AddMemberTeam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddTV.xaml.cs">
       <DependentUpon>AddTV.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
     <Compile Include="UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddMemberTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddTV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

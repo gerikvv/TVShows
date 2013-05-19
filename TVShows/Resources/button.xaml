@@ -71,7 +71,7 @@
             <Trigger Property="IsEnabled" Value="false">
               <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
               <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" />
-              <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+              <Setter Property="Foreground" Value="{StaticResource ForegroundColorLigth}"/>
             </Trigger>
             <!--</SnippetIsEnabledTrigger>-->
           </ControlTemplate.Triggers>
@@ -111,7 +111,7 @@
                             <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="true">
-                            <Setter Property="Foreground" Value="{StaticResource ForegroundColorOrange}" />
+                            <Setter Property="Foreground" Value="{StaticResource ForegroundColorLigth}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -47,5 +47,11 @@ namespace TVShows
             //var dateTime = new DateTime(1941, 2, 10);
             //new Class_director("Майкл Эптед", dateTime, "Олсбери, Букингемшир, Великобритания", 72, "link");
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var tvshow = new Class_tvshow();
+            Class_tvshow.Items = tvshow.Get(Class_tvshow.Dtable);
+        }
     }
 }

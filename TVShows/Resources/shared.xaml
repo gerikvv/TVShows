@@ -186,6 +186,10 @@
 <!--<SnippetLightColorBrush>-->
   <SolidColorBrush x:Key="LightColorBrush" Color="#DDD" />
 <!--</SnippetLightColorBrush>-->
+    
+<!--<SnippetLightColorBrush>-->
+  <SolidColorBrush x:Key="DarkColorBrush" Color="Black" />
+<!--</SnippetLightColorBrush>-->
 
 <!--</OrangeBorder>-->
     <Thickness x:Key="OrangeBorder">0,0,4,0</Thickness>

@@ -14,7 +14,7 @@ namespace TVShows.Data
         public int Budget { get; set; }
         public int Global_charges { get; set; }
         public DateTime Time { get; set; }
-        public int Overall_rating { get; set; }
+        public string Overall_rating { get; set; }
         public string Link_image { get; set; }
 
         public override object[] Objparams
@@ -41,22 +41,33 @@ namespace TVShows.Data
                 objects = value;
                 Id = (Int32)objects[0];
                 Name = (string)objects[1];
+                OnPropertyChanged("Name");
                 Year = (int)objects[2];
+                OnPropertyChanged("Year");
                 Country = (string)objects[3];
+                OnPropertyChanged("Country");
                 Slogan = (string)objects[4];
+                OnPropertyChanged("Slogan");
                 Script_writer = (string)objects[5];
+                OnPropertyChanged("Script_writer");
                 Producer = (string)objects[6];
+                OnPropertyChanged("Producer");
                 Budget = (int)objects[7];
+                OnPropertyChanged("Budget");
                 Global_charges = (int)objects[8];
+                OnPropertyChanged("Global_charges");
                 Time = (DateTime)objects[9];
-                Overall_rating = (int)objects[10];
+                OnPropertyChanged("Time");
+                Overall_rating = (string)objects[10];
+                OnPropertyChanged("Overall_rating");
                 Link_image = (string)objects[11];
+                OnPropertyChanged("Link_image");
             }
         }
         public Class_tvshow(){}
 
-        public Class_tvshow(string name, int year, string country, string slogan, string script_writer, 
-        string producer, int budget, int global_charges, DateTime time, int overall_rating, string link_image)
+        public Class_tvshow(string name, int year, string country, string slogan, string script_writer,
+        string producer, int budget, int global_charges, DateTime time, string overall_rating, string link_image)
         {
             Name = name;
             Year = year;

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.ComponentModel;
 
 namespace TVShows.Data
 {
-    public abstract class Class_base<T> where T : Class_base<T>
+    public abstract class Class_base<T> : INotifyPropertyChanged where T : Class_base<T>
     {
         private static List<T> items = new List<T>();
 
@@ -19,8 +20,18 @@ namespace TVShows.Data
         public virtual Object[] Objparams { get; set; }
 
         public int Id { get; set; }
-        public string Name { get; set; }
 
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
         protected Class_base()
         {
         }
@@ -159,6 +170,17 @@ namespace TVShows.Data
             request = request.Remove(request.IndexOf('('), 1);
             request = request.Remove(request.IndexOf(" AND"));
             return request;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

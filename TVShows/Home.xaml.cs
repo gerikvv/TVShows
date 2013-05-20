@@ -48,10 +48,21 @@ namespace TVShows
             //new Class_director("Майкл Эптед", dateTime, "Олсбери, Букингемшир, Великобритания", 72, "link");
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Page_loaded(object sender, RoutedEventArgs e)
         {
             var tvshow = new Class_tvshow();
             Class_tvshow.Items = tvshow.Get(Class_tvshow.Dtable);
+
+            foreach (var tv in Class_tvshow.Items)
+            {
+                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Link_image;
+            }
+
+            var rand = new Random();
+            var i = rand.Next(0, Class_tvshow.Items.Count);
+            tvshow = Class_tvshow.Items[i];
+            
+            DataContext = tvshow;
         }
     }
 }

@@ -14,13 +14,13 @@
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
 			<TextBlock FontFamily="Britannic Bold" FontSize="37.333" FontStyle="Normal" Foreground="White" Height="82" x:Name="textBlock1_Copy" OpacityMask="{x:Null}" Text="Случайный фильм" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="0,18,0,0"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" RenderingBias="Quality" ShadowDepth="3" Opacity="0.7" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
-			<DockPanel x:Name="dockPanel3" Margin="53,73,52,0">
+			<DockPanel x:Name="DpOverall" Margin="53,73,52,0">
 				<DockPanel x:Name="stackPanel1" Margin="9,14,0,14" Width="195">
 					<DockPanel.Background>
 						<SolidColorBrush Color="White" Opacity="0.4" />
 					</DockPanel.Background>
-					<TextBlock x:Name="textBlock1" Text="Самый пьяный округ в мире" Foreground="White" FontFamily="Cambria" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5" />
-					<Image x:Name="image1" Stretch="Uniform" Source="Images/461972.jpg" Margin="0,0,0,10" />
+                    <TextBlock x:Name="textBlock1" Text="{Binding Path=Name}" Foreground="White" FontFamily="Cambria" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5" />
+                    <Image x:Name="image1" Stretch="Uniform" Source="{Binding Path=Link_image}" Margin="0,0,0,10" />
 				</DockPanel>
 
 				<ScrollViewer FocusVisualStyle="{StaticResource FocusVisual}" VerticalAlignment="Center" VerticalContentAlignment="Stretch" Margin="0,14,9,14" Height="297">
@@ -29,49 +29,54 @@
 							<SolidColorBrush Color="White" Opacity="0.8" />
 						</StackPanel.Background>
 						<TextBlock x:Name="tbYear" Text="• Год" Foreground="#FFFF6600" TextAlignment="Left" Margin="10,20,10,0" FontSize="10"/>
-						<TextBlock x:Name="tbYearValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="2012" Foreground="#005"/>
+                        <TextBlock x:Name="tbYearValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="{Binding Path=Year}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep0" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbCountry" Text="• Страна" Foreground="#FFFF6600" TextAlignment="Left" Margin="10,0,10,0" FontSize="10"/>
-						<TextBlock x:Name="tbCountryValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="США" Foreground="#005"/>
+                        <TextBlock x:Name="tbCountryValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="{Binding Path=Country}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep2" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbSlogan" Text="• Слоган" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbSloganValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="«Преступники станут легендой»" Foreground="#555555" TextDecorations=""/>
+                        <TextBlock x:Name="tbSloganValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Slogan}" Foreground="#555555" TextDecorations=""/>
 						<TextBlock x:Name="tbSep3" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbDirector" Text="• Режиссер" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbDirectorValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="Джон Хиллкоут" Foreground="#005"/>
+                        <TextBlock x:Name="tbDirectorValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Director}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep4" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbScriptWriter" Text="• Сценарий" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbScriptWriterValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="Ник Кейв, Мэтт Бондурант" Foreground="#005"/>
+                        <TextBlock x:Name="tbScriptWriterValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Script_writer}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep5" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbProducer" Text="• Продюсер" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbProducerValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="Майкл Бенаройя, Меган Эллисон, Люси Фишер, ..." Foreground="#005"/>
+                        <TextBlock x:Name="tbProducerValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Producer}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep6" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbBudget" Text="• Бюджет" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbBudgetValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="$26 000 000" Foreground="#005"/>
+                        <TextBlock x:Name="tbBudgetValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Budget}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep7" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbGlobalCharges" Text="• Сборы в мире" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbGlobalChargesValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="$53 676 580" Foreground="#005"/>
+                        <TextBlock x:Name="tbGlobalChargesValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Global_charges}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep8" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbTime" Text="• Время" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbTimeValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="116 мин. / 01:56" Foreground="#005" TextDecorations=""/>
+                        <TextBlock x:Name="tbTimeValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Time}" Foreground="#005" TextDecorations=""/>
 						<TextBlock x:Name="tbSep9" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbRating" Text="• Рейтинг" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-						<TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="7.536   (31 154)" Foreground="#FF55A332" TextDecorations=""/>
+                        <TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Overall_rating}" Foreground="#FF55A332" TextDecorations=""/>
 						<TextBlock x:Name="tbSep10" Style="{StaticResource LineSeparator}" />
 					</StackPanel>
 				</ScrollViewer>
 			</DockPanel>
 			<DockPanel Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" VerticalAlignment="Top" Width="55" Background="Black" Opacity="0.3"/>
-			<DockPanel Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" VerticalAlignment="Top" Width="55" Background="Black" Opacity="0.3"/>
-		</Grid>
+            <DockPanel Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" VerticalAlignment="Top" Width="55">
+                <DockPanel.Background>
+                    <SolidColorBrush Color="Black"  Opacity="0.3"/>
+                </DockPanel.Background>
+                <Button Style="{StaticResource DBButton}" MinWidth="10" Content="Next" Height="20" Name="button1" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button1_click" />
+            </DockPanel>
+        </Grid>
 	</Grid>
 </UserControl>

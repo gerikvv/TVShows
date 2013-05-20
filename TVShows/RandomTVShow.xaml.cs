@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TVShows.Data;
 
 namespace TVShows
 {
@@ -22,5 +23,16 @@ namespace TVShows
 		{
 			this.InitializeComponent();
 		}
+
+        private void Button1_click(object sender, RoutedEventArgs e)
+        {
+            var rand = new Random();
+            var i = rand.Next(0, Class_tvshow.Items.Count);
+            if (i >= 0)
+            {
+                var tvshow = Class_tvshow.Items[i];
+                DataContext = tvshow;
+            }
+        }
 	}
 }

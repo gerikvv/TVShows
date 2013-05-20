@@ -38,8 +38,8 @@
 					</xcdg:DataGridControl.Columns>
 				</xcdg:DataGridControl>
 			</DockPanel>
-			<DockPanel Background="Black" Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-			<DockPanel Background="Black" Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" VerticalAlignment="Top" Width="55" />
+			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />
+			<DockPanel Background="Black" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" Width="55" />
 		</Grid>
 	</Grid>
 </UserControl>

@@ -29,8 +29,8 @@
 					<Image Height="91" x:Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="Images/registration_page.jpg" Margin="0,-72,0,0" />
 				</StackPanel>
 			</DockPanel>
-			<DockPanel Background="Black" Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-			<DockPanel Background="Black" Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" VerticalAlignment="Top" Width="55" />
+			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />
+			<DockPanel Background="Black" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" Width="55" />
 		</Grid>
 	</Grid>
 </UserControl>

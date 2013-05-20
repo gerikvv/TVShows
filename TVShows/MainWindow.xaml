@@ -1,7 +1,7 @@
 ﻿<Window x:Class="TVShows.Main_window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:TVShows" 
-        Title="Smonitoring" Height="650" Width="700" Icon="/TVShows;component/Images/favicon.ico" Loaded="Window_loaded">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:UserContol="using:TVShows.UserControls" xmlns:TVShows="clr-namespace:TVShows" Title="Smonitoring" Height="700" Width="700" Icon="/TVShows;component/Images/favicon.ico" Loaded="Window_loaded">
     
     <Window.Background>
         <ImageBrush ImageSource="/TVShows;component/Images/noBrandBg.jpg" Stretch="UniformToFill" />
@@ -9,9 +9,9 @@
     
     <Grid Background="{x:Null}">
         
-        <DockPanel Name="dockPanel1" Margin="45,25" Background="#FFB37A7A" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <local:RandomTVShowControl HorizontalAlignment="Center" Margin="0,25,0,0" DockPanel.Dock="Bottom" VerticalAlignment="Center" />
-            <local:Cap DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Center" />
+        <DockPanel Name="DpHome" VerticalAlignment="Stretch" Margin="0,25" HorizontalAlignment="Center">
+            <TVShows:Cap VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+            <TVShows:RandomTVShowControl DockPanel.Dock="Bottom" Margin="0,20,0,0" x:Name="RandomTVShow" />
         </DockPanel>
     </Grid>
 </Window>

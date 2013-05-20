@@ -10,11 +10,11 @@
 	d:DesignWidth="570" d:DesignHeight="130">
 
 	<Grid x:Name="LayoutRoot">
-		<Grid HorizontalAlignment="Left" Margin="0,0,0,30" x:Name="Top_grid" Width="570">
+		<Grid HorizontalAlignment="Center" x:Name="Top_grid" Width="570" Margin="0,0,0,10" VerticalAlignment="Stretch">
 			<Grid.Background>
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
-			<TextBlock FontFamily="Britannic Bold" FontSize="66.667" FontStyle="Normal" FontWeight="Bold" Foreground="White" Height="82" Margin="14,0,124,18" x:Name="textBlock1" OpacityMask="{x:Null}" Text="S-monitoring" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5">
+			<TextBlock FontFamily="Britannic Bold" FontSize="66.667" FontStyle="Normal" FontWeight="Bold" Foreground="White" Height="82" Margin="14,0,124,18" x:Name="textBlock1" OpacityMask="{x:Null}" Text="S-monitoring" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
 				<TextBlock.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform ScaleX="1.05"/>
@@ -57,27 +57,24 @@
                 <Button Content="Регистрация" Style="{StaticResource TransparentButton}" Width="60" Click="Registration_click" />
                 <Button Content="Выход" Style="{StaticResource TransparentButton}" Width="33" />
             </StackPanel>
+            <DockPanel Height="20" x:Name="Middle_panel" Width="570" HorizontalAlignment="Center" Margin="0,100,0,0">
+                <Button Content="Главная" Height="20" x:Name="BtnHome" Width="60" Style="{StaticResource DBButton}" Click="Home_click" />
+                <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" />
+                <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" />
+                <Button Content="Users view" Height="20" Name="BtnUsersView" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" />
+                <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed">
+                    <ComboBoxItem Name="Add_user" Content="Add User" />
+                    <ComboBoxItem Name="Add_tvshow" Content="Add TVShow" />
+                    <ComboBoxItem Name="Add_actor" Content="Add Actor" />
+                    <ComboBoxItem Name="Add_director" Content="Add Director" />
+                </ComboBox>
+                <TextBox Height="20" x:Name="textBox1" OpacityMask="White" />
+            </DockPanel>
         </Grid>
-		<DockPanel Height="20" x:Name="Middle_panel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="570" Margin="0,0,0,10">
-			<DockPanel.Background>
-				<SolidColorBrush Color="Black" Opacity="0.5"/>
-			</DockPanel.Background>
-			<Button Content="Главная" Height="20" x:Name="BtnHome" Width="60" Style="{StaticResource DBButton}" Click="Home_click" />
-            <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" />
-            <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" />
-            <Button Content="Users view" Height="20" Name="BtnUsersView" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" />
-            <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed">
-                <ComboBoxItem Name="Add_user" Content="Add User" />
-                <ComboBoxItem Name="Add_tvshow" Content="Add TVShow" />
-                <ComboBoxItem Name="Add_actor" Content="Add Actor" />
-                <ComboBoxItem Name="Add_director" Content="Add Director" />
-            </ComboBox>
-            <TextBox Height="20" x:Name="textBox1" OpacityMask="White" />
-        </DockPanel>
-		<DockPanel Height="10" x:Name="Lower_panel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="570">
+        <DockPanel Height="10" x:Name="Lower_panel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="570">
 			<DockPanel.Effect>
-				<DropShadowEffect BlurRadius="32" Direction="300" ShadowDepth="8"/>
-			</DockPanel.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="5"/>
+            </DockPanel.Effect>
 			<DockPanel.Background>
 				<SolidColorBrush Color="Black" Opacity="0.5"/>
 			</DockPanel.Background>

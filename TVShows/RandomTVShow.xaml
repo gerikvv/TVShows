@@ -70,7 +70,12 @@
 					</StackPanel>
 				</ScrollViewer>
 			</DockPanel>
-			<DockPanel Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" VerticalAlignment="Top" Width="55" Background="Black" Opacity="0.3"/>
+			<DockPanel Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" VerticalAlignment="Top" Width="55">
+                <DockPanel.Background>
+                    <SolidColorBrush Color="Black"  Opacity="0.3"/>
+                </DockPanel.Background>
+                <Button Content="Next" Height="20" MinWidth="10" Name="button2" Style="{StaticResource DBButton}" Width="48" />
+            </DockPanel>
             <DockPanel Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" VerticalAlignment="Top" Width="55">
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>

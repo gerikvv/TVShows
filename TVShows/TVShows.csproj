@@ -69,11 +69,20 @@
     <Compile Include="AddMemberTeam.xaml.cs">
       <DependentUpon>AddMemberTeam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddMemberTeamContol.xaml.cs">
+      <DependentUpon>AddMemberTeamContol.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddTV.xaml.cs">
       <DependentUpon>AddTV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddTVControl.xaml.cs">
+      <DependentUpon>AddTVControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserControl.xaml.cs">
+      <DependentUpon>AddUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -82,33 +91,61 @@
     <Compile Include="Autorisation.xaml.cs">
       <DependentUpon>Autorisation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AutorisationContol.xaml.cs">
+      <DependentUpon>AutorisationContol.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Favorites.xaml.cs">
       <DependentUpon>Favorites.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RandomTVShow.xaml.cs">
-      <DependentUpon>RandomTVShow.xaml</DependentUpon>
+    <Compile Include="FavoritesControl.xaml.cs">
+      <DependentUpon>FavoritesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RandomTVShowControl.xaml.cs">
+      <DependentUpon>RandomTVShowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegistrationControl.xaml.cs">
+      <DependentUpon>RegistrationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserViewContol.xaml.cs">
+      <DependentUpon>UserViewContol.xaml</DependentUpon>
     </Compile>
     <Page Include="AddMemberTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddMemberTeamContol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddTV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddTVControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Autorisation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutorisationContol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Cap.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +155,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FavoritesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,13 +167,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RandomTVShow.xaml">
+    <Page Include="RandomTVShowControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\button.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -233,6 +278,10 @@
     <Page Include="UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserViewContol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

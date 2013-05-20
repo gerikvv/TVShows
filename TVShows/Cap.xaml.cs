@@ -59,15 +59,15 @@ namespace TVShows
 
                 case "Add_actor": if (service != null)
                 {
-                    var addActor = new AddMemberTeam {Title = {Text = "Добавить актера"}};
-                    service.Navigate(addActor);
+                    //var addActor = new AddMemberTeam {Title = {Text = "Добавить актера"}};
+                    //service.Navigate(addActor);
                 }
                     break;
 
                 case "Add_director": if (service != null)
                     {
-                        var addDirector = new AddMemberTeam { Title = { Text = "Добавить режиссера" } };
-                        service.Navigate(addDirector);
+                        //var addDirector = new AddMemberTeam { Title = { Text = "Добавить режиссера" } };
+                        //service.Navigate(addDirector);
                     }
                     break;
             }

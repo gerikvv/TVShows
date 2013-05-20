@@ -1,0 +1,23 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="TVShows.AddTVControl"
+	x:Name="UserControl"
+	d:DesignWidth="570" d:DesignHeight="398">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid HorizontalAlignment="Left" x:Name="Top_grid_Copy" Width="570">
+			<Grid.Background>
+				<SolidColorBrush Color="Black" Opacity="0.5" />
+			</Grid.Background>
+
+			<TextBlock FontFamily="Britannic Bold" FontSize="37.333" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Добавить фильм" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
+			<DockPanel Margin="53,73,52,0" x:Name="dockPanel3"/>
+			<DockPanel Background="Black" Height="398" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" VerticalAlignment="Top" Width="55" />
+			<DockPanel Background="Black" Height="398" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" VerticalAlignment="Top" Width="55" />
+		</Grid>
+	</Grid>
+</UserControl>

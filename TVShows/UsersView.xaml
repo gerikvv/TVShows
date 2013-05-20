@@ -11,37 +11,6 @@ Title="Smonitoring - UsersView" Height="600" Width="700" xmlns:xctk="http://sche
 
     <Grid Background="{x:Null}">
         <local:Cap Height="130" Margin="65,23,65,0" VerticalAlignment="Top"/>
-        <Grid HorizontalAlignment="Left" Margin="65,172,65,30" Name="Top_grid_Copy" Width="570">
-            <Grid.Background>
-                <SolidColorBrush Color="Black" Opacity="0.5" />
-            </Grid.Background>
-
-            <TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
-            <DockPanel Margin="53,73,52,0" Name="dockPanel3">
-                    <xcdg:DataGridControl Name="dataGridControl1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,0,4,30" BorderBrush="{x:Null}" Foreground="#FFF85F03" Focusable="False" BorderThickness="0" NavigationBehavior="None">
-                    <xcdg:DataGridControl.Resources>
-                        <ResourceDictionary>
-                        </ResourceDictionary>
-                    </xcdg:DataGridControl.Resources>
-                    <xcdg:DataGridControl.View>
-                            <xcdg:TableView ColumnStretchMode="All" ColumnStretchMinWidth="80" UseDefaultHeadersFooters="False" IsAlternatingRowStyleEnabled="True" ShowFixedColumnSplitter="False">
-                            <xcdg:TableView.FixedHeaders>
-                                    <DataTemplate>
-                                        <xcdg:ColumnManagerRow />
-                                    </DataTemplate>
-                                </xcdg:TableView.FixedHeaders>
-                            </xcdg:TableView>
-                        </xcdg:DataGridControl.View>
-                        <xcdg:DataGridControl.Columns>
-                        <xcdg:Column FieldName="ColumnName" Title="Name" CellHorizontalContentAlignment="Center" IsMainColumn="True" />
-                            <xcdg:Column FieldName="ColumnUserName" Title="UserName" CellHorizontalContentAlignment="Center" />
-                            <xcdg:Column FieldName="ColumnPassword" Title="Password" CellHorizontalContentAlignment="Center" />
-                            <xcdg:Column FieldName="ColumnE-mail" Title="E-mail" CellHorizontalContentAlignment="Center" />
-                        </xcdg:DataGridControl.Columns>
-                    </xcdg:DataGridControl>
-            </DockPanel>
-            <DockPanel Background="Black" Height="398" HorizontalAlignment="Left" Name="dockPanel1" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-            <DockPanel Background="Black" Height="398" HorizontalAlignment="Right" Name="dockPanel2" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-        </Grid>
+        <local:UserViewContol Margin="65,172,65,30"/>
     </Grid>
 </Page>

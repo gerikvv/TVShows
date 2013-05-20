@@ -4,8 +4,8 @@ namespace TVShows.Data
 {
     public class Class_man : Class_base<Class_man>
     {
-        public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
 
         public override object[] Objparams
         {
@@ -14,8 +14,8 @@ namespace TVShows.Data
                 objects = new object[4];
                 objects[0] = Id;
                 objects[1] = Name;
-                objects[2] = Username;
-                objects[3] = Password;
+                objects[2] = Password;
+                objects[3] = Email;
                 return objects;
             }
             set
@@ -23,8 +23,8 @@ namespace TVShows.Data
                 objects = value;
                 Id = (Int32)objects[0];
                 Name = (string)objects[1];
-                Username = (string)objects[2];
-                Password = (string)objects[3];
+                Password = (string)objects[2];
+                Email = (string)objects[3];
             }
         }
 

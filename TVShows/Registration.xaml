@@ -11,28 +11,6 @@
 
     <Grid Background="{x:Null}">
         <local:Cap Height="130" Margin="65,23,65,0" VerticalAlignment="Top"/>
-        <Grid HorizontalAlignment="Left" Margin="65,172,65,30" Name="Top_grid_Copy" Width="570">
-            <Grid.Background>
-                <SolidColorBrush Color="Black" Opacity="0.5" />
-            </Grid.Background>
-            
-            <TextBlock FontFamily="Britannic Bold" FontSize="37.333" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Регистрация" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
-            <DockPanel Margin="53,73,52,0" Name="dockPanel3">
-                <StackPanel Height="220" Name="stackPanel1" Width="345" Background="#FFF2F2F2" Margin="0,0,0,30">
-                    <TextBox Height="23" Name="textBox1" Width="145" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBox}" Margin="10,0,0,-85" />
-                    <TextBlock Height="20" Name="textBlock1" Text="Логин *" Margin="0,35,245,0" Foreground="#FFFF6600" Width="88" HorizontalAlignment="Right" TextAlignment="Right" />
-                    <PasswordBox Height="23" Name="textBox2" Width="145" Style="{StaticResource PasswordBox}" Margin="10,0,0,-60" />
-                    <TextBlock Height="20" Name="textBlock2" Text="Пароль *" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFFF6600" Margin="0,20,245,0" Width="88" TextAlignment="Right" />
-                    <PasswordBox Height="23" Name="passwordBox1" Style="{StaticResource PasswordBox}" Width="145" Margin="10,0,0,-40" />
-                    <TextBlock Foreground="#FFFF6600" Height="20" Name="textBlock3" Text="Повтор пароля *" Width="95" Margin="0,10,245,0" HorizontalAlignment="Right" TextAlignment="Right" />
-                    <TextBox Height="23" Name="passwordBox2" Style="{StaticResource TextBox}" Width="145" Margin="10,0,0,-60" />
-                    <TextBlock Foreground="#FFFF6600" Height="20" Name="textBlock4" Text="e-mail *" TextAlignment="Right" Width="95" Margin="0,20,245,0" />
-                    <Button Content="Зарегистрироваться" Height="23" Name="button1" Width="145" Margin="10,15,0,0" />
-                    <Image Height="91" Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="/TVShows;component/Images/registration_page.jpg" Margin="0,-72,0,0" />
-                </StackPanel>
-            </DockPanel>
-            <DockPanel Background="Black" Height="398" HorizontalAlignment="Left" Name="dockPanel1" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-            <DockPanel Background="Black" Height="398" HorizontalAlignment="Right" Name="dockPanel2" Opacity="0.3" VerticalAlignment="Top" Width="55" />
-        </Grid>
+        <local:RegistrationControl Margin="65,172,65,30"/>
     </Grid>
 </Page>

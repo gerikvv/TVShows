@@ -6,11 +6,11 @@
         
         public Class_administrator(){}
 
-        public Class_administrator(string name_user, string username, string password)
+        public Class_administrator(string username, string password, string email)
         {
-            Name = name_user;
-            Username = username;
-            Password = password; 
+            Name = username;
+            Password = password;
+            Email = email;
             Save(Dtable);
         }
     }

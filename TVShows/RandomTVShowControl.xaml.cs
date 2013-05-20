@@ -17,9 +17,9 @@ namespace TVShows
 	/// <summary>
 	/// Interaction logic for RandomTVShow.xaml
 	/// </summary>
-	public partial class RandomTVShow : UserControl
+	public partial class RandomTVShowControl : UserControl
 	{
-		public RandomTVShow()
+		public RandomTVShowControl()
 		{
 			this.InitializeComponent();
 		}

@@ -12,8 +12,11 @@ namespace TVShows.Data
         public string Script_writer { get; set; }
         public string Producer { get; set; }
         public int Budget { get; set; }
+        public string Budget_string { get; set; }
         public int Global_charges { get; set; }
+        public string Global_charges_string { get; set; }
         public DateTime Time { get; set; }
+        public String Time_string { get; set; }
         public string Overall_rating { get; set; }
         public string Link_image { get; set; }
 
@@ -53,15 +56,19 @@ namespace TVShows.Data
                 Producer = (string)objects[6];
                 OnPropertyChanged("Producer");
                 Budget = (int)objects[7];
-                OnPropertyChanged("Budget");
                 Global_charges = (int)objects[8];
-                OnPropertyChanged("Global_charges");
                 Time = (DateTime)objects[9];
-                OnPropertyChanged("Time");
                 Overall_rating = (string)objects[10];
                 OnPropertyChanged("Overall_rating");
                 Link_image = (string)objects[11];
                 OnPropertyChanged("Link_image");
+
+                Budget_string = Budget.ToString("$### ### ### ###");
+                OnPropertyChanged("Budget_string");
+                Global_charges_string = Global_charges.ToString("$### ### ### ###");
+                OnPropertyChanged("Global_charges_string");
+                Time_string = (Time.Hour*60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
+                OnPropertyChanged("Time_string");
             }
         }
         public Class_tvshow(){}
@@ -80,7 +87,23 @@ namespace TVShows.Data
             Time = time;
             Overall_rating = overall_rating;
             Link_image = link_image;
+            Budget_string = budget.ToString("$### ### ### ###");
+            Global_charges_string = global_charges.ToString("$### ### ### ###");
+            Time_string = (Time.Hour * 60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
             Save(Dtable);
+        }
+
+        public static Class_tvshow Init_tv_show ()
+        {
+            var tvshow = new Class_tvshow();
+            Items = tvshow.Get(Dtable);
+
+            foreach (var tv in Items)
+                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Link_image;
+
+            var rand = new Random();
+            var i = rand.Next(0, Items.Count);
+            return Items[i];
         }
     }
 }

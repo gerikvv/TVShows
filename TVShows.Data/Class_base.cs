@@ -92,8 +92,8 @@ namespace TVShows.Data
                 _connection.Close();
             }
 
-            Items = Get(dtable);
-            Id = Items[Items.Count - 1].Id;
+            var elements = Get(dtable);
+            Id = elements[elements.Count - 1].Id;
         }
 
         public void Update(string dtable)

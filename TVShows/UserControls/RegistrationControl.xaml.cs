@@ -14,39 +14,27 @@ using TVShows.Data;
 
 namespace TVShows
 {
-	/// <summary>
-	/// Interaction logic for RegistrationControl.xaml
-	/// </summary>
-	public partial class RegistrationControl : UserControl
-	{
-		public RegistrationControl()
-		{
-			this.InitializeComponent();
-		}
-
-        private void Button1_click(object sender, RoutedEventArgs e)
+    /// <summary>
+    /// Interaction logic for RegistrationControl.xaml
+    /// </summary>
+    public partial class RegistrationControl : UserControl
+    {
+        public RegistrationControl()
         {
-            if (TbLogin.Text != "" & TbEmail.Text != "" & Password1.Password != "" & Password1.Password == Password2.Password)
-            {
-                var user = new Class_user();
-                user.Get(Class_user.Dtable);
-
-                if (Class_user.Items.Count > 0)
-                {
-                    user.Name = TbLogin.Text;
-                    user.Password = Password1.Password;
-                    user.Email = TbEmail.Text;
-
-                    foreach (var item in Class_user.Items)
-                    {
-                        if (user.Name != item.Name | user.Password != item.Password | user.Email != item.Email) ;
-                        return;
-                    }
-                    user.Save(Class_user.Dtable);
-                }
-
-                else new Class_user(TbLogin.Text, Password1.Password, TbEmail.Text);
-            }
+            this.InitializeComponent();
         }
-	}
+
+        private void Registration_click(object sender, RoutedEventArgs e)
+        {
+            Class_man man;
+            Message.Text = "";
+            Message.Text = Class_user.Registration(TbLogin.Text, Password1.Password, Password2.Password, TbEmail.Text, out man);
+            
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            mainWindow.Log_in(man);
+
+            var control = new RandomTVShowControl();
+            mainWindow.RandomTVShow.Content = control.Content;
+        }
+    }
 }

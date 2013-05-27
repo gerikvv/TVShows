@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media;
 using TVShows.Data;
 
 namespace TVShows
@@ -14,44 +15,52 @@ namespace TVShows
             InitializeComponent();
         }
 
-        private void Create_user_click(object sender, RoutedEventArgs e)
-        {
-            //var user = new Class_user();
-            //Class_user.Items = user.Get(Class_user.Dtable);
-            //if (Class_user.Items.Count > 0)
-            //{
-            //    user = (Class_user)Class_user.Items[0];
-            //    user.Name = "tom";
-            //    user.Update(Class_user.Dtable);
-            //    user.Delete(Class_user.Dtable, user.Id);
-            //}
-
-            var dateTime = new DateTime(1969, 11, 13);
-            var actor = new Class_actor("Джерард Батлер", dateTime, "Пейсли, Шотландия, Великобритания", 43, "link");
-
-            var genre = new Class_genre("Фантастика");
-
-            new Class_actor_and_genre(actor, genre);
-
-            //var dateTime = new DateTime(1941, 2, 10);
-            //new Class_director("Майкл Эптед", dateTime, "Олсбери, Букингемшир, Великобритания", 72, "link");
-        }
+        public Class_man Man;
 
         private void Window_loaded(object sender, RoutedEventArgs e)
         {
-            var tvshow = new Class_tvshow();
-            Class_tvshow.Items = tvshow.Get(Class_tvshow.Dtable);
+            Class_tvshow.Init_tv_show();
+            Class_user.Init_user();
+            Class_administrator.Init_administrator();
+        }
 
-            foreach (var tv in Class_tvshow.Items)
+        public void Log_in(Class_man man)
+        {
+            if (man.Name != null)
             {
-                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Link_image;
+                if (man.GetType() == typeof(Class_administrator))
+                {
+                    Cap.ComboAdd.Visibility = Visibility.Visible;
+                    Cap.BtnUsersView.Visibility = Visibility.Visible;
+                    Cap.BtnFavorites.Visibility = Visibility.Visible;
+
+                    Cap.TbLogin.Visibility = Visibility.Visible;
+                    Cap.TbLogin.Text = "ADMIN: " + man.Name;
+                }
+                else
+                {
+                    Cap.BtnFavorites.Visibility = Visibility.Visible;
+
+                    Cap.TbLogin.Visibility = Visibility.Visible;
+                    Cap.TbLogin.Text = "Профиль: " + man.Name;
+
+                    Man = man;
+                }
+                Cap.BtnRegistration.IsEnabled = false;
+                Cap.BtnLogin.IsEnabled = false;
             }
+        }
 
-            var rand = new Random();
-            var i = rand.Next(0, Class_tvshow.Items.Count);
-            tvshow = Class_tvshow.Items[i];
+        public void Log_out()
+        {
+            Cap.ComboAdd.Visibility = Visibility.Collapsed;
+            Cap.BtnUsersView.Visibility = Visibility.Collapsed;
+            Cap.BtnFavorites.Visibility = Visibility.Collapsed;
+            Cap.TbLogin.Visibility = Visibility.Collapsed;
+            Cap.BtnRegistration.IsEnabled = true;
+            Cap.BtnLogin.IsEnabled = true;
 
-            DataContext = tvshow;
+            Man = null;
         }
     }
 }

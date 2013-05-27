@@ -10,7 +10,7 @@
     <Grid Background="{x:Null}">
         
         <DockPanel Name="DpHome" VerticalAlignment="Stretch" Margin="0,25" HorizontalAlignment="Center">
-            <TVShows:Cap VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+            <TVShows:Cap VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Top" x:Name="Cap" />
             <TVShows:RandomTVShowControl DockPanel.Dock="Bottom" Margin="0,20,0,0" x:Name="RandomTVShow" />
         </DockPanel>
     </Grid>

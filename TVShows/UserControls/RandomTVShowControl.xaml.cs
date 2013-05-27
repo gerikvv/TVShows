@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TVShows.Data;
 
 namespace TVShows
@@ -23,16 +15,39 @@ namespace TVShows
 		{
 			this.InitializeComponent();
 		}
+        
+        public void Color_rating(Class_tvshow tvshow)
+        {
+            float rating;
+            float.TryParse(tvshow.Overall_rating.Replace('.', ','), out rating);
+            if (rating >= 7)
+                tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 55, 0xA3, 32));
+            if (rating >= 5 && rating < 7)
+                tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 00, 00, 0xFF));
+        }
 
-        private void Button1_click(object sender, RoutedEventArgs e)
+        private void Random_click(object sender, RoutedEventArgs e)
+        {
+            Random_tv();
+        }
+
+        private void Dock_panel2_loaded(object sender, RoutedEventArgs e)
+        {
+            Random_tv();
+        }
+
+        private void Random_tv()
         {
             var rand = new Random();
             var i = rand.Next(0, Class_tvshow.Items.Count);
-            if (i >= 0)
-            {
-                var tvshow = Class_tvshow.Items[i];
-                DataContext = tvshow;
-            }
+
+            var tvshow = Class_tvshow.Items[i];
+
+            if (tvshow.Name == TbName.Text)
+                tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
+
+            Color_rating(tvshow);
+            DataContext = tvshow;
         }
 	}
 }

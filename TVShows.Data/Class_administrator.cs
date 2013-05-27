@@ -13,5 +13,11 @@
             Email = email;
             Save(Dtable);
         }
+
+        public static void Init_administrator()
+        {
+            var admin = new Class_administrator();
+            Items.AddRange(admin.Get(Dtable));
+        }
     }
 }

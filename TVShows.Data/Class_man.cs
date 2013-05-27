@@ -28,19 +28,32 @@ namespace TVShows.Data
             }
         }
 
-        protected void Login (string username_arg, int password_arg)
+        public static string Login (string username_arg, string password_arg, out Class_man man)
+        {
+            if (username_arg != "" && password_arg != "")
+            {
+                foreach (var manItem in Items)
+                {
+                    if (manItem.Name == username_arg && manItem.Password == password_arg)
+                    {
+                        man = manItem;
+                        return "";
+                    }
+                }
+                { man = new Class_man(); return "Неправильная комбинация имени пользователя и пароля!"; }
+            }
+            man = new Class_man(); return "Все поля должны быть заполнены!";
+        }
+
+        protected static void Logout(string username_arg, string password_arg)
         {
         }
 
-        protected void Logout (string username_arg, int password_arg)
+        protected static void View_information_tv_show(string name_tv_show)
         {
         }
 
-        protected void View_information_tv_show (string name_tv_show)
-        {
-        }
-
-        protected void Search_tv_shows(params object[] list_params)
+        protected static void Search_tv_shows(params object[] list_params)
         {
         }
     }

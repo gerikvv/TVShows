@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace TVShows
 {
@@ -86,6 +84,12 @@ namespace TVShows
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.RandomTVShow.Content = control.Content;
+        }
+
+        private void Btn_logout_click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            mainWindow.Log_out();
         }
 	}
 }

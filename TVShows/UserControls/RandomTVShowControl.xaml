@@ -23,8 +23,8 @@
 					<DockPanel.Background>
 						<SolidColorBrush Color="White" Opacity="0.4" />
 					</DockPanel.Background>
-                    <TextBlock x:Name="textBlock1" Text="{Binding Path=Name}" Foreground="White" FontFamily="Cambria" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5" />
-                    <Image x:Name="image1" Stretch="Uniform" Source="{Binding Path=Link_image}" Margin="0,0,0,10" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="TbName" Text="{Binding Path=Name}" Foreground="White" FontFamily="Cambria" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5" />
+                    <Image x:Name="Image" Stretch="Uniform" Source="{Binding Path=Link_image}" Margin="0,0,0,10" HorizontalAlignment="Center" />
 				</DockPanel>
 
 				<ScrollViewer FocusVisualStyle="{StaticResource FocusVisual}" VerticalAlignment="Stretch" 
@@ -61,19 +61,19 @@
 						<TextBlock x:Name="tbSep6" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbBudget" Text="• Бюджет" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbBudgetValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Budget}" Foreground="#005"/>
+                        <TextBlock x:Name="tbBudgetValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Budget_string}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep7" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbGlobalCharges" Text="• Сборы в мире" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbGlobalChargesValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Global_charges}" Foreground="#005"/>
+                        <TextBlock x:Name="tbGlobalChargesValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Global_charges_string}" Foreground="#005"/>
 						<TextBlock x:Name="tbSep8" Style="{StaticResource LineSeparator}" />
 
 						<TextBlock x:Name="tbTime" Text="• Время" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbTimeValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Time}" Foreground="#005" TextDecorations=""/>
+                        <TextBlock x:Name="tbTimeValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Time_string}" Foreground="#005" TextDecorations=""/>
 						<TextBlock x:Name="tbSep9" Style="{StaticResource LineSeparator}" />
                     
 						<TextBlock x:Name="tbRating" Text="• Рейтинг" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Overall_rating}" Foreground="#FF55A332" TextDecorations=""/>
+                        <TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Overall_rating}" Foreground="#FFA0A0A0" TextDecorations=""/>
 						<TextBlock x:Name="tbSep10" Style="{StaticResource LineSeparator}" />
 					</StackPanel>
 				</ScrollViewer>
@@ -82,13 +82,13 @@
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>
                 </DockPanel.Background>
-                <Button Content="Next" Height="20" MinWidth="10" Name="button2" Style="{StaticResource DBButton}" Width="48" Click="Button1_click" />
+                <Button Style="{StaticResource ArrowLeftButton}" Name="ArrowLeft" Click="Random_click" Focusable="False" />
             </DockPanel>
-            <DockPanel HorizontalAlignment="Right" x:Name="dockPanel2" Width="55" Grid.Column="1">
+            <DockPanel HorizontalAlignment="Right" x:Name="dockPanel2" Width="55" Grid.Column="1" Loaded="Dock_panel2_loaded">
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>
                 </DockPanel.Background>
-                <Button Style="{StaticResource DBButton}" MinWidth="10" Content="Next" Height="20" Name="button1" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button1_click" />
+                <Button Style="{StaticResource ArrowRigthButton}" Name="ArrowRigth" Click="Random_click" Focusable="False" />
             </DockPanel>
         </Grid>
 	</Grid>

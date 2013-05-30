@@ -4,6 +4,7 @@ namespace TVShows.Data
 {
     public class Class_man : Class_base<Class_man>
     {
+        #region Properties
         public string Password { get; set; }
         public string Email { get; set; }
 
@@ -22,9 +23,13 @@ namespace TVShows.Data
             {
                 objects = value;
                 Id = (Int32)objects[0];
+                RaisePropertyChanged("ID");
                 Name = (string)objects[1];
+                RaisePropertyChanged("Name");
                 Password = (string)objects[2];
+                RaisePropertyChanged("Password");
                 Email = (string)objects[3];
+                RaisePropertyChanged("Email");
             }
         }
 
@@ -56,5 +61,6 @@ namespace TVShows.Data
         protected static void Search_tv_shows(params object[] list_params)
         {
         }
+        #endregion
     }
 }

@@ -6,14 +6,18 @@ using System.Text;
 
 namespace TVShows.Data.ViewModel
 {
-    class UserViewModel
+    public class UserViewModel
     {
+        #region Properties
+
         private ObservableCollection<Class_user> users = new ObservableCollection<Class_user>();
 
-        public ObservableCollection<Class_user> Persons
+        public ObservableCollection<Class_user> Users
         {
             get { return users; }
             set { users = value; }
         }
+
+        #endregion
     }
 }

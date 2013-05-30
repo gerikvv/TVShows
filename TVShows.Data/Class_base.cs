@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.ComponentModel;
+using Syncfusion.Windows.Shared;
 
 namespace TVShows.Data
 {
-    public abstract class Class_base<T> : INotifyPropertyChanged where T : Class_base<T>
+    public abstract class Class_base<T> : NotificationObject, INotifyPropertyChanged where T : Class_base<T>
     {
         private static List<T> items = new List<T>();
 

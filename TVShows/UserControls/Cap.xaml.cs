@@ -90,6 +90,9 @@ namespace TVShows
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Log_out();
+
+            var control = new RandomTVShowControl();
+            Navigation(control);
         }
 	}
 }

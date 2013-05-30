@@ -17,7 +17,7 @@
 
 			<TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
 			<DockPanel Margin="53,73,52,0" x:Name="dockPanel3">
-				<xcdg:DataGridControl x:Name="dataGridControl1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,0,4,30" BorderBrush="{x:Null}" Foreground="#FFF85F03" Focusable="False" BorderThickness="0" NavigationBehavior="None">
+                <xcdg:DataGridControl x:Name="dataGridControl1" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,0,4,30" BorderBrush="{x:Null}" Foreground="#FFF85F03" Focusable="False" BorderThickness="0" NavigationBehavior="None" ItemsSource="{Binding}" >
 					<xcdg:DataGridControl.Resources>
 						<ResourceDictionary/>
 					</xcdg:DataGridControl.Resources>
@@ -31,10 +31,10 @@
 						</xcdg:TableView>
 					</xcdg:DataGridControl.View>
 					<xcdg:DataGridControl.Columns>
-						<xcdg:Column FieldName="ColumnName" Title="Name" CellHorizontalContentAlignment="Center" IsMainColumn="True" />
-						<xcdg:Column FieldName="ColumnUserName" Title="UserName" CellHorizontalContentAlignment="Center" />
-						<xcdg:Column FieldName="ColumnPassword" Title="Password" CellHorizontalContentAlignment="Center" />
-						<xcdg:Column FieldName="ColumnE-mail" Title="E-mail" CellHorizontalContentAlignment="Center" />
+                        <xcdg:Column FieldName="ID" Title="ID" CellHorizontalContentAlignment="Center" IsMainColumn="True" DisplayMemberBinding = "{Binding ID}"/>
+                        <xcdg:Column FieldName="Name" Title="Name" CellHorizontalContentAlignment="Center" DisplayMemberBinding = "{Binding Name}"/>
+                        <xcdg:Column FieldName="Password" Title="Password" CellHorizontalContentAlignment="Center" DisplayMemberBinding = "{Binding Password}"/>
+                        <xcdg:Column FieldName="E-mail" Title="E-mail" CellHorizontalContentAlignment="Center" DisplayMemberBinding = "{Binding Email}"/>
 					</xcdg:DataGridControl.Columns>
 				</xcdg:DataGridControl>
 			</DockPanel>

@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SMonitoring_DataBaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\UserRepository.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -281,9 +281,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TVShows.Data\TVShows.Data.csproj">
+    <ProjectReference Include="..\TVShows.Data\TVShowsData.csproj">
       <Project>{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}</Project>
-      <Name>TVShows.Data</Name>
+      <Name>TVShowsData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

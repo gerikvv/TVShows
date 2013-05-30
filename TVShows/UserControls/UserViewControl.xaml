@@ -4,11 +4,12 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" 
-    xmlns:ViewModel="clr-namespace:TVShows.Data.ViewModel;assembly=TVShows.Data" mc:Ignorable="d"
+    mc:Ignorable="d"
 	x:Class="TVShows.UserViewContol"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf">
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:ViewModel="clr-namespace:TVShows.Data.ViewModel;assembly=TVShows.Data">
 
     <UserControl.DataContext>
         <ViewModel:UserViewModel />
@@ -30,13 +31,12 @@
                                             IsSynchronizedWithCurrentItem="True"
                                             ItemsSource="{Binding Path=Users}"
                                             NotifyPropertyChanges="True"
-                                            SelectedItem="{Binding Path=SelectedZipCode}"
+                                            SelectedItem="{Binding Path=Selected_user}"
                                             ShowAddNewRow="False"
                                             ShowGroupDropArea="False"
                                             UpdateMode="PropertyChanged" 
                                             PersistGroupsExpandState="True"
-                                            VisualStyle="Metro" 
-                                            Focusable="False">
+                                            VisualStyle="Metro" >
                     <syncfusion:GridDataControl.VisibleColumns>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="ID">

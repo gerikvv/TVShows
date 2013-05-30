@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShows", "TVShows\TVShows.csproj", "{40F7FCDB-DB22-4F35-896C-10195626B4F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShows.Data", "TVShows.Data\TVShows.Data.csproj", "{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShowsData", "TVShows.Data\TVShowsData.csproj", "{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

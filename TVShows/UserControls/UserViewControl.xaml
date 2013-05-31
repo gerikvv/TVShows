@@ -12,7 +12,7 @@
     xmlns:ViewModel="clr-namespace:TVShows.Data.ViewModel;assembly=TVShows.Data">
 
     <UserControl.DataContext>
-        <ViewModel:UserViewModel />
+        <ViewModel:UserRepository />
     </UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot">
@@ -23,7 +23,7 @@
 
 			<TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
 			<DockPanel Margin="55,73,55,0" x:Name="dockPanel3">
-                <syncfusion:GridDataControl x:Name="grid"
+               <syncfusion:GridDataControl x:Name="grid"
                                             AllowEdit="False"
                                             AutoPopulateColumns="False"
                                             AutoPopulateRelations="False"
@@ -65,6 +65,41 @@
 
                     </syncfusion:GridDataControl.VisibleColumns>
                 </syncfusion:GridDataControl>
+                <!--<xcdg:DataGridControl 
+                        x:Name="dataGridControl1" 
+                        VerticalAlignment="Stretch" 
+                        VerticalContentAlignment="Stretch" 
+                        Margin="0,0,0,30" 
+                        BorderBrush="{x:Null}" 
+                        Foreground="#FFF85F03" 
+                        Focusable="False" 
+                        BorderThickness="0" 
+                        NavigationBehavior="None" 
+                        ReadOnly="False"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Source=Users}"
+                        AutoCreateColumns="False">
+                    
+                    <xcdg:DataGridControl.Resources>
+                        <ResourceDictionary/>
+                    </xcdg:DataGridControl.Resources>
+                    <xcdg:DataGridControl.View>
+                        <xcdg:TableView ColumnStretchMode="All" ColumnStretchMinWidth="80" UseDefaultHeadersFooters="False" IsAlternatingRowStyleEnabled="True" ShowFixedColumnSplitter="False">
+                            <xcdg:TableView.FixedHeaders>
+                                <DataTemplate>
+                                    <xcdg:ColumnManagerRow />
+                                </DataTemplate>
+                            </xcdg:TableView.FixedHeaders>
+                        </xcdg:TableView>
+                    </xcdg:DataGridControl.View>
+                    <xcdg:DataGridControl.Columns>
+                        <xcdg:Column FieldName="ID" Title="ID" CellHorizontalContentAlignment="Center" IsMainColumn="True"  />
+                        <xcdg:Column FieldName="UserName" Title="UserName" CellHorizontalContentAlignment="Center" />
+                        <xcdg:Column FieldName="Password" Title="Password" CellHorizontalContentAlignment="Center" />
+                        <xcdg:Column FieldName="Email" Title="Email" CellHorizontalContentAlignment="Center" />
+                    </xcdg:DataGridControl.Columns>
+                </xcdg:DataGridControl>-->
+
             </DockPanel>
 			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />
 			<DockPanel Background="Black" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" Width="55" />

@@ -1,7 +1,11 @@
 ﻿<Window x:Class="TVShows.Main_window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        xmlns:UserContol="using:TVShows.UserControls" xmlns:TVShows="clr-namespace:TVShows" Title="Smonitoring" Height="700" Width="700" Icon="/TVShows;component/Images/favicon.ico" Loaded="Window_loaded">
+        xmlns:UserContol="using:TVShows.UserControls" 
+        xmlns:TVShows="clr-namespace:TVShows" 
+        Title="Smonitoring" Height="700" Width="700" 
+        Icon="/TVShows;component/Images/favicon.ico" 
+        Loaded="Window_loaded">
     
     <Window.Background>
         <ImageBrush ImageSource="/TVShows;component/Images/noBrandBg.jpg" Stretch="UniformToFill" />

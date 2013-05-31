@@ -25,6 +25,8 @@ namespace TVShows
 
             var control = new UserViewContol();
             RandomTVShow.Content = control.Content;
+            var viewModel = new UserRepository();
+            this.DataContext = viewModel;
         }
 
         public void Log_in(Class_man man)

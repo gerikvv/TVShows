@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Windows.Shared;
+using TVShows.Data;
 
-
-namespace TVShows.Data.ViewModel
+namespace TVShows.ViewModel
 {
     public class UserViewModel : UserRepository
     {
@@ -60,17 +60,17 @@ namespace TVShows.Data.ViewModel
         //        return;
         //    }
 
-        //    this.Users.Add(user);
+        //    Users.Add(user);
         //}
 
         //bool Can_update_user(Class_user user)
         //{
-        //    return this.Selected_user != null;
+        //    return Selected_user != null;
         //}
 
         //bool Can_delete_user(Class_user user)
         //{
-        //    return this.Selected_user != null;
+        //    return Selected_user != null;
         //}
 
         //public void UpdateZipCodeHandler(Class_user user)
@@ -89,7 +89,7 @@ namespace TVShows.Data.ViewModel
         //    if (user == null)
         //        return;
 
-        //    this.Users.Remove(user);
+        //    Users.Remove(user);
         //}
 
         //#endregion

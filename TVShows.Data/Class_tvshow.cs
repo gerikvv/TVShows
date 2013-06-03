@@ -44,31 +44,31 @@ namespace TVShows.Data
                 objects = value;
                 Id = (Int32)objects[0];
                 Name = (string)objects[1];
-                OnPropertyChanged("Name");
+                On_property_changed("Name");
                 Year = (int)objects[2];
-                OnPropertyChanged("Year");
+                On_property_changed("Year");
                 Country = (string)objects[3];
-                OnPropertyChanged("Country");
+                On_property_changed("Country");
                 Slogan = (string)objects[4];
-                OnPropertyChanged("Slogan");
+                On_property_changed("Slogan");
                 Script_writer = (string)objects[5];
-                OnPropertyChanged("Script_writer");
+                On_property_changed("Script_writer");
                 Producer = (string)objects[6];
-                OnPropertyChanged("Producer");
+                On_property_changed("Producer");
                 Budget = (int)objects[7];
                 Global_charges = (int)objects[8];
                 Time = (DateTime)objects[9];
                 Overall_rating = (string)objects[10];
-                OnPropertyChanged("Overall_rating");
+                On_property_changed("Overall_rating");
                 Link_image = (string)objects[11];
-                OnPropertyChanged("Link_image");
+                On_property_changed("Link_image");
 
                 Budget_string = Budget.ToString("$### ### ### ###");
-                OnPropertyChanged("Budget_string");
+                On_property_changed("Budget_string");
                 Global_charges_string = Global_charges.ToString("$### ### ### ###");
-                OnPropertyChanged("Global_charges_string");
+                On_property_changed("Global_charges_string");
                 Time_string = (Time.Hour*60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
-                OnPropertyChanged("Time_string");
+                On_property_changed("Time_string");
             }
         }
         public Class_tvshow(){}

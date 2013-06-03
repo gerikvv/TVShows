@@ -24,43 +24,54 @@
 			<TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
 			<DockPanel Margin="55,73,55,0" x:Name="dockPanel3">
                <syncfusion:GridDataControl x:Name="grid"
-                                            AllowEdit="False"
+                                            AllowEdit="True"
                                             AutoPopulateColumns="False"
                                             AutoPopulateRelations="False"
                                             ColumnSizer="Star"
                                             IsSynchronizedWithCurrentItem="True"
-                                            ItemsSource="{Binding Path=Users}"
+                                            ItemsSource="{Binding Users}"
                                             NotifyPropertyChanges="True"
-                                            SelectedItem="{Binding Path=Selected_user}"
                                             ShowAddNewRow="False"
                                             ShowGroupDropArea="False"
                                             UpdateMode="PropertyChanged" 
                                             PersistGroupsExpandState="True"
-                                            VisualStyle="Metro" >
+                                            VisualStyle="VS2010" >
                     <syncfusion:GridDataControl.VisibleColumns>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="ID">
+                        <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="Name" MappingName="Name">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="Password" MappingName="Password">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="Email" MappingName="Email">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                     </syncfusion:GridDataControl.VisibleColumns>

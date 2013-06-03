@@ -20,7 +20,16 @@ namespace TVShows.Data
         public Object[] objects;
         public virtual Object[] Objparams { get; set; }
 
-        public int Id { get; set; }
+        private int id;
+        public int Id
+        {
+            get { return id; } 
+            set
+            {
+                id = value;
+                RaisePropertyChanged("Id");
+            }
+        }
 
         private string name;
 
@@ -30,9 +39,13 @@ namespace TVShows.Data
             set
             {
                 name = value;
-                OnPropertyChanged("Name");
+                RaisePropertyChanged("Name");
             }
         }
+
+        private static ConnectionState state;
+        public ConnectionState State { get { return state; } set { state = value; } }
+
         protected Class_base()
         {
         }
@@ -111,8 +124,6 @@ namespace TVShows.Data
                 update.ExecuteNonQuery();
                 _connection.Close();
             }
-
-            Items = Get(dtable);
         }
 
         public void Delete(string dtable, Int32 id_obj)
@@ -137,6 +148,7 @@ namespace TVShows.Data
             var tlist = new List<T>();
             select.Connection = _connection;
             _connection.Open();
+            State = _connection.State;
             using (_connection)
             {
                 OleDbDataReader reader = select.ExecuteReader();
@@ -150,6 +162,7 @@ namespace TVShows.Data
                         tlist.Add(s);
                     }
                 _connection.Close();
+                State = _connection.State;
             }
             return tlist;
         }
@@ -173,14 +186,14 @@ namespace TVShows.Data
             return request;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string name)
+        protected void On_property_changed(string param_name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                handler(this, new PropertyChangedEventArgs(name));
+                handler(this, new PropertyChangedEventArgs(param_name));
             }
         }
     }

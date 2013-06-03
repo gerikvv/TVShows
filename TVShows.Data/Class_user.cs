@@ -1,4 +1,6 @@
-﻿namespace TVShows.Data
+﻿using System.Data;
+
+namespace TVShows.Data
 {
     public class Class_user : Class_man
     {
@@ -63,6 +65,13 @@
         {
             var user = new Class_user();
             Items.AddRange(user.Get(Dtable));
+        }
+
+        protected override void RaisePropertyChanged(string property_name)
+        {
+            base.RaisePropertyChanged(property_name);
+            if (State == ConnectionState.Closed)
+                Update(Dtable);
         }
     }
 }

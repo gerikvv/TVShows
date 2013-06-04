@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="TVShows.UserControls.UserViewTableControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Controls.Grid;assembly=Syncfusion.Grid.Wpf" 
+             xmlns:local="clr-namespace:TVShows.Data;assembly=TVShows.Data" mc:Ignorable="d" 
+             x:Name="UserViewTable">
+    <Grid>
+        <syncfusion:GridDataControl x:Name="grid"
+                                            AllowEdit="True"
+                                            AutoPopulateColumns="False"
+                                            AutoPopulateRelations="False"
+                                            ColumnSizer="Star"
+                                            IsSynchronizedWithCurrentItem="True"
+                                            ContextMenuOptions="Custom"
+                                            EnableContextMenu="True"
+                                            Margin="0,10,0,30" 
+                                            ItemsSource="{Binding Users}"
+                                            SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                                            NotifyPropertyChanges="True"
+                                            ShowAddNewRow="False"
+                                            ShowGroupDropArea="False"
+                                            UpdateMode="PropertyChanged"
+                                            VisualStyle="VS2010" 
+                                            AllowResizeRows="False"
+                                            BorderThickness="0" >
+            <syncfusion:GridDataControl.VisibleColumns>
+
+                <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">
+                    <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                    </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                    <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                    </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                </syncfusion:GridDataVisibleColumn>
+
+                <syncfusion:GridDataVisibleColumn HeaderText="Name" MappingName="Name">
+                    <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                    </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                    <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                    </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                </syncfusion:GridDataVisibleColumn>
+
+                <syncfusion:GridDataVisibleColumn HeaderText="Password" MappingName="Password">
+                    <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                    </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                    <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                    </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                </syncfusion:GridDataVisibleColumn>
+
+                <syncfusion:GridDataVisibleColumn HeaderText="Email" MappingName="Email">
+                    <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                    </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                    <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                    </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                </syncfusion:GridDataVisibleColumn>
+
+            </syncfusion:GridDataControl.VisibleColumns>
+
+            <syncfusion:GridDataControl.RecordContextMenuItems>
+                <local:MenuCollection>
+                    <MenuItem Header="Add" >
+                        <MenuItem.Icon>
+                            <Image Source="/Images/Add.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Edit">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/Edit.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Delete"
+                                  local:UserDeleteCommand.Command="{Binding DeleteUser}"
+                                  local:UserDeleteCommand.CommandParameter="{Binding Path=SelectedUser,
+                                                                                         Mode=TwoWay}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/Delete.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </local:MenuCollection>
+            </syncfusion:GridDataControl.RecordContextMenuItems>
+        </syncfusion:GridDataControl>
+    </Grid>
+</UserControl>

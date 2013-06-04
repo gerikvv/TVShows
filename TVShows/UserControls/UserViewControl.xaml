@@ -9,10 +9,10 @@
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:ViewModel="clr-namespace:TVShows.Data.ViewModel;assembly=TVShows.Data">
+    xmlns:local="clr-namespace:TVShows.Data;assembly=TVShows.Data">
 
     <UserControl.DataContext>
-        <ViewModel:UserRepository />
+        <local:UserViewModel />
     </UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot">
@@ -21,7 +21,7 @@
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
 
-			<TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Просмотр пользователей" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
+			<TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Работа с пользователями" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
 			<DockPanel Margin="55,73,55,0" x:Name="dockPanel3">
                <syncfusion:GridDataControl x:Name="grid"
                                             AllowEdit="True"
@@ -29,13 +29,18 @@
                                             AutoPopulateRelations="False"
                                             ColumnSizer="Star"
                                             IsSynchronizedWithCurrentItem="True"
+                                            ContextMenuOptions="Custom"
+                                            EnableContextMenu="True"
+                                            Margin="0,10,0,30" 
                                             ItemsSource="{Binding Users}"
+                                            SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                             NotifyPropertyChanges="True"
                                             ShowAddNewRow="False"
                                             ShowGroupDropArea="False"
-                                            UpdateMode="PropertyChanged" 
-                                            PersistGroupsExpandState="True"
-                                            VisualStyle="VS2010" >
+                                            UpdateMode="PropertyChanged"
+                                            VisualStyle="VS2010" 
+                                            AllowResizeRows="False"
+                                            BorderThickness="0" >
                     <syncfusion:GridDataControl.VisibleColumns>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">
@@ -75,6 +80,29 @@
                         </syncfusion:GridDataVisibleColumn>
 
                     </syncfusion:GridDataControl.VisibleColumns>
+
+                    <syncfusion:GridDataControl.RecordContextMenuItems>
+                        <local:MenuCollection>
+                            <MenuItem Header="Add" >
+                                <MenuItem.Icon>
+                                    <Image Source="/Images/Add.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Edit">
+                                <MenuItem.Icon>
+                                    <Image Source="/Images/Edit.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Delete"
+                                  local:UserDeleteCommand.Command="{Binding DeleteUser}"
+                                  local:UserDeleteCommand.CommandParameter="{Binding Path=SelectedUser,
+                                                                                         Mode=TwoWay}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Images/Delete.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </local:MenuCollection>
+                    </syncfusion:GridDataControl.RecordContextMenuItems>
                 </syncfusion:GridDataControl>
                 <!--<xcdg:DataGridControl 
                         x:Name="dataGridControl1" 

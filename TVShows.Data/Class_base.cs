@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.OleDb;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ namespace TVShows.Data
 {
     public abstract class Class_base<T> : NotificationObject, INotifyPropertyChanged where T : Class_base<T>
     {
-        private static List<T> items = new List<T>();
+        private static ObservableCollection<T> items = new ObservableCollection<T>();
 
-        public static List<T> Items
+        public static ObservableCollection<T> Items
         {
             get { return items; }
             set { items = value; }
@@ -141,11 +141,11 @@ namespace TVShows.Data
             Items = Get(dtable);
         }
 
-        public List<T> Get(string dtable)
+        public ObservableCollection<T> Get(string dtable)
         {
             Initialize_table(dtable);
 
-            var tlist = new List<T>();
+            var tcoll = new ObservableCollection<T>();
             select.Connection = _connection;
             _connection.Open();
             State = _connection.State;
@@ -159,12 +159,12 @@ namespace TVShows.Data
                         reader.GetValues(temp);
                         Objparams = temp;
                         var s = (T)MemberwiseClone();
-                        tlist.Add(s);
+                        tcoll.Add(s);
                     }
                 _connection.Close();
                 State = _connection.State;
             }
-            return tlist;
+            return tcoll;
         }
         
         private static void Get_commands(OleDbDataAdapter adapter, OleDbCommandBuilder cmdbuilder)

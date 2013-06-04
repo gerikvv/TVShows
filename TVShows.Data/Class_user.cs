@@ -64,7 +64,9 @@ namespace TVShows.Data
         public static void Init_user()
         {
             var user = new Class_user();
-            Items.AddRange(user.Get(Dtable));
+            var collection = user.Get(Dtable);
+            foreach (var itemUser in collection)
+                Items.Add(itemUser);
         }
 
         protected override void RaisePropertyChanged(string property_name)
@@ -73,5 +75,7 @@ namespace TVShows.Data
             if (State == ConnectionState.Closed)
                 Update(Dtable);
         }
+
+        
     }
 }

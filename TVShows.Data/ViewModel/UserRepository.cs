@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace TVShows.Data.ViewModel
+namespace TVShows.Data
 {
     public class UserRepository
     {
@@ -18,12 +18,12 @@ namespace TVShows.Data.ViewModel
         public UserRepository()
         {
             Users = new ObservableCollection<Class_user>();
-            this.Add_users();
+            this.Init_users();
         }
         #endregion
 
         #region Methods
-        public void Add_users ()
+        public void Init_users ()
         {
             foreach (var user in Class_user.Items)
             {

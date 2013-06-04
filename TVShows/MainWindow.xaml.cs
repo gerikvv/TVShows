@@ -1,7 +1,5 @@
-﻿using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using TVShows.Data;
-using TVShows.Data.ViewModel;
 
 namespace TVShows
 {

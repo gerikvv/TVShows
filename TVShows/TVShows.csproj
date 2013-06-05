@@ -39,7 +39,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Drawing" />
-    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="Syncfusion.Core, Version=11.104.0.21, Culture=neutral, PublicKeyToken=632609b4d040f6b4" />
     <Reference Include="Syncfusion.Grid.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.GridCommon.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
@@ -47,6 +46,8 @@
     <Reference Include="Syncfusion.SampleLayout.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -66,9 +67,6 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
-    <Reference Include="Xceed.Wpf.Controls.v4.5, Version=4.5.13165.13180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6" />
-    <Reference Include="Xceed.Wpf.DataGrid.v4.5, Version=4.5.13165.13180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6" />
-    <Reference Include="Xceed.Wpf.Toolkit, Version=2.0.13251.15270, Culture=neutral, PublicKeyToken=ba83ff368b7563c6" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -79,6 +77,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\AddCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\DeleteCommand.cs" />
+    <Compile Include="Model\MenuItemModel.cs" />
     <Compile Include="UserControls\AddMemberTeamControl.xaml.cs">
       <DependentUpon>AddMemberTeamControl.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,6 +101,9 @@
       <DependentUpon>FavoritesControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControls\ManipulatorControl.xaml.cs">
+      <DependentUpon>ManipulatorControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RandomTVShowControl.xaml.cs">
       <DependentUpon>RandomTVShowControl.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -114,6 +119,8 @@
     <Compile Include="UserControls\UserViewTableControl.xaml.cs">
       <DependentUpon>UserViewTableControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\UserRepository.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
     <Page Include="UserControls\Cap.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -294,6 +301,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\noBrandBg.jpg" />
+    <Page Include="UserControls\ManipulatorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\favicon.ico" />

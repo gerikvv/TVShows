@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TVShows.UserControls
+namespace TVShows
 {
     /// <summary>
     /// Логика взаимодействия для UserViewTableControl.xaml

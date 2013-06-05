@@ -12,16 +12,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TVShows.Data.View
+namespace TVShows
 {
     /// <summary>
     /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class ManipulatorControl : UserControl
     {
-        public UserControl1()
+        public ManipulatorControl()
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        }    
     }
 }

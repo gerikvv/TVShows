@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Syncfusion.Windows.Shared;
 
-namespace TVShows.Data
+namespace TVShows
 {
     public class CommandBehaviorBase<TReturn, TEventArgs> : BuilderCommandBehaviorBase<MenuItem, TEventArgs, TReturn>
     { }

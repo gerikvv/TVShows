@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using TVShows.Data;
 
-namespace TVShows.ViewModel
+namespace TVShows
 {
     public class UserRepository
     {
@@ -19,19 +19,20 @@ namespace TVShows.ViewModel
         public UserRepository()
         {
             Users = new ObservableCollection<Class_user>();
-            this.Add_users();
+            this.Init_users();
         }
         #endregion
 
         #region Methods
-        public void Add_users()
+        public void Init_users ()
         {
             foreach (var user in Class_user.Items)
             {
                 if (user.GetType() == typeof(Class_user))
-                    users.Add((Class_user)user);
+                    users.Add((Class_user) user);
             }
         }
         #endregion
+
     }
 }

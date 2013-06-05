@@ -33,7 +33,7 @@ namespace TVShows
 
 	    private void Users_view_click(object sender, RoutedEventArgs e)
         {
-            var control = new UserViewContol();
+            var control = new UserViewControl();
             Navigation(control);
         }
 
@@ -83,7 +83,7 @@ namespace TVShows
         private static void Navigation(UserControl control)
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.RandomTVShow.Content = control.Content;
+            mainWindow.RandomTVShow.Content = control;
         }
 
         private void Btn_logout_click(object sender, RoutedEventArgs e)

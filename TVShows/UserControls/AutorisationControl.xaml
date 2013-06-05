@@ -22,7 +22,7 @@
 					<PasswordBox Height="23" x:Name="Password" Width="145" Style="{StaticResource PasswordBox}" Margin="10,0,0,-60" />
 					<TextBlock Height="20" x:Name="TextPassword" Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#FFFF6600" Margin="40,20,0,0" Width="70" />
 					<Button Content="Войти" Height="23" x:Name="BtnLogin" Width="145" Margin="10,15,0,0" Click="Btn_login_click" />
-                    <Image Height="91" x:Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="/TVShows;component/Images/login_page.jpg" Margin="0,-75,0,0" />
+                    <Image Height="91" x:Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="/TVShows;component/Resources/Images/login_page.jpg" Margin="0,-75,0,0" />
                 </StackPanel>
 			</DockPanel>
 			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />

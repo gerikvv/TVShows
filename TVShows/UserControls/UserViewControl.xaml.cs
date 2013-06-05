@@ -16,9 +16,9 @@ namespace TVShows
 	/// <summary>
 	/// Interaction logic for UserViewContol.xaml
 	/// </summary>
-	public partial class UserViewContol : UserControl
+	public partial class UserViewControl : UserControl
 	{
-		public UserViewContol()
+		public UserViewControl()
 		{
 			this.InitializeComponent();
 		}

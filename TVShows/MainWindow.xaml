@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:TVShows="clr-namespace:TVShows" 
         Title="Smonitoring" Height="700" Width="700" 
-        Icon="/TVShows;component/Images/favicon.ico" 
+        Icon="/TVShows;component/Resources/Images/favicon.ico" 
         Loaded="Window_loaded">
     
     <Window.Background>
-        <ImageBrush ImageSource="/TVShows;component/Images/noBrandBg.jpg" Stretch="UniformToFill" />
+        <ImageBrush ImageSource="/TVShows;component/Resources/Images/noBrandBg.jpg" Stretch="UniformToFill" />
     </Window.Background>
     
     <Grid Background="{x:Null}">

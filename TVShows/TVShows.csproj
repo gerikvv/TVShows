@@ -46,7 +46,6 @@
     <Reference Include="Syncfusion.SampleLayout.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Tools.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Tools.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,8 +100,8 @@
       <DependentUpon>FavoritesControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\ManipulatorControl.xaml.cs">
-      <DependentUpon>ManipulatorControl.xaml</DependentUpon>
+    <Compile Include="View\ManipulatorView.xaml.cs">
+      <DependentUpon>ManipulatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RandomTVShowControl.xaml.cs">
       <DependentUpon>RandomTVShowControl.xaml</DependentUpon>
@@ -116,9 +115,7 @@
       <DependentUpon>UserViewControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\UserViewTableControl.xaml.cs">
-      <DependentUpon>UserViewTableControl.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\ManipulatorViewModel.cs" />
     <Compile Include="ViewModel\UserRepository.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Page Include="UserControls\Cap.xaml">
@@ -257,10 +254,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UserViewTableControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UserControls\Cap.xaml.cs">
@@ -300,28 +293,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\noBrandBg.jpg" />
-    <Page Include="UserControls\ManipulatorControl.xaml">
+    <Resource Include="Resources\Images\noBrandBg.jpg" />
+    <Page Include="View\ManipulatorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\favicon.ico" />
+    <Resource Include="Resources\Images\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\registration_page.jpg" />
+    <Resource Include="Resources\Images\registration_page.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\461972.jpg" />
+    <Resource Include="Resources\Images\461972.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\login_page.jpg" />
+    <Resource Include="Resources\Images\login_page.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Add.png" />
-    <Resource Include="Images\Delete.png" />
-    <Resource Include="Images\Edit.png" />
+    <Resource Include="Resources\Images\Add.png" />
+    <Resource Include="Resources\Images\Delete.png" />
+    <Resource Include="Resources\Images\Edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\Microsoft.Expression.Blend.WPF.targets" />

@@ -27,7 +27,7 @@
                     <TextBox Height="23" x:Name="TbEmail" Style="{StaticResource TextBox}" Width="145" Margin="10,0,0,-60" MaxLength="30" />
 					<TextBlock Foreground="#FFFF6600" Height="20" x:Name="TextblockEmail" Text="e-mail *" TextAlignment="Right" Width="95" Margin="0,20,245,0" />
                     <Button Content="Зарегистрироваться" Height="23" x:Name="button1" Width="145" Margin="10,15,0,0" Click="Registration_click" />
-                    <Image Height="91" x:Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="/TVShows;component/Images/registration_page.jpg" Margin="0,-74,0,0" />
+                    <Image Height="91" x:Name="image1" Stretch="Uniform" Width="92" HorizontalAlignment="Right" Source="/TVShows;component/Resources/Images/registration_page.jpg" Margin="0,-74,0,0" />
 				</StackPanel>
 			</DockPanel>
 			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />

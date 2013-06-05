@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Data;
+using System.Windows;
 using Syncfusion.Windows.Shared;
 using TVShows.Data;
 
@@ -56,7 +57,7 @@ namespace TVShows
 
         public void AddUserHandler(Class_user user)
         {
-            var control = new ManipulatorControl();
+            var control = new ManipulatorView(new ManipulatorViewModel(null, false));
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.RandomTVShow.Content = control;
             this.Users.Add(user);

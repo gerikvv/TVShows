@@ -21,7 +21,7 @@ namespace TVShows
             Class_user.Init_user();
             Class_administrator.Init_administrator();
 
-            var control = new UserViewContol();
+            var control = new UserViewControl();
             RandomTVShow.Content = control;
         }
 

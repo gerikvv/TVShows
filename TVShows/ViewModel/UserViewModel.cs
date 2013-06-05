@@ -57,9 +57,6 @@ namespace TVShows
 
         public void AddUserHandler(Class_user user)
         {
-            var control = new ManipulatorView(new ManipulatorViewModel(null, false));
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.RandomTVShow.Content = control;
             this.Users.Add(user);
         }
 

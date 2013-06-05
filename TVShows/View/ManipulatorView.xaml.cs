@@ -14,15 +14,9 @@ namespace TVShows
             this.DataContext = view_model;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_save(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void Btn_close(object sender, RoutedEventArgs e)
-        {
-            var control = new UserViewControl();
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.RandomTVShow.Content = control;
+            this.DialogResult = true;
         }    
     }
 }

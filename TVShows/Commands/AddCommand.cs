@@ -10,12 +10,13 @@ namespace TVShows
         public UserAddBehavior()
             : base((s, e) =>
             {
-                ManipulatorViewModel viewModel = new ManipulatorViewModel(null, false);
-                ManipulatorView addView = new ManipulatorView(viewModel);
-                var mainWindow = (Main_window)Application.Current.MainWindow;
-                addView.Content = mainWindow.RandomTVShow.Content;
+                var viewModel = new ManipulatorViewModel(null, false);
+                var addView = new ManipulatorView(viewModel) {Owner = Application.Current.MainWindow};
 
-                return viewModel.User;
+                if ((bool)addView.ShowDialog())
+                {
+                    return viewModel.User;
+                }
                 return null;
             })
         { }

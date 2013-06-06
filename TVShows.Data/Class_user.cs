@@ -72,10 +72,8 @@ namespace TVShows.Data
         protected override void RaisePropertyChanged(string property_name)
         {
             base.RaisePropertyChanged(property_name);
-            if (State == ConnectionState.Closed)
+            if (State == ConnectionState.Closed && Name != null && Password != null && Email != null)
                 Update(Dtable);
         }
-
-        
     }
 }

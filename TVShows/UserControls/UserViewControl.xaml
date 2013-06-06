@@ -31,7 +31,7 @@
                                             IsSynchronizedWithCurrentItem="True"
                                             ContextMenuOptions="Custom"
                                             EnableContextMenu="True"
-                                            ItemsSource="{Binding Users}"
+                                            ItemsSource="{Binding UsersDtable}"
                                             SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                             NotifyPropertyChanges="True"
                                             ShowAddNewRow="False"
@@ -39,7 +39,8 @@
                                             UpdateMode="PropertyChanged"
                                             VisualStyle="VS2010" 
                                             AllowResizeRows="False"
-                                            BorderThickness="0" >
+                                            BorderThickness="0"
+                                            Margin="0,10,0,30" >
                     <syncfusion:GridDataControl.VisibleColumns>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">

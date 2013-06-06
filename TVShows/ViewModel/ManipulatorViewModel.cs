@@ -68,27 +68,14 @@ namespace TVShows
 
         #region Constructor & Methods
 
-        private bool IsInEdit;
-
         public ManipulatorViewModel(DataRowView employee, bool is_in_edit)
         {
-            this.IsInEdit = is_in_edit;
             SaveCommand = new DelegateCommand<Class_user>(Save);
             SaveButtonContent = is_in_edit ? "Save" : "Add";
             if (is_in_edit)
                 CloneCustomers(employee);
-            else IdNewUser();
             
             this.PropertyChanged += OnPropertyChanged;
-        }
-
-        private void IdNewUser()
-        {
-            var newId = 0;
-            foreach (var classUser in Class_user.Items)
-                if (classUser.Id > newId && classUser.GetType() == typeof(Class_user))
-                    newId = classUser.Id;
-            Id = newId + 1;
         }
 
         private void CloneCustomers(DataRowView employee)

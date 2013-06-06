@@ -13,8 +13,12 @@ namespace TVShows
             : base((s, e) =>
             {
                 var viewModel = new ManipulatorViewModel(null, false);
-                var addView = new ManipulatorView(viewModel) {Owner = Application.Current.MainWindow};
-                
+                var addView = new ManipulatorView(viewModel)
+                                  {
+                                      Owner = Application.Current.MainWindow,
+                                      TbId = {IsEnabled = false}
+                                  };
+
                 if ((bool)addView.ShowDialog())
                 {
                     return viewModel.User;

@@ -81,6 +81,7 @@
     <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\DeleteCommand.cs" />
+    <Compile Include="Commands\EditCommand.cs" />
     <Compile Include="Model\MenuItemModel.cs" />
     <Compile Include="UserControls\AddMemberTeamControl.xaml.cs">
       <DependentUpon>AddMemberTeamControl.xaml</DependentUpon>

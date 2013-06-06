@@ -120,15 +120,16 @@ namespace TVShows
             {
                 return;
             }
+
+            Class_user.Items.Add(user);
+            user.Save(Class_user.Dtable);
+
             var row = UsersDtable.NewRow();
             row["Id"] = user.Id;
             row["Name"] = user.Name;
             row["Password"] = user.Password;
             row["Email"] = user.Email;
             UsersDtable.Rows.Add(row);
-
-            Class_user.Items.Add(user);
-            user.Save(Class_user.Dtable);
         }
 
         bool CanUpdateUser(Class_user user)

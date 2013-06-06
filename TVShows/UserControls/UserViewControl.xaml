@@ -84,12 +84,13 @@
                     <syncfusion:GridDataControl.RecordContextMenuItems>
                         <local:MenuCollection>
                             <MenuItem Header="Add" 
-                              local:UserAddCommand.Command="{Binding AddUser}">
+                                local:UserAddCommand.Command="{Binding AddUser}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Add.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Edit">
+                            <MenuItem Header="Edit"
+                                local:UserEditCommand.Command="{Binding EditUser}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Edit.png" />
                                 </MenuItem.Icon>

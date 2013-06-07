@@ -15,6 +15,9 @@ namespace TVShows
                 var editView = new ManipulatorView(new ManipulatorViewModel(vm.SelectedUser, true))
                                                {Owner = Application.Current.MainWindow};
 
+                var control = UsersControl.Instance();
+                control.grid.Model.CurrencyManager.ConfirmChanges();
+
                 if ((bool)editView.ShowDialog())
                 {
                     return (editView.DataContext as ManipulatorViewModel).User;

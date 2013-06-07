@@ -33,7 +33,8 @@ namespace TVShows
 
 	    private void Users_view_click(object sender, RoutedEventArgs e)
         {
-            var control = new UserViewControl();
+            var control = UsersControl.Instance();
+	        control.DataContext = new UserViewModel();
             Navigation(control);
         }
 
@@ -49,13 +50,6 @@ namespace TVShows
 
             switch (currentItem.Name)
             {
-                case "Add_user":
-                    {
-                        var addUser = new AddUserControl();
-                        Navigation(addUser);
-                    }
-                    break;
-
                 case "Add_tvshow":
                     {
                         var addTv = new AddTVControl();

@@ -68,14 +68,17 @@ namespace TVShows
 
         #region Constructor & Methods
 
+        public ManipulatorViewModel(DataRowView employee)
+        {
+            CloneCustomers(employee);
+        }
+
         public ManipulatorViewModel(DataRowView employee, bool is_in_edit)
         {
             SaveCommand = new DelegateCommand<Class_user>(Save);
             SaveButtonContent = is_in_edit ? "Save" : "Add";
             if (is_in_edit)
                 CloneCustomers(employee);
-            
-            this.PropertyChanged += OnPropertyChanged;
         }
 
         private void CloneCustomers(DataRowView employee)
@@ -84,11 +87,6 @@ namespace TVShows
             Name = employee["Name"].ToString();
             Password = employee["Password"].ToString();
             Email = employee["Email"].ToString();
-        }
-
-        void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            this.SaveCommand.CanExecute(null);
         }
 
         #endregion

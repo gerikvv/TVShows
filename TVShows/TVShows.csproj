@@ -91,10 +91,6 @@
       <DependentUpon>AddTVControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\AddUserControl.xaml.cs">
-      <DependentUpon>AddUserControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="UserControls\AutorisationControl.xaml.cs">
       <DependentUpon>AutorisationControl.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -114,8 +110,8 @@
       <DependentUpon>RegistrationControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\UserViewControl.xaml.cs">
-      <DependentUpon>UserViewControl.xaml</DependentUpon>
+    <Compile Include="UserControls\UsersControl.xaml.cs">
+      <DependentUpon>UsersControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\ManipulatorViewModel.cs" />
@@ -233,10 +229,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\AddUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\AutorisationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,7 +245,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UserViewControl.xaml">
+    <Page Include="UserControls\UsersControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

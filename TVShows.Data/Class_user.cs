@@ -75,5 +75,15 @@ namespace TVShows.Data
             if (State == ConnectionState.Closed && Name != null && Password != null && Email != null)
                 Update(Dtable);
         }
+
+        public override void Delete(string dtable, int id_obj)
+        {
+            base.Delete(dtable, id_obj);
+            var admin = new Class_administrator();
+            var admins = admin.Get(Class_administrator.Dtable);
+
+            foreach (var item in admins)
+                Items.Add(item);
+        }
     }
 }

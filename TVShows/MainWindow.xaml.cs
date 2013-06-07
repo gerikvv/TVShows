@@ -21,7 +21,7 @@ namespace TVShows
             Class_user.Init_user();
             Class_administrator.Init_administrator();
 
-            var control = new UserViewControl();
+            var control = UsersControl.Instance();
             RandomTVShow.Content = control;
         }
 
@@ -32,7 +32,7 @@ namespace TVShows
                 if (man.GetType() == typeof(Class_administrator))
                 {
                     Cap.ComboAdd.Visibility = Visibility.Visible;
-                    Cap.BtnUsersView.Visibility = Visibility.Visible;
+                    Cap.BtnUsers.Visibility = Visibility.Visible;
                     Cap.BtnFavorites.Visibility = Visibility.Visible;
 
                     Cap.TbLogin.Visibility = Visibility.Visible;
@@ -49,17 +49,21 @@ namespace TVShows
                 }
                 Cap.BtnRegistration.IsEnabled = false;
                 Cap.BtnLogin.IsEnabled = false;
+
+                var control = new RandomTVShowControl();
+                RandomTVShow.Content = control.Content;
             }
         }
 
         public void Log_out()
         {
             Cap.ComboAdd.Visibility = Visibility.Collapsed;
-            Cap.BtnUsersView.Visibility = Visibility.Collapsed;
+            Cap.BtnUsers.Visibility = Visibility.Collapsed;
             Cap.BtnFavorites.Visibility = Visibility.Collapsed;
             Cap.TbLogin.Visibility = Visibility.Collapsed;
             Cap.BtnRegistration.IsEnabled = true;
             Cap.BtnLogin.IsEnabled = true;
+            Cap.BtnLogout.IsEnabled = false;
 
             Man = null;
         }

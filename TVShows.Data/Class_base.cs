@@ -126,7 +126,7 @@ namespace TVShows.Data
             }
         }
 
-        public void Delete(string dtable, Int32 id_obj)
+        public virtual void Delete(string dtable, Int32 id_obj)
         {
             Initialize_table(dtable);
 

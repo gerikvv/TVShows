@@ -4,7 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-	x:Class="TVShows.UserViewControl"
+	x:Class="TVShows.UsersControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
@@ -32,7 +32,7 @@
                                             ContextMenuOptions="Custom"
                                             EnableContextMenu="True"
                                             ItemsSource="{Binding UsersDtable}"
-                                            SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                                            SelectedItem="{Binding SelectedUser}"
                                             NotifyPropertyChanges="True"
                                             ShowAddNewRow="False"
                                             ShowGroupDropArea="False"
@@ -40,7 +40,8 @@
                                             VisualStyle="VS2010" 
                                             AllowResizeRows="False"
                                             BorderThickness="0"
-                                            Margin="0,10,0,30" >
+                                            Margin="0,10,0,30" 
+                                            CurrentCellChanged="Grid_current_cell_changed">
                     <syncfusion:GridDataControl.VisibleColumns>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">

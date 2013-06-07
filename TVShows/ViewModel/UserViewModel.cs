@@ -99,7 +99,6 @@ namespace TVShows
 
         public UserViewModel()
         {
-
             this.UsersDtable = this.Get_class_users();
             _addUser = new DelegateCommand<Class_user>(AddUserHandler, CanAddUser);
             _editUser = new DelegateCommand<Class_user>(UpdateUserHandler, CanUpdateUser);
@@ -141,10 +140,11 @@ namespace TVShows
         {
             if (user == null)
                 return;
-            ((DataRowView)selected_user)["Id"] = user.Id;
-            ((DataRowView)selected_user)["Name"] = user.Name;
-            ((DataRowView)selected_user)["Password"] = user.Password;
-            ((DataRowView)selected_user)["Email"] = user.Email;
+            
+            selected_user.Row["Id"] = user.Id;
+            selected_user.Row["Name"] = user.Name;
+            selected_user.Row["Password"] = user.Password;
+            selected_user.Row["Email"] = user.Email;
         }
 
         public void DeleteUserHandler(DataRowView user)
@@ -210,9 +210,9 @@ namespace TVShows
         {
             var ds = new DataTable();
             ds.Columns.Add("Id", typeof(int));
-            ds.Columns.Add("Name", typeof(string));
-            ds.Columns.Add("Password", typeof(string));
-            ds.Columns.Add("Email", typeof(string));
+            ds.Columns.Add("Name");
+            ds.Columns.Add("Password");
+            ds.Columns.Add("Email");
 
             foreach (var user in Class_user.Items)
             {

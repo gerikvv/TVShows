@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,14 +14,14 @@ using System.Windows.Shapes;
 
 namespace TVShows
 {
-	/// <summary>
-	/// Interaction logic for AddTVControl.xaml
-	/// </summary>
-	public partial class AddTVControl : UserControl
-	{
-		public AddTVControl()
-		{
-			this.InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Логика взаимодействия для TVShowsViewControl.xaml
+    /// </summary>
+    public partial class TVShowsViewControl : UserControl
+    {
+        public TVShowsViewControl()
+        {
+            InitializeComponent();
+        }
+    }
 }

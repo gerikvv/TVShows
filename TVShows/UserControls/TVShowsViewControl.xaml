@@ -1,0 +1,271 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+	x:Class="TVShows.TVShowsViewControl"
+	x:Name="UserControl"
+	d:DesignWidth="570" d:DesignHeight="398" 
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:local="clr-namespace:TVShows">
+
+    <UserControl.DataContext>
+        <local:TVShowViewModel />
+    </UserControl.DataContext>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid HorizontalAlignment="Stretch" x:Name="Top_grid_Copy" Margin="55,0">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5" />
+            </Grid.Background>
+
+            <TextBlock FontFamily="Britannic Bold" FontSize="36" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Работа с фильмами" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
+
+            <DockPanel Margin="55,73,55,0" x:Name="dockPanel3">
+                <syncfusion:GridDataControl x:Name="grid"
+                                            AllowEdit="True"
+                                            AutoPopulateColumns="False"
+                                            AutoPopulateRelations="False"
+                                            ColumnSizer="AutoWithLastColumnFill"
+                                            IsSynchronizedWithCurrentItem="True"
+                                            ContextMenuOptions="Custom"
+                                            EnableContextMenu="True"
+                                            ItemsSource="{Binding TVDtable}"
+                                            SelectedItem="{Binding SelectedTV}"
+                                            NotifyPropertyChanges="True" UpdateMode="PropertyChanged"
+                                            VisualStyle="VS2010" 
+                                            AllowResizeRows="False"
+                                            BorderThickness="0"
+                                            ShowAddNewRow="False"
+                                            Margin="0,10,0,30" 
+                                            DefaultFilterOperator="Contains"
+                                            HorizontalContentAlignment="Stretch" >
+                    
+                    <syncfusion:GridDataControl.VisibleColumns>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" TextWrapping="WrapWithOverflow"/>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Title" MappingName="Name">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Year" MappingName="Year">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Country" MappingName="Country">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan" MappingName="Slogan">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Script writer" MappingName="Script_writer">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Producer" MappingName="Producer">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Budget" MappingName="Budget">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Global charges" MappingName="Global_charges">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Time" MappingName="Time">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="DateTimeEdit">
+                                    <syncfusion:GridDataColumnStyle.DateTimeEdit>
+                                        <syncfusion:GridDateTimeEditStyleInfo AutoCorrectedHighlightDuration="1" MaxDateTime="12/31/9999 11:59 PM" />
+                                    </syncfusion:GridDataColumnStyle.DateTimeEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating" MappingName="Overall_rating">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Link image" MappingName="Link_image">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CommentBrush="Red" IsMouseTrackingEnabled="True" CellType="TextBox">
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo NullValue="{x:Null}" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                    <syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                        <syncfusion:GridCommentStyleInfo />
+                                    </syncfusion:GridDataColumnStyle.GridCommentStyleInfo>
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo NullValue="{x:Null}" UseNullOption="False" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                    </syncfusion:GridDataControl.VisibleColumns>
+
+                    <syncfusion:GridDataControl.RecordContextMenuItems>
+                        <local:MenuCollection>
+                            <MenuItem Header="Add" 
+                                local:UserAddCommand.Command="{Binding AddUser}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Add.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Edit"
+                                local:UserEditCommand.Command="{Binding EditUser}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Edit.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Delete"
+                                  local:UserDeleteCommand.Command="{Binding DeleteUser}"
+                                  local:UserDeleteCommand.CommandParameter="{Binding SelectedUser, Mode=TwoWay}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Delete.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </local:MenuCollection>
+                    </syncfusion:GridDataControl.RecordContextMenuItems>
+                </syncfusion:GridDataControl>
+            </DockPanel>
+
+            <DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />
+            <DockPanel Background="Black" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" Width="55" />
+        </Grid>
+    </Grid>
+</UserControl>

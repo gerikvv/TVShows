@@ -50,19 +50,18 @@ namespace TVShows
             Navigation(control);
         }
 
+        private void Tv_shows_click(object sender, RoutedEventArgs e)
+        {
+            var control = new TVShowsViewControl();
+            Navigation(control);
+        }
+
         private void Combo_add_selection_changed(object sender, SelectionChangedEventArgs e)
         {
             var currentItem = ((ComboBoxItem)ComboAdd.SelectedItem);
 
             switch (currentItem.Name)
             {
-                case "Add_tvshow":
-                    {
-                        var addTv = new AddTVControl();
-                        Navigation(addTv);
-                    }
-                    break;
-
                 case "Add_actor":
                 {
                     var addActor = new AddMemberTeamContol { Title = { Text = "Добавить актера" } };

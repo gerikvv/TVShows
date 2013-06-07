@@ -46,6 +46,7 @@
     <Reference Include="Syncfusion.SampleLayout.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Tools.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -87,10 +88,6 @@
       <DependentUpon>AddMemberTeamControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\AddTVControl.xaml.cs">
-      <DependentUpon>AddTVControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="UserControls\AutorisationControl.xaml.cs">
       <DependentUpon>AutorisationControl.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,6 +96,10 @@
       <DependentUpon>FavoritesControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControls\TVShowsViewControl.xaml.cs">
+      <DependentUpon>TVShowsViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\TVShowViewModel.cs" />
     <Compile Include="View\ManipulatorView.xaml.cs">
       <DependentUpon>ManipulatorView.xaml</DependentUpon>
     </Compile>
@@ -115,7 +116,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\ManipulatorViewModel.cs" />
-    <Compile Include="ViewModel\UserRepository.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Page Include="UserControls\Cap.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -225,10 +225,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\AddTVControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\AutorisationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\RegistrationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TVShowsViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

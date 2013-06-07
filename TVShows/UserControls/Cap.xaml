@@ -9,12 +9,12 @@
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="130">
 
-	<Grid x:Name="LayoutRoot">
-		<Grid HorizontalAlignment="Center" x:Name="Top_grid" Width="570" Margin="0,0,0,10" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" Margin="55,0">
+        <Grid HorizontalAlignment="Stretch" x:Name="Top_grid" Margin="0,0,0,10" VerticalAlignment="Stretch">
 			<Grid.Background>
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
-			<TextBlock FontFamily="Britannic Bold" FontSize="66.667" FontStyle="Normal" FontWeight="Bold" Foreground="White" Height="82" Margin="14,0,124,18" x:Name="textBlock1" OpacityMask="{x:Null}" Text="S-monitoring" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+			<TextBlock FontFamily="Britannic Bold" FontSize="66.667" FontStyle="Normal" FontWeight="Bold" Foreground="White" Height="82" HorizontalAlignment="Center" Margin="0,0,110,0" x:Name="textBlock1" OpacityMask="{x:Null}" Text="S-monitoring" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
 				<TextBlock.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform ScaleX="1.05"/>
@@ -42,7 +42,7 @@
 					</LinearGradientBrush>
 				</ed:RegularPolygon.Stroke>
 			</ed:RegularPolygon>
-			<TextBlock Height="30" HorizontalAlignment="Left" Margin="148,67,0,0" x:Name="textBlock2" Text="Найди свое кино!" VerticalAlignment="Top" Width="218" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5" FontFamily="Britannic Bold" >
+			<TextBlock Height="30" HorizontalAlignment="Center" Margin="0,67,30,0" x:Name="textBlock2" Text="Найди свое кино!" VerticalAlignment="Top" Width="218" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5" FontFamily="Britannic Bold" >
 				<TextBlock.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -52,7 +52,7 @@
 					</TransformGroup>
 				</TextBlock.RenderTransform>
 			</TextBlock>
-            <StackPanel Height="48" HorizontalAlignment="Left" Margin="463,23,0,0" Name="stackPanel2" VerticalAlignment="Top" Width="66">
+            <StackPanel Height="48" HorizontalAlignment="Center" Margin="420,23,0,0" Name="stackPanel2" VerticalAlignment="Top" Width="66">
                 <Button Name="BtnLogin" Content="Вход" Style="{StaticResource TransparentButton}"  Width="30" Click="Autorisation_click" />
                 <Button Name="BtnRegistration" Content="Регистрация" Style="{StaticResource TransparentButton}" Width="60" Click="Registration_click" />
                 <Button Name="BtnLogout" Content="Выход" Style="{StaticResource TransparentButton}" Width="33" Click="Btn_logout_click" IsEnabled="False" />
@@ -62,16 +62,16 @@
                 <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" Click="Btn_search_click" />
                 <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" Visibility="Collapsed" />
                 <Button Content="Users" Height="20" Name="BtnUsers" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" Visibility="Collapsed" />
+                <Button Content="TVShows" Height="20" Name="BtnTVShows" Style="{StaticResource SimpleButton}" Width="60" Click="Tv_shows_click" Visibility="Collapsed" />
                 <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed" Visibility="Collapsed">
-                    <ComboBoxItem Name="Add_tvshow" Content="Add TVShow" />
                     <ComboBoxItem Name="Add_actor" Content="Add Actor" />
                     <ComboBoxItem Name="Add_director" Content="Add Director" />
                 </ComboBox>
                 <TextBox Height="20" x:Name="TbSearch" OpacityMask="White" />
             </DockPanel>
-            <TextBlock Height="13" HorizontalAlignment="Left" Margin="369,83,0,0" Name="TbLogin" Text="Профиль: " VerticalAlignment="Top" FontSize="10" Foreground="White" Width="128"  TextAlignment="Center" Visibility="Hidden" />
+            <TextBlock Height="13" HorizontalAlignment="Center" Margin="367,82,-35,0" Name="TbLogin" Text="Профиль: " VerticalAlignment="Top" FontSize="10" Foreground="White" Width="128"  TextAlignment="Center" Visibility="Hidden" />
         </Grid>
-        <DockPanel Height="10" x:Name="Lower_panel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="570">
+        <DockPanel Height="10" x:Name="Lower_panel" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
 			<DockPanel.Effect>
                 <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="5"/>
             </DockPanel.Effect>

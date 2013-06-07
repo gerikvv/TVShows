@@ -9,9 +9,9 @@ namespace TVShows
 	/// <summary>
 	/// Interaction logic for RandomTVShow.xaml
 	/// </summary>
-	public partial class RandomTVShowControl : UserControl
+	public partial class TVShowControl : UserControl
 	{
-		public RandomTVShowControl()
+		public TVShowControl()
 		{
 			this.InitializeComponent();
 		}
@@ -31,12 +31,7 @@ namespace TVShows
             Random_tv();
         }
 
-        private void Dock_panel2_loaded(object sender, RoutedEventArgs e)
-        {
-            Random_tv();
-        }
-
-        private void Random_tv()
+        public void Random_tv()
         {
             var rand = new Random();
             var i = rand.Next(0, Class_tvshow.Items.Count);

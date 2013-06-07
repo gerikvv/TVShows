@@ -21,6 +21,9 @@ namespace TVShows
             Class_user.Init_user();
             Class_administrator.Init_administrator();
 
+            var tvControl = new TVShowControl();
+            tvControl.Random_tv();
+
             var control = UsersControl.Instance();
             RandomTVShow.Content = control;
         }
@@ -50,7 +53,7 @@ namespace TVShows
                 Cap.BtnRegistration.IsEnabled = false;
                 Cap.BtnLogin.IsEnabled = false;
 
-                var control = new RandomTVShowControl();
+                var control = new TVShowControl();
                 RandomTVShow.Content = control.Content;
             }
         }

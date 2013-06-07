@@ -59,7 +59,7 @@
             </StackPanel>
             <DockPanel Height="20" x:Name="Middle_panel" Width="570" HorizontalAlignment="Center" Margin="0,100,0,0">
                 <Button Content="Главная" Height="20" x:Name="BtnHome" Width="60" Style="{StaticResource DBButton}" Click="Home_click" />
-                <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" />
+                <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" Click="Btn_search_click" />
                 <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" Visibility="Collapsed" />
                 <Button Content="Users" Height="20" Name="BtnUsers" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" Visibility="Collapsed" />
                 <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed" Visibility="Collapsed">
@@ -67,7 +67,7 @@
                     <ComboBoxItem Name="Add_actor" Content="Add Actor" />
                     <ComboBoxItem Name="Add_director" Content="Add Director" />
                 </ComboBox>
-                <TextBox Height="20" x:Name="textBox1" OpacityMask="White" />
+                <TextBox Height="20" x:Name="TbSearch" OpacityMask="White" />
             </DockPanel>
             <TextBlock Height="13" HorizontalAlignment="Left" Margin="369,83,0,0" Name="TbLogin" Text="Профиль: " VerticalAlignment="Top" FontSize="10" Foreground="White" Width="128"  TextAlignment="Center" Visibility="Hidden" />
         </Grid>

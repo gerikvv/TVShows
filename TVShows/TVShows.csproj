@@ -102,8 +102,8 @@
     <Compile Include="View\ManipulatorView.xaml.cs">
       <DependentUpon>ManipulatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\RandomTVShowControl.xaml.cs">
-      <DependentUpon>RandomTVShowControl.xaml</DependentUpon>
+    <Compile Include="UserControls\TVShowControl.xaml.cs">
+      <DependentUpon>TVShowControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UserControls\RegistrationControl.xaml.cs">
@@ -237,7 +237,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\RandomTVShowControl.xaml">
+    <Page Include="UserControls\TVShowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using TVShows.Data;
 
 namespace TVShows
 {
@@ -21,7 +22,12 @@ namespace TVShows
 
         private void Home_click(object sender, RoutedEventArgs e)
         {
-            var control = new RandomTVShowControl();
+            var control = new TVShowControl();
+            control.Random_tv();
+            control.TbTitle.Text = "Случайный фильм";
+
+            control.ArrowLeft.Visibility = Visibility.Visible;
+            control.ArrowRigth.Visibility = Visibility.Visible;
             Navigation(control);
         }
 
@@ -85,8 +91,29 @@ namespace TVShows
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Log_out();
 
-            var control = new RandomTVShowControl();
+            var control = new TVShowControl();
             Navigation(control);
+        }
+
+        private void Btn_search_click(object sender, RoutedEventArgs e)
+        {
+            foreach (var tv in Class_tvshow.Items)
+            {
+                if (tv.Name.ToLower() == TbSearch.Text.ToLower())
+                {
+                    var control = new TVShowControl();
+                    control.Color_rating(tv);
+                    control.DataContext = tv;
+                    control.TbTitle.Text = "Поиск";
+
+                    control.ArrowLeft.Visibility = Visibility.Hidden;
+                    control.ArrowRigth.Visibility = Visibility.Hidden;
+
+                    Navigation(control);
+                    return;
+                }
+            }
+            TbSearch.Text = "Искомая комбинация слов не найдена.";
         }
 	}
 }

@@ -40,7 +40,7 @@ namespace TVShows
             row["Global_charges"] = tv.Global_charges;
             row["Time"] = tv.Time;
             row["Overall_rating"] = tv.Overall_rating;
-            row["Link_image"] = tv.Link_image;
+            row["Name_image"] = tv.Name_image;
             TVDtable.Rows.Add(row);
         }
 
@@ -60,7 +60,7 @@ namespace TVShows
             selected_tv.Row["Global_charges"] = tv.Global_charges;
             selected_tv.Row["Time"] = tv.Time;
             selected_tv.Row["Overall_rating"] = tv.Overall_rating;
-            selected_tv.Row["Link_image"] = tv.Link_image;
+            selected_tv.Row["Name_image"] = tv.Name_image;
         }
 
         public void DeleteTVHandler(DataRowView tv)
@@ -136,11 +136,11 @@ namespace TVShows
             ds.Columns.Add("Global_charges", typeof(int));
             ds.Columns.Add("Time", typeof(DateTime));
             ds.Columns.Add("Overall_rating");
-            ds.Columns.Add("Link_image");
+            ds.Columns.Add("Name_image");
 
             foreach (var tv in Class_tvshow.Items)
                 ds.Rows.Add(tv.Id, tv.Name, tv.Year, tv.Country, tv.Slogan, tv.Script_writer, tv.Producer,
-                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Link_image);
+                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image);
 
             return ds;
         }

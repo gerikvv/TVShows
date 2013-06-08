@@ -18,6 +18,7 @@ namespace TVShows.Data
         public DateTime Time { get; set; }
         public String Time_string { get; set; }
         public string Overall_rating { get; set; }
+        public string Name_image { get; set; }
         public string Link_image { get; set; }
 
         public override object[] Objparams
@@ -36,7 +37,7 @@ namespace TVShows.Data
                 objects[8] = Global_charges;
                 objects[9] = Time;
                 objects[10] = Overall_rating;
-                objects[11] = Link_image;
+                objects[11] = Name_image;
                 return objects;
             }
             set
@@ -60,8 +61,8 @@ namespace TVShows.Data
                 Time = (DateTime)objects[9];
                 Overall_rating = (string)objects[10];
                 On_property_changed("Overall_rating");
-                Link_image = (string)objects[11];
-                On_property_changed("Link_image");
+                Name_image = (string)objects[11];
+                On_property_changed("Name_image");
 
                 Budget_string = Budget.ToString("$### ### ### ###");
                 On_property_changed("Budget_string");
@@ -87,6 +88,7 @@ namespace TVShows.Data
             Time = time;
             Overall_rating = overall_rating;
             Link_image = link_image;
+            On_property_changed("Link_image");
             Budget_string = budget.ToString("$### ### ### ###");
             Global_charges_string = global_charges.ToString("$### ### ### ###");
             Time_string = (Time.Hour * 60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
@@ -99,7 +101,7 @@ namespace TVShows.Data
             Items = tvshow.Get(Dtable);
 
             foreach (var tv in Items)
-                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Link_image;
+                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Name_image;
 
             var rand = new Random();
             var i = rand.Next(0, Items.Count);

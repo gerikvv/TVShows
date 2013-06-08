@@ -8,11 +8,16 @@
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:local="clr-namespace:TVShows">
+    xmlns:local="clr-namespace:TVShows" 
+    xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data">
 
     <UserControl.DataContext>
         <local:TVShowViewModel />
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Data:StringToImageConverter x:Key="Imageconverter" />
+    </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot">
         <Grid HorizontalAlignment="Stretch" x:Name="Top_grid_Copy" Margin="55,0">
@@ -35,7 +40,6 @@
                                             SelectedItem="{Binding SelectedTV}"
                                             NotifyPropertyChanges="True" UpdateMode="PropertyChanged"
                                             VisualStyle="VS2010" 
-                                            AllowResizeRows="False"
                                             BorderThickness="0"
                                             ShowAddNewRow="False"
                                             Margin="0,10,0,30" 
@@ -49,10 +53,35 @@
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" TextWrapping="WrapWithOverflow"/>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
+                        <syncfusion:GridDataVisibleColumn
+                                                      HeaderText="Image"
+                                                      MappingName="Name_image">
+                            <syncfusion:GridDataVisibleColumn.CellItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*" />
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="Black">
+                                            <Image Width="100"
+                                               Height="100"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Source="{Binding Path=Record.Data.Name_image,
+                                                                Converter={StaticResource Imageconverter}}" />
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </syncfusion:GridDataVisibleColumn.CellItemTemplate>
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+                        
                         <syncfusion:GridDataVisibleColumn HeaderText="Title" MappingName="Name">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
@@ -105,6 +134,9 @@
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle Format="$### ### ### ###" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                         <syncfusion:GridDataVisibleColumn HeaderText="Time" MappingName="Time">
@@ -127,12 +159,6 @@
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
-                        </syncfusion:GridDataVisibleColumn>
-
-                        <syncfusion:GridDataVisibleColumn HeaderText="Link image" MappingName="Link_image">
-                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
-                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
                     </syncfusion:GridDataControl.VisibleColumns>

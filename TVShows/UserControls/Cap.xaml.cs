@@ -39,7 +39,7 @@ namespace TVShows
 
 	    private void Users_view_click(object sender, RoutedEventArgs e)
         {
-            var control = UsersControl.Instance();
+            var control = UsersViewControl.Instance();
 	        control.DataContext = new UserViewModel();
             Navigation(control);
         }
@@ -91,6 +91,7 @@ namespace TVShows
             mainWindow.Log_out();
 
             var control = new TVShowControl();
+            control.Random_tv();
             Navigation(control);
         }
 

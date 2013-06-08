@@ -6,16 +6,16 @@ namespace TVShows
 {
     #region Edit Command
 
-    public class UserEditBehavior : UserCommandBehaviour<Class_user>
+    public class UserEditBehavior : CommandBehaviour<Class_user>
     {
         public UserEditBehavior()
             : base((s, e) =>
             {
                 var vm = (UserViewModel)(s as MenuItem).DataContext;
-                var editView = new ManipulatorView(new ManipulatorViewModel(vm.SelectedUser, true))
+                var editView = new UserView(new ManipulatorViewModel(vm.SelectedUser, true))
                                                {Owner = Application.Current.MainWindow};
 
-                var control = UsersControl.Instance();
+                var control = UsersViewControl.Instance();
                 control.grid.Model.CurrencyManager.ConfirmChanges();
 
                 if ((bool)editView.ShowDialog())
@@ -27,7 +27,7 @@ namespace TVShows
         { }
     }
 
-    public class UserEditCommand : UserCommand<Class_user, UserEditBehavior>
+    public class UserEditCommand : Command<Class_user, UserEditBehavior>
     { }
 
     #endregion

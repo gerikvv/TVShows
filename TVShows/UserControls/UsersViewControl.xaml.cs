@@ -17,14 +17,14 @@ namespace TVShows
 	/// <summary>
 	/// Interaction logic for UserViewContol.xaml
 	/// </summary>
-	public partial class UsersControl : UserControl
+	public partial class UsersViewControl : UserControl
 	{
-        private static UsersControl userViewControl;
-        private UsersControl() {this.InitializeComponent();}
+        private static UsersViewControl userViewControl;
+        private UsersViewControl() {this.InitializeComponent();}
 
-		public static UsersControl Instance()
+		public static UsersViewControl Instance()
 		{
-		    return userViewControl ?? (userViewControl = new UsersControl());
+		    return userViewControl ?? (userViewControl = new UsersViewControl());
 		}
 
 	    private void Grid_current_cell_changed(object sender, Syncfusion.Windows.ComponentModel.SyncfusionRoutedEventArgs args)

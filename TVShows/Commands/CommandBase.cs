@@ -11,15 +11,15 @@ namespace TVShows
     public class CommandBase<TBehavior> : ControlCommandBase<TBehavior, MenuItem> where TBehavior : CommandBehaviorBase<MenuItem>, new()
     { }
 
-    public class UserCommandBehaviour<TReturn> : CommandBehaviorBase<TReturn, RoutedEventArgs>
+    public class CommandBehaviour<TReturn> : CommandBehaviorBase<TReturn, RoutedEventArgs>
     {
-        public UserCommandBehaviour(Func<object, RoutedEventArgs, TReturn> builder)
+        public CommandBehaviour(Func<object, RoutedEventArgs, TReturn> builder)
         {
             this.builder = builder;
             this.CommandCanExecuteCheckEnabled = true;
         }
 
-        public UserCommandBehaviour()
+        public CommandBehaviour()
             : this(null)
         { }
 
@@ -32,6 +32,6 @@ namespace TVShows
         }
     }
 
-    public class UserCommand<T, TBehavior> : CommandBase<TBehavior> where TBehavior : UserCommandBehaviour<T>, new()
+    public class Command<T, TBehavior> : CommandBase<TBehavior> where TBehavior : CommandBehaviour<T>, new()
     { }
 }

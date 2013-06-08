@@ -7,9 +7,9 @@ namespace TVShows
     /// <summary>
     /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
-    public partial class ManipulatorView : Window
+    public partial class UserView : Window
     {
-        public ManipulatorView(ManipulatorViewModel view_model)
+        public UserView(ManipulatorViewModel view_model)
         {
             InitializeComponent();
             this.DataContext = view_model;

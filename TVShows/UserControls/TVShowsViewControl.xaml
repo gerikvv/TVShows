@@ -7,6 +7,7 @@
 	x:Class="TVShows.TVShowsViewControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
+    xmlns:I="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:local="clr-namespace:TVShows" 
     xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data">
@@ -17,9 +18,20 @@
 
     <UserControl.Resources>
         <Data:StringToImageConverter x:Key="Imageconverter" />
+        
+        <DataTemplate x:Key="imageTemplate">
+            <Border>
+                <Image
+                   Height="52"
+                   HorizontalAlignment = "Stretch"
+                   VerticalAlignment="Center"
+                   Source="{Binding Path=Record.Data.Name_image,
+                       Converter={StaticResource Imageconverter}}" />
+            </Border>
+        </DataTemplate>
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot">
+        <Grid x:Name="LayoutRoot">
         <Grid HorizontalAlignment="Stretch" x:Name="Top_grid_Copy" Margin="55,0">
             <Grid.Background>
                 <SolidColorBrush Color="Black" Opacity="0.5" />
@@ -32,7 +44,6 @@
                                             AllowEdit="True"
                                             AutoPopulateColumns="False"
                                             AutoPopulateRelations="False"
-                                            ColumnSizer="AutoWithLastColumnFill"
                                             IsSynchronizedWithCurrentItem="True"
                                             ContextMenuOptions="Custom"
                                             EnableContextMenu="True"
@@ -43,12 +54,13 @@
                                             BorderThickness="0"
                                             ShowAddNewRow="False"
                                             Margin="0,10,0,30" 
-                                            DefaultFilterOperator="Contains"
+                                            AllowResizeRows="True"
                                             HorizontalContentAlignment="Stretch" >
+
                     
                     <syncfusion:GridDataControl.VisibleColumns>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="ID" MappingName="Id" IsReadOnly="True">
+                        <syncfusion:GridDataVisibleColumn HeaderText="ID   " MappingName="Id" IsReadOnly="True" Width="40">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
@@ -57,38 +69,23 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn
-                                                      HeaderText="Image"
-                                                      MappingName="Name_image">
-                            <syncfusion:GridDataVisibleColumn.CellItemTemplate>
-                                <DataTemplate>
-                                    <Grid HorizontalAlignment="Left">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="2*" />
-                                        </Grid.RowDefinitions>
-                                        <Border BorderBrush="Black">
-                                            <Image Width="100"
-                                               Height="100"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Source="{Binding Path=Record.Data.Name_image,
-                                                                Converter={StaticResource Imageconverter}}" />
-                                        </Border>
-                                    </Grid>
-                                </DataTemplate>
-                            </syncfusion:GridDataVisibleColumn.CellItemTemplate>
-                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
-                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
-                        </syncfusion:GridDataVisibleColumn>
-                        
-                        <syncfusion:GridDataVisibleColumn HeaderText="Title" MappingName="Name">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Image   " MappingName="Name_image" IsReadOnly="True" Width="60">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CellItemTemplate="{StaticResource imageTemplate}" CellType="DataBoundTemplate" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                            
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Year" MappingName="Year">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Title   " MappingName="Name" Width="100" >
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Year   " MappingName="Year" Width="50" >
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
@@ -97,49 +94,49 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Country" MappingName="Country">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Country   " MappingName="Country" Width="80" >
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan" MappingName="Slogan">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan   " MappingName="Slogan" Width="200">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" TextWrapping="Wrap" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Script writer   " MappingName="Script_writer" Width="140">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Script writer" MappingName="Script_writer">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Producer   " MappingName="Producer" Width="140">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Producer" MappingName="Producer">
-                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
-                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
-                        </syncfusion:GridDataVisibleColumn>
-
-                        <syncfusion:GridDataVisibleColumn HeaderText="Budget" MappingName="Budget">
-                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
-                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
-                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle Format="$### ### ### ###" />
-                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
-                        </syncfusion:GridDataVisibleColumn>
-
-                        <syncfusion:GridDataVisibleColumn HeaderText="Global charges" MappingName="Global_charges">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Budget   " MappingName="Budget" Width="110">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle Format="$### ### ### ###" />
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" Format="$### ### ### ###" />
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Time" MappingName="Time">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Global charges   " MappingName="Global_charges" Width="110">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" Format="$### ### ### ###" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" Width="50">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
@@ -152,7 +149,7 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating" MappingName="Overall_rating">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
@@ -166,26 +163,29 @@
                     <syncfusion:GridDataControl.RecordContextMenuItems>
                         <local:MenuCollection>
                             <MenuItem Header="Add" 
-                                local:UserAddCommand.Command="{Binding AddUser}">
+                                local:TVAddCommand.Command="{Binding AddTV}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Add.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Edit"
-                                local:UserEditCommand.Command="{Binding EditUser}">
+                                local:TVEditCommand.Command="{Binding EditTV}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Edit.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Delete"
-                                  local:UserDeleteCommand.Command="{Binding DeleteUser}"
-                                  local:UserDeleteCommand.CommandParameter="{Binding SelectedUser, Mode=TwoWay}">
+                                  local:TVDeleteCommand.Command="{Binding DeleteTV}"
+                                  local:TVDeleteCommand.CommandParameter="{Binding SelectedTV, Mode=TwoWay}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Delete.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                         </local:MenuCollection>
                     </syncfusion:GridDataControl.RecordContextMenuItems>
+                    <I:Interaction.Behaviors>
+                        <local:RowBehavior />
+                    </I:Interaction.Behaviors>
                 </syncfusion:GridDataControl>
             </DockPanel>
 

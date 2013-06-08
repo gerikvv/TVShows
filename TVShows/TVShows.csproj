@@ -44,19 +44,16 @@
     <Reference Include="Syncfusion.GridCommon.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Linq.Base, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.SampleLayout.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Tools.MVVM.WPF, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Wpf, Version=11.103.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Syncfusion.Tools.MVVM.WPF, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -81,10 +78,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\AddCommand.cs" />
+    <Compile Include="Behavior\RowBehavior.cs" />
+    <Compile Include="Commands\AddTVCommand.cs" />
+    <Compile Include="Commands\AddUserCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\DeleteCommand.cs" />
-    <Compile Include="Commands\EditCommand.cs" />
+    <Compile Include="Commands\DeleteTVCommand.cs" />
+    <Compile Include="Commands\DeleteUserCommand.cs" />
+    <Compile Include="Commands\EditTVCommand.cs" />
+    <Compile Include="Commands\EditUserCommand.cs" />
     <Compile Include="Model\MenuItemModel.cs" />
     <Compile Include="UserControls\AddMemberTeamControl.xaml.cs">
       <DependentUpon>AddMemberTeamControl.xaml</DependentUpon>
@@ -102,8 +103,8 @@
       <DependentUpon>TVShowsViewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\TVShowViewModel.cs" />
-    <Compile Include="View\ManipulatorView.xaml.cs">
-      <DependentUpon>ManipulatorView.xaml</DependentUpon>
+    <Compile Include="View\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TVShowControl.xaml.cs">
       <DependentUpon>TVShowControl.xaml</DependentUpon>
@@ -113,8 +114,8 @@
       <DependentUpon>RegistrationControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\UsersControl.xaml.cs">
-      <DependentUpon>UsersControl.xaml</DependentUpon>
+    <Compile Include="UserControls\UsersViewControl.xaml.cs">
+      <DependentUpon>UsersViewControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\ManipulatorViewModel.cs" />
@@ -247,7 +248,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UsersControl.xaml">
+    <Page Include="UserControls\UsersViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,7 +292,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\noBrandBg.jpg" />
-    <Page Include="View\ManipulatorView.xaml">
+    <Page Include="View\UserView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

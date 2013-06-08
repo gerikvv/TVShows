@@ -1,19 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Documents;
+﻿using System.Windows;
 using TVShows.Data;
 
 namespace TVShows
 {
     #region Add Command
 
-    public class UserAddBehavior : UserCommandBehaviour<Class_user>
+    public class UserAddBehavior : CommandBehaviour<Class_user>
     {
         public UserAddBehavior()
             : base((s, e) =>
             {
                 var viewModel = new ManipulatorViewModel(null, false);
-                var addView = new ManipulatorView(viewModel)
+                var addView = new UserView(viewModel)
                                   {
                                       Owner = Application.Current.MainWindow,
                                       TbId = {IsEnabled = false}
@@ -28,7 +26,7 @@ namespace TVShows
         { }
     }
 
-    public class UserAddCommand : UserCommand<Class_user, UserAddBehavior>
+    public class UserAddCommand : Command<Class_user, UserAddBehavior>
     { }
 
     #endregion

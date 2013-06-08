@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
-using System.Windows.Markup;
 using System.Windows.Media.Imaging;
 
 namespace TVShows.Data
 {
-    public class StringToImageConverter : MarkupExtension, IValueConverter
+    public class StringToImageConverter : IValueConverter
     {
         /// <summary>
         /// Converts a value.
@@ -26,20 +22,16 @@ namespace TVShows.Data
             {
                 var record = (Class_tvshow)value;
                 if (string.IsNullOrEmpty(record.Link_image))
-                    return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Images\NotAvailable.jpg", UriKind.Relative));
+                    return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg", UriKind.Relative));
                 return new BitmapImage(new Uri(record.Link_image, UriKind.Relative));
-            }
-            else if (value is string && value.ToString().Contains(@"..\..\Images"))
-            {
-                return value;
             }
             else
             {
                 string imagename = value as string;
                 if (string.IsNullOrEmpty(imagename))
-                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"Images\NotAvailable.jpg";
+                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg";
 
-                return AppDomain.CurrentDomain.BaseDirectory + @"Images\" + imagename;
+                return AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + imagename;
             }
         }
 
@@ -47,14 +39,5 @@ namespace TVShows.Data
         {
             throw new NotImplementedException();
         }
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            if (converter == null)
-                converter = new StringToImageConverter();
-            return converter;
-        }
-
-        private static StringToImageConverter converter = null;
     }
 }

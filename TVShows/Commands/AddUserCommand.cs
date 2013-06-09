@@ -10,7 +10,7 @@ namespace TVShows
         public UserAddBehavior()
             : base((s, e) =>
             {
-                var viewModel = new ManipulatorViewModel(null, false);
+                var viewModel = new UserManipulatorViewModel(null, false);
                 var addView = new UserView(viewModel)
                                   {
                                       Owner = Application.Current.MainWindow,

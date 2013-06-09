@@ -12,7 +12,7 @@ namespace TVShows
             : base((s, e) =>
             {
                 var vm = (UserViewModel)(s as MenuItem).DataContext;
-                var editView = new UserView(new ManipulatorViewModel(vm.SelectedUser, true))
+                var editView = new UserView(new UserManipulatorViewModel(vm.SelectedUser, true))
                                                {Owner = Application.Current.MainWindow};
 
                 var control = UsersViewControl.Instance();
@@ -20,7 +20,7 @@ namespace TVShows
 
                 if ((bool)editView.ShowDialog())
                 {
-                    return (editView.DataContext as ManipulatorViewModel).User;
+                    return (editView.DataContext as UserManipulatorViewModel).User;
                 }
                 return null;
             })

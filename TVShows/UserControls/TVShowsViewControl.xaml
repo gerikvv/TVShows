@@ -136,7 +136,7 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" Width="50">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" IsReadOnly="True" Width="50">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
@@ -149,7 +149,7 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" IsReadOnly="True" Width="100">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>

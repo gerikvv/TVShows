@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:TVShows"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        Title="Add New User"
+        Title="UserView"
         Width="350"
         Height="240"
         AllowsTransparency="True"

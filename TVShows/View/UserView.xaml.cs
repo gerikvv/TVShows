@@ -9,7 +9,7 @@ namespace TVShows
     /// </summary>
     public partial class UserView : Window
     {
-        public UserView(ManipulatorViewModel view_model)
+        public UserView(UserManipulatorViewModel view_model)
         {
             InitializeComponent();
             this.DataContext = view_model;

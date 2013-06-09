@@ -1,12 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Data;
 using Syncfusion.Windows.Shared;
 using TVShows.Data;
 
 namespace TVShows
 {
-    public class ManipulatorViewModel : NotificationObject
+    public class UserManipulatorViewModel : NotificationObject
     {
         #region Properties
 
@@ -68,12 +67,12 @@ namespace TVShows
 
         #region Constructor & Methods
 
-        public ManipulatorViewModel(DataRowView employee)
+        public UserManipulatorViewModel(DataRowView employee)
         {
             CloneCustomers(employee);
         }
 
-        public ManipulatorViewModel(DataRowView employee, bool is_in_edit)
+        public UserManipulatorViewModel(DataRowView employee, bool is_in_edit)
         {
             SaveCommand = new DelegateCommand<Class_user>(Save);
             SaveButtonContent = is_in_edit ? "Save" : "Add";

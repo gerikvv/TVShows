@@ -61,6 +61,8 @@ namespace TVShows
             selected_tv.Row["Time"] = tv.Time;
             selected_tv.Row["Overall_rating"] = tv.Overall_rating;
             selected_tv.Row["Name_image"] = tv.Name_image;
+
+            tv.Update(Class_tvshow.Dtable);
         }
 
         public void DeleteTVHandler(DataRowView tv)

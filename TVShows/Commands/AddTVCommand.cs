@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Windows;
 using TVShows.Data;
 
 namespace TVShows
@@ -10,23 +7,23 @@ namespace TVShows
 
     public class TVAddBehavior : CommandBehaviour<Class_tvshow>
     {
-        //public UserAddBehavior()
-        //    : base((s, e) =>
-        //    {
-        //        var viewModel = new ManipulatorViewModel(null, false);
-        //        var addView = new ManipulatorView(viewModel)
-        //        {
-        //            Owner = Application.Current.MainWindow,
-        //            TbId = { IsEnabled = false }
-        //        };
+        public TVAddBehavior()
+            : base((s, e) =>
+            {
+                var viewModel = new TVShowManipulatorViewModel(null, false);
+                var addView = new TVShowView(viewModel)
+                {
+                    Owner = Application.Current.MainWindow,
+                    TbId = { IsEnabled = false }
+                };
 
-        //        if ((bool)addView.ShowDialog())
-        //        {
-        //            return viewModel.User;
-        //        }
-        //        return null;
-        //    })
-        //{ }
+                if ((bool)addView.ShowDialog())
+                {
+                    return viewModel.TV;
+                }
+                return null;
+            })
+        { }
     }
 
     public class TVAddCommand : Command<Class_tvshow, TVAddBehavior>

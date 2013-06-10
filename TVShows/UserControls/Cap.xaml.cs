@@ -52,7 +52,7 @@ namespace TVShows
 
         private void Tv_shows_click(object sender, RoutedEventArgs e)
         {
-            var control = new TVShowsViewControl();
+            var control = TVShowsViewControl.Instance();
             Navigation(control);
         }
 

@@ -23,8 +23,9 @@ namespace TVShows
 
             var tvControl = new TVShowControl();
             tvControl.Random_tv();
+            RandomTVShow.Content = tvControl;
 
-            var control = new TVShowsViewControl();
+            var control = TVShowsViewControl.Instance();
             RandomTVShow.Content = control;
         }
 

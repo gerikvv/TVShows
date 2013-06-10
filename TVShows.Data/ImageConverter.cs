@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
 
 namespace TVShows.Data
 {
@@ -18,21 +17,20 @@ namespace TVShows.Data
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value is Class_tvshow)
-            {
-                var record = (Class_tvshow)value;
-                if (string.IsNullOrEmpty(record.Link_image))
-                    return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg", UriKind.Relative));
-                return new BitmapImage(new Uri(record.Link_image, UriKind.Relative));
-            }
-            else
-            {
-                string imagename = value as string;
-                if (string.IsNullOrEmpty(imagename))
-                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg";
+            string imagename = value as string;
 
-                return AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + imagename;
+            if ((string) parameter == "Images")
+            {
+                if (string.IsNullOrEmpty(imagename))
+                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"Images\NotAvailable.jpg";
+
+                return AppDomain.CurrentDomain.BaseDirectory + @"Images\" + imagename;
             }
+
+            if (string.IsNullOrEmpty(imagename))
+                imagename = AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg";
+
+            return AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + imagename;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

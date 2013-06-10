@@ -80,7 +80,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Behavior\RowBehavior.cs" />
+    <Compile Include="Behavior\TableBehavior.cs" />
     <Compile Include="Commands\AddTVCommand.cs" />
     <Compile Include="Commands\AddUserCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />

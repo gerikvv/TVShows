@@ -101,6 +101,9 @@
       <DependentUpon>FavoritesControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControls\TVDockPanelControl.xaml.cs">
+      <DependentUpon>TVDockPanelControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TVShowsViewControl.xaml.cs">
       <DependentUpon>TVShowsViewControl.xaml</DependentUpon>
     </Compile>
@@ -239,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\FavoritesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TVDockPanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

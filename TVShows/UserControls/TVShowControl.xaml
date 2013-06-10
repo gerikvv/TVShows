@@ -6,7 +6,8 @@
 	mc:Ignorable="d"
 	x:Class="TVShows.TVShowControl"
 	x:Name="UserControl"
-	d:DesignWidth="570" d:DesignHeight="398">
+	d:DesignWidth="570" d:DesignHeight="398"
+    xmlns:TVShows="clr-namespace:TVShows">
 
 	<Grid x:Name="LayoutRoot">
 		<Grid x:Name="Top_grid_Copy" Width="570" HorizontalAlignment="Center" VerticalAlignment="Stretch">
@@ -18,66 +19,11 @@
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
 			<TextBlock FontFamily="Britannic Bold" FontSize="37.333" FontStyle="Normal" Foreground="White" Height="82" x:Name="TbTitle" OpacityMask="{x:Null}" Text="Случайный фильм" TextAlignment="Center" Opacity="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="0,17,0,0" Grid.ColumnSpan="2"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" RenderingBias="Quality" ShadowDepth="3" Opacity="0.7" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
-			<DockPanel x:Name="DpOverall" Margin="53,72,52,0" Grid.ColumnSpan="2">
-				<DockPanel x:Name="stackPanel1" Margin="10,15,0,10" Width="210">
-					<DockPanel.Background>
-						<SolidColorBrush Color="White" Opacity="0.4" />
-					</DockPanel.Background>
-                    <TextBlock x:Name="TbName" Text="{Binding Path=Name}" Foreground="White" FontFamily="Cambria" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5" />
-                    <Image x:Name="Image" Stretch="Uniform" Source="{Binding Path=Link_image}" Margin="0,0,0,10" HorizontalAlignment="Center" />
-				</DockPanel>
-
-				<ScrollViewer FocusVisualStyle="{StaticResource FocusVisual}" VerticalAlignment="Stretch" 
-                              VerticalContentAlignment="Stretch" Margin="0,15,10,10" DockPanel.Dock="Right" 
-                              HorizontalAlignment="Right">
-                    
-                    <ScrollViewer.Background>
-                        <SolidColorBrush Color="White" Opacity="0.8" />
-                    </ScrollViewer.Background>
-                    
-                    <StackPanel x:Name="spInfo" VerticalAlignment="Center">
-						<TextBlock x:Name="tbYear" Text="• Год" Foreground="#FFFF6600" TextAlignment="Left" Margin="10,10,10,0" FontSize="10"/>
-                        <TextBlock x:Name="tbYearValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="{Binding Path=Year}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep0" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbCountry" Text="• Страна" Foreground="#FFFF6600" TextAlignment="Left" Margin="10,0,10,0" FontSize="10"/>
-                        <TextBlock x:Name="tbCountryValue" Style="{StaticResource InfoValue}" TextDecorations="Underline" Cursor="Hand" Text="{Binding Path=Country}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep2" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbSlogan" Text="• Слоган" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbSloganValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Slogan}" Foreground="#555555" TextDecorations=""/>
-						<TextBlock x:Name="tbSep3" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbDirector" Text="• Режиссер" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbDirectorValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Director}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep4" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbScriptWriter" Text="• Сценарий" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbScriptWriterValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Script_writer}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep5" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbProducer" Text="• Продюсер" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbProducerValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Producer}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep6" Style="{StaticResource LineSeparator}" />
-                    
-						<TextBlock x:Name="tbBudget" Text="• Бюджет" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbBudgetValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Budget_string}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep7" Style="{StaticResource LineSeparator}" />
-                    
-						<TextBlock x:Name="tbGlobalCharges" Text="• Сборы в мире" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbGlobalChargesValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Path=Global_charges_string}" Foreground="#005"/>
-						<TextBlock x:Name="tbSep8" Style="{StaticResource LineSeparator}" />
-
-						<TextBlock x:Name="tbTime" Text="• Время" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbTimeValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Time_string}" Foreground="#005" TextDecorations=""/>
-						<TextBlock x:Name="tbSep9" Style="{StaticResource LineSeparator}" />
-                    
-						<TextBlock x:Name="tbRating" Text="• Рейтинг" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                        <TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Path=Overall_rating}" Foreground="#FFA0A0A0" TextDecorations=""/>
-						<TextBlock x:Name="tbSep10" Style="{StaticResource LineSeparator}" />
-					</StackPanel>
-				</ScrollViewer>
-			</DockPanel>
+            
+            <DockPanel x:Name="DpOverall" Margin="53,72,52,0" Grid.ColumnSpan="2">
+                <TVShows:TVDockPanelControl x:Name="TVDockPanelControl"/>
+            </DockPanel>
+            
 			<DockPanel HorizontalAlignment="Left" x:Name="dockPanel1" Width="55">
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>

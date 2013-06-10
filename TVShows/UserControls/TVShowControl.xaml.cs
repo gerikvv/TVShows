@@ -21,9 +21,9 @@ namespace TVShows
             float rating;
             float.TryParse(tvshow.Overall_rating.Replace('.', ','), out rating);
             if (rating >= 7)
-                tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 55, 0xA3, 32));
+                TVDockPanelControl.tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 55, 0xA3, 32));
             if (rating >= 5 && rating < 7)
-                tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 00, 00, 0xFF));
+                TVDockPanelControl.tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 00, 00, 0xFF));
         }
 
         private void Random_click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace TVShows
 
             var tvshow = Class_tvshow.Items[i];
 
-            if (tvshow.Name == TbName.Text)
+            if (tvshow.Name == TVDockPanelControl.TbName.Text)
                 tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
 
             Color_rating(tvshow);

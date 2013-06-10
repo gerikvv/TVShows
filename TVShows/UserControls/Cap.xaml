@@ -8,6 +8,16 @@
 	x:Class="TVShows.Cap"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="130">
+    
+    <UserControl.Resources>
+        <PathGeometry x:Key="path">
+            <PathFigure IsClosed="True">
+                <ArcSegment Point="1,0" 
+            Size="10,5" 
+            IsLargeArc="True"/>
+            </PathFigure>
+        </PathGeometry>
+    </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" Margin="55,0">
         <Grid HorizontalAlignment="Stretch" x:Name="Top_grid" Margin="0,0,0,10" VerticalAlignment="Stretch">
@@ -23,59 +33,68 @@
 						<TranslateTransform/>
 					</TransformGroup>
 				</TextBlock.RenderTransform><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
-            <ed:RegularPolygon Fill="#FFF4F4F5" HorizontalAlignment="Right" InnerRadius="0.5" Margin="0,-22,-23,0" Stretch="Fill" Width="50.547" RenderTransformOrigin="0.5,0.5" PointCount="5" VerticalAlignment="Top" StrokeThickness="1" Height="48">
+            <ed:RegularPolygon x:Name="Star" Fill="#FFF4F4F5" HorizontalAlignment="Right" InnerRadius="0.5" Margin="0,-22,-23,0" Stretch="Fill" Width="50.547" RenderTransformOrigin="0.5,0.5" PointCount="5" VerticalAlignment="Top" StrokeThickness="1" Height="48">
 
                 <ed:RegularPolygon.Triggers>
                     <EventTrigger RoutedEvent ="ed:RegularPolygon.Loaded">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation
-                                    Storyboard.TargetName="effect"
-                                    Storyboard.TargetProperty="BlurRadius"
-                                    From="0" To="30" Duration="0:0:0.6"
-                                    RepeatBehavior="Forever">
-                                </DoubleAnimation>
-                                <DoubleAnimation
+                                <DoubleAnimationUsingPath 
+                                    Storyboard.TargetName="transform"
+                                    Storyboard.TargetProperty="X"
+                                    PathGeometry="{StaticResource path}"
+                                    RepeatBehavior="Forever"
+                                    Source="X" Duration="0:0:4"/>
+                                <DoubleAnimationUsingPath 
+                                    Storyboard.TargetName="transform"
+                                    Storyboard.TargetProperty="Y"
+                                    RepeatBehavior="Forever"
+                                    PathGeometry="{StaticResource path}"
+                                    Source="Y" Duration="0:0:5"/>
+
+                                <DoubleAnimationUsingKeyFrames
                                     Storyboard.TargetName="effect"
                                     Storyboard.TargetProperty="ShadowDepth"
-                                    From="0" To="6" Duration="0:0:0.6"
                                     RepeatBehavior="Forever">
-                                </DoubleAnimation>
-                                
-                                <DoubleAnimationUsingKeyFrames
+                                    <EasingDoubleKeyFrame
+                                        KeyTime="0:0:0"
+                                        Value="1"/>
+                                    <EasingDoubleKeyFrame
+                                        KeyTime="0:0:0.6"
+                                        Value="9"/>
+                                    <EasingDoubleKeyFrame
+                                        KeyTime="0:0:1.2"
+                                        Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                                    <DoubleAnimationUsingKeyFrames
                                     Storyboard.TargetName="effect"
                                     Storyboard.TargetProperty="Direction"
                                     RepeatBehavior="Forever">
                                     <EasingDoubleKeyFrame
                                         KeyTime="0:0:0"
-                                        Value="0"/>
+                                        Value="60"/>
                                     <EasingDoubleKeyFrame
-                                        KeyTime="0:0:1"
+                                        KeyTime="0:0:0.5"
                                         Value="90"/>
                                     <EasingDoubleKeyFrame
-                                        KeyTime="0:0:2"
-                                        Value="180"/>
-                                    <EasingDoubleKeyFrame
-                                        KeyTime="0:0:3"
-                                        Value="270"/>
-                                    <EasingDoubleKeyFrame
-                                        KeyTime="0:0:4"
-                                        Value="0"/>
+                                        KeyTime="0:0:1"
+                                        Value="60"/>
                                 </DoubleAnimationUsingKeyFrames>
                                 
                                 <ColorAnimationUsingKeyFrames 
-                                    Storyboard.TargetName="effect"
+                                    Storyboard.TargetName="ColorWhite"
                                     Storyboard.TargetProperty="Color"
                                     RepeatBehavior="Forever">
+                                    <LinearColorKeyFrame 
+                                        KeyTime="0:0:0" 
+                                        Value="#FFCE512C"/>
                                     <LinearColorKeyFrame 
                                         KeyTime="0:0:1" 
                                         Value="White"/>
                                     <LinearColorKeyFrame 
                                         KeyTime="0:0:2" 
                                         Value="#FFCE512C"/>
-                                    <LinearColorKeyFrame 
-                                        KeyTime="0:0:3" 
-                                        Value="White"/>
                                 </ColorAnimationUsingKeyFrames>
                             </Storyboard>
                         </BeginStoryboard>
@@ -83,7 +102,7 @@
                 </ed:RegularPolygon.Triggers>
                 
                 <ed:RegularPolygon.Effect >
-					<DropShadowEffect x:Name="effect" Color="#FFCE512C" BlurRadius="19" ShadowDepth="0" Direction="100"/>
+					<DropShadowEffect x:Name="effect" Color="White" BlurRadius="19" ShadowDepth="0" Direction="100"/>
 				</ed:RegularPolygon.Effect>
                 
 				<ed:RegularPolygon.RenderTransform>
@@ -91,8 +110,8 @@
 						<ScaleTransform />
 						<SkewTransform />
 						<RotateTransform Angle="41.325" />
-						<TranslateTransform />
-					</TransformGroup>
+                        <TranslateTransform x:Name="transform" X="-10" Y="-5"/>
+                    </TransformGroup>
 				</ed:RegularPolygon.RenderTransform>
                 
 				<ed:RegularPolygon.Stroke>

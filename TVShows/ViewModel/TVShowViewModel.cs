@@ -63,6 +63,8 @@ namespace TVShows
             selected_tv.Row["Name_image"] = tv.Name_image;
 
             tv.Update(Class_tvshow.Dtable);
+            Class_tvshow.Items.Clear();
+            Class_tvshow.Init_tv_show();
         }
 
         public void DeleteTVHandler(DataRowView tv)

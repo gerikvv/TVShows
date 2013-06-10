@@ -10,7 +10,7 @@
     xmlns:I="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:local="clr-namespace:TVShows" 
-    xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data">
+    xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data" xmlns:Globalization="clr-namespace:System.Globalization;assembly=mscorlib">
 
     <UserControl.DataContext>
         <local:TVShowViewModel />
@@ -96,12 +96,16 @@
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Year   " MappingName="Year" Width="50" DataType="Int32">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Year   " MappingName="Year" Width="50">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="syncfusion:IntegerTextBox"/>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="IntegerEdit">
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo MaxValue="2030" MinValue="0" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
@@ -129,12 +133,28 @@
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Budget   " MappingName="Budget" Width="110" DataType="Int32">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Budget   " MappingName="Budget" Width="110">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" Format="$### ### ### ###" />
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType = "CurrencyEdit">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            CurrencyPositivePattern="0" 
+                                            CurrencyNegativePattern="0"
+                                            CurrencySymbol="$"
+                                            CurrencyDecimalSeparator="," 
+                                            CurrencyGroupSeparator=" "
+                                            CurrencyDecimalDigits="0" />
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+                                    
+                                    <syncfusion:GridDataColumnStyle.CurrencyEdit>
+                                        <syncfusion:GridCurrencyEditStyleInfo MaxValue="2000000000" MinValue="0"/>
+                                    </syncfusion:GridDataColumnStyle.CurrencyEdit>
+                                    
+                                </syncfusion:GridDataColumnStyle>
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
@@ -142,8 +162,24 @@
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" Format="$### ### ### ###" />
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType = "CurrencyEdit">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            CurrencyPositivePattern="0" 
+                                            CurrencyNegativePattern="0"
+                                            CurrencySymbol="$"
+                                            CurrencyDecimalSeparator="," 
+                                            CurrencyGroupSeparator=" "
+                                            CurrencyDecimalDigits="0" />
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+
+                                    <syncfusion:GridDataColumnStyle.CurrencyEdit>
+                                        <syncfusion:GridCurrencyEditStyleInfo MaxValue="2000000000" MinValue="0"/>
+                                    </syncfusion:GridDataColumnStyle.CurrencyEdit>
+
+                                </syncfusion:GridDataColumnStyle>
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
@@ -160,10 +196,11 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" IsReadOnly="True" Width="100">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100" IsReadOnly="True">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
+
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>

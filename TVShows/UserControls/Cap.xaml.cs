@@ -23,7 +23,7 @@ namespace TVShows
         private void Home_click(object sender, RoutedEventArgs e)
         {
             var control = new TVShowControl();
-            control.Random_tv();
+            control.Random_tv(false);
             control.TbTitle.Text = "Случайный фильм";
 
             control.ArrowLeft.Visibility = Visibility.Visible;
@@ -91,7 +91,7 @@ namespace TVShows
             mainWindow.Log_out();
 
             var control = new TVShowControl();
-            control.Random_tv();
+            control.Random_tv(false);
             Navigation(control);
         }
 

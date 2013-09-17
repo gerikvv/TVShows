@@ -9,8 +9,9 @@
 	d:DesignWidth="570" d:DesignHeight="398"
     xmlns:TVShows="clr-namespace:TVShows">
 
-	<Grid x:Name="LayoutRoot">
-		<Grid x:Name="Top_grid_Copy" Width="570" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot">
+        
+        <Grid x:Name="Top_grid_Copy" Width="570" HorizontalAlignment="Center" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="147*" />
                 <ColumnDefinition Width="423*" />

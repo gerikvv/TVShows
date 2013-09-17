@@ -3,21 +3,244 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data" mc:Ignorable="d"
-    
-	x:Class="TVShows.FavoritesControl"
+    xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data" 
+    mc:Ignorable="d"
+    x:Class="TVShows.FavoritesControl"
 	x:Name="UserControl"
-	d:DesignWidth="570" d:DesignHeight="398">
+	d:DesignWidth="570" d:DesignHeight="398"
+    xmlns:I="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:local="clr-namespace:TVShows" 
+    xmlns:Globalization="clr-namespace:System.Globalization;assembly=mscorlib">
 
-	<Grid x:Name="LayoutRoot">
+    <UserControl.DataContext>
+        <local:TVShowViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Data:StringToImageConverter x:Key="Imageconverter" />
+
+        <DataTemplate x:Key="imageTemplate">
+            <Border>
+                <Image
+                   Height="52"
+                   HorizontalAlignment = "Stretch"
+                   VerticalAlignment="Center"
+                   Source="{Binding Path=Record.Data.Name_image,
+                       Converter={StaticResource Imageconverter}}" />
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="myTooltipTemplate" DataType="{x:Type ToolTip}">
+            <Grid Background="White">
+                <Border Margin="4" BorderBrush="#FF75CBD1" BorderThickness="1">
+                    <Image Width="270" Margin="4" Source="{Binding Path=ModelStyle.CellIdentity.Record.Name_image,
+                           Converter={StaticResource Imageconverter}, ConverterParameter=Images}" />
+
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
 		<Grid HorizontalAlignment="Left" x:Name="Top_grid_Copy" Width="570">
 			<Grid.Background>
 				<SolidColorBrush Color="Black" Opacity="0.5" />
 			</Grid.Background>
 
 			<TextBlock FontFamily="Britannic Bold" FontSize="37.333" FontStyle="Normal" Foreground="White" Height="82" Margin="0,18,0,0" x:Name="textBlock1_Copy" Opacity="1" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5" Text="Избранное" TextAlignment="Center" VerticalAlignment="Top"><TextBlock.BindingGroup><BindingGroup /></TextBlock.BindingGroup><TextBlock.Effect><DropShadowEffect BlurRadius="38" Color="#FFFF4100" Direction="0" Opacity="0.7" RenderingBias="Quality" ShadowDepth="3" /></TextBlock.Effect><TextBlock.TextEffects><TextEffect Foreground="White" /></TextBlock.TextEffects></TextBlock>
+            
             <DockPanel Margin="53,73,52,0" x:Name="dockPanel3">
+                <syncfusion:GridDataControl x:Name="grid"
+                                            AllowEdit="False"
+                                            AutoPopulateColumns="False"
+                                            AutoPopulateRelations="False"
+                                            IsSynchronizedWithCurrentItem="True"
+                                            ContextMenuOptions="Custom"
+                                            EnableContextMenu="True"
+                                            ItemsSource="{Binding TVDtable}"
+                                            SelectedItem="{Binding SelectedTV}"
+                                            NotifyPropertyChanges="True" UpdateMode="PropertyChanged"
+                                            VisualStyle="VS2010"
+                                            BorderThickness="0"
+                                            ShowAddNewRow="False"
+                                            Margin="0,10,0,30"
+                                            syncfusion:GridTooltipService.ShowTooltips="True"
+                                            HorizontalContentAlignment="Stretch">
+
+
+                    <syncfusion:GridDataControl.VisibleColumns>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Image   " MappingName="Name_image" IsReadOnly="True" Width="60">
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle CellItemTemplate="{StaticResource imageTemplate}" CellType="DataBoundTemplate" />
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Title   " MappingName="Name" Width="100" >
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Year   " MappingName="Year" Width="50">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="IntegerEdit">
+                                    <syncfusion:GridDataColumnStyle.IntegerEdit>
+                                        <syncfusion:GridIntegerEditStyleInfo MaxValue="2030" MinValue="0" />
+                                    </syncfusion:GridDataColumnStyle.IntegerEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Country   " MappingName="Country" Width="80" >
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan   " MappingName="Slogan" Width="200">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" TextWrapping="Wrap" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Script writer   " MappingName="Script_writer" Width="140">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Producer   " MappingName="Producer" Width="140">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Budget   " MappingName="Budget" Width="110">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType = "CurrencyEdit">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            CurrencyPositivePattern="0" 
+                                            CurrencyNegativePattern="0"
+                                            CurrencySymbol="$"
+                                            CurrencyDecimalSeparator="," 
+                                            CurrencyGroupSeparator=" "
+                                            CurrencyDecimalDigits="0" />
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+
+                                    <syncfusion:GridDataColumnStyle.CurrencyEdit>
+                                        <syncfusion:GridCurrencyEditStyleInfo MaxValue="2000000000" MinValue="0"/>
+                                    </syncfusion:GridDataColumnStyle.CurrencyEdit>
+
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Global charges   " MappingName="Global_charges" Width="110" DataType="Int32">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType = "CurrencyEdit">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            CurrencyPositivePattern="0" 
+                                            CurrencyNegativePattern="0"
+                                            CurrencySymbol="$"
+                                            CurrencyDecimalSeparator="," 
+                                            CurrencyGroupSeparator=" "
+                                            CurrencyDecimalDigits="0" />
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+
+                                    <syncfusion:GridDataColumnStyle.CurrencyEdit>
+                                        <syncfusion:GridCurrencyEditStyleInfo MaxValue="2000000000" MinValue="0"/>
+                                    </syncfusion:GridDataColumnStyle.CurrencyEdit>
+
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" Width="50">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="DateTimeEdit">
+                                    <syncfusion:GridDataColumnStyle.DateTimeEdit>
+                                        <syncfusion:GridDateTimeEditStyleInfo DateTimePattern="ShortTime" IsButtonPopUpEnabled="False" IsVisibleRepeatButton="False"/>
+                                    </syncfusion:GridDataColumnStyle.DateTimeEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+
+                            <syncfusion:GridDataVisibleColumn.ColumnStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="DoubleEdit" Format="#,###">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            NumberDecimalDigits="3"
+                                            NumberDecimalSeparator=","/>
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo MinValue="0" MaxValue="10" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                </syncfusion:GridDataColumnStyle>
+                            </syncfusion:GridDataVisibleColumn.ColumnStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                    </syncfusion:GridDataControl.VisibleColumns>
+
+                    <syncfusion:GridDataControl.RecordContextMenuItems>
+                        <local:MenuCollection>
+                            <MenuItem Header="Add" 
+                                local:TVAddCommand.Command="{Binding AddTV}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Add.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Edit"
+                                local:TVEditCommand.Command="{Binding EditTV}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Edit.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Delete"
+                                  local:TVDeleteCommand.Command="{Binding DeleteTV}"
+                                  local:TVDeleteCommand.CommandParameter="{Binding SelectedTV, Mode=TwoWay}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Resources/Images/Delete.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </local:MenuCollection>
+                    </syncfusion:GridDataControl.RecordContextMenuItems>
+
+                    <I:Interaction.Behaviors>
+                        <local:TableBehavior />
+                    </I:Interaction.Behaviors>
+
+                </syncfusion:GridDataControl>
             </DockPanel>
+            
 			<DockPanel Background="Black" HorizontalAlignment="Left" x:Name="dockPanel1" Opacity="0.3" Width="55" />
 			<DockPanel Background="Black" HorizontalAlignment="Right" x:Name="dockPanel2" Opacity="0.3" Width="55" />
 		</Grid>

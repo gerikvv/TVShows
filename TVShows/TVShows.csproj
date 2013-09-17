@@ -89,6 +89,7 @@
     <Compile Include="Commands\EditTVCommand.cs" />
     <Compile Include="Commands\EditUserCommand.cs" />
     <Compile Include="Model\MenuItemModel.cs" />
+    <Compile Include="Resources\CenterConverter.cs" />
     <Compile Include="UserControls\AddMemberTeamControl.xaml.cs">
       <DependentUpon>AddMemberTeamControl.xaml</DependentUpon>
       <SubType>Code</SubType>

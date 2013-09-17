@@ -27,10 +27,11 @@ namespace TVShows
 
         private void Random_click(object sender, RoutedEventArgs e)
         {
-            Random_tv();
+            var tvDockPanelControl = new TVDockPanelControl { DataContext = Random_tv(true) };
+            this.TVDockPanelControl.Show_page(tvDockPanelControl);
         }
 
-        public void Random_tv()
+        public Class_tvshow Random_tv(bool is_random_click)
         {
             var rand = new Random();
             var i = rand.Next(0, Class_tvshow.Items.Count);
@@ -41,7 +42,10 @@ namespace TVShows
                 tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
 
             Color_rating(tvshow);
+
+            if (is_random_click) return tvshow;
             DataContext = tvshow;
+            return null;
         }
 	}
 }

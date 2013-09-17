@@ -19,8 +19,8 @@ namespace TVShows
                 var editView = new TVShowView(new TVShowManipulatorViewModel(vm.SelectedTV, true)) 
                 { Owner = Application.Current.MainWindow };
 
-                //var control = UsersViewControl.Instance();
-                //control.grid.Model.CurrencyManager.ConfirmChanges();
+                var control = TVShowsViewControl.Instance();
+                control.grid.Model.CurrencyManager.ConfirmChanges();
 
                 if ((bool)editView.ShowDialog())
                 {

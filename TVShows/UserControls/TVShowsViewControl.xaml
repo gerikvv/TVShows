@@ -183,26 +183,36 @@
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" IsReadOnly="True" Width="50">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Time   " MappingName="Time" Width="50">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="DateTimeEdit">
                                     <syncfusion:GridDataColumnStyle.DateTimeEdit>
-                                        <syncfusion:GridDateTimeEditStyleInfo DateTimePattern="ShortTime" />
+                                        <syncfusion:GridDateTimeEditStyleInfo DateTimePattern="ShortTime" IsButtonPopUpEnabled="False" IsVisibleRepeatButton="False"/>
                                     </syncfusion:GridDataColumnStyle.DateTimeEdit>
                                 </syncfusion:GridDataColumnStyle>
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100" IsReadOnly="True">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Overall rating   " MappingName="Overall_rating" Width="100">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
 
                             <syncfusion:GridDataVisibleColumn.ColumnStyle>
-                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="TextBox" />
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" CellType="DoubleEdit" Format="#,###">
+                                    <syncfusion:GridDataColumnStyle.NumberFormat>
+                                        <Globalization:NumberFormatInfo 
+                                            NumberDecimalDigits="3"
+                                            NumberDecimalSeparator=","/>
+                                    </syncfusion:GridDataColumnStyle.NumberFormat>
+                                    
+                                    <syncfusion:GridDataColumnStyle.DoubleEdit>
+                                        <syncfusion:GridDoubleEditStyleInfo MinValue="0" MaxValue="10" />
+                                    </syncfusion:GridDataColumnStyle.DoubleEdit>
+                                </syncfusion:GridDataColumnStyle>
                             </syncfusion:GridDataVisibleColumn.ColumnStyle>
                         </syncfusion:GridDataVisibleColumn>
 

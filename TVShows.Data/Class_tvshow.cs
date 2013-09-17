@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace TVShows.Data
 {
@@ -6,19 +7,122 @@ namespace TVShows.Data
     {
         public static string Dtable = "TVShows";
 
-        public int Year { get; set; }
-        public string Country { get; set; }
-        public string Slogan { get; set; }
-        public string Script_writer { get; set; }
-        public string Producer { get; set; }
-        public int Budget { get; set; }
+        private int year;
+        public int Year 
+        {
+            get { return year; }
+            set
+            {
+                year = value;
+                RaisePropertyChanged("Year");
+            } 
+        }
+
+        private string country;
+        public string Country
+        {
+            get { return country; }
+            set
+            {
+                country = value;
+                RaisePropertyChanged("Country");
+            }
+        }
+
+        private string slogan;
+        public string Slogan
+        {
+            get { return slogan; } 
+            set
+            {
+                slogan = value;
+                RaisePropertyChanged("Slogan");
+            }
+        }
+
+        private string script_writer;
+        public string Script_writer
+        {
+            get { return script_writer; }
+            set
+            {
+                script_writer = value;
+                RaisePropertyChanged("Script_writer");
+            }
+        }
+
+        private string producer;
+        public string Producer
+        {
+            get { return producer; }
+            set
+            {
+                producer = value;
+                RaisePropertyChanged("Producer");
+            }
+        }
+
+        private int budget;
+        public int Budget
+        {
+            get { return budget; }
+            set
+            {
+                budget = value;
+                RaisePropertyChanged("Budget");
+            }
+        }
+
         public string Budget_string { get; set; }
-        public int Global_charges { get; set; }
+
+        private int global_charges;
+        public int Global_charges
+        {
+            get { return global_charges; }
+            set
+            {
+                global_charges = value;
+                RaisePropertyChanged("Global_charges");
+            }
+        }
+
         public string Global_charges_string { get; set; }
-        public DateTime Time { get; set; }
-        public String Time_string { get; set; }
-        public string Overall_rating { get; set; }
-        public string Name_image { get; set; }
+
+        private DateTime time;
+        public DateTime Time
+        {
+            get { return time; }
+            set
+            {
+                time = value;
+                RaisePropertyChanged("Time");
+            }
+        }
+
+        public string Time_string { get; set; }
+
+        private double overall_rating;
+        public double Overall_rating
+        {
+            get { return overall_rating; }
+            set
+            {
+                overall_rating = value;
+                RaisePropertyChanged("Overall_rating");
+            }
+        }
+
+        private string name_image;
+        public string Name_image
+        {
+            get { return name_image; }
+            set
+            {
+                name_image = value;
+                RaisePropertyChanged("Name_image");
+            }
+        }
+
         public string Link_image { get; set; }
 
         public override object[] Objparams
@@ -45,24 +149,16 @@ namespace TVShows.Data
                 objects = value;
                 Id = (Int32)objects[0];
                 Name = (string)objects[1];
-                On_property_changed("Name");
                 Year = (int)objects[2];
-                On_property_changed("Year");
                 Country = (string)objects[3];
-                On_property_changed("Country");
                 Slogan = (string)objects[4];
-                On_property_changed("Slogan");
                 Script_writer = (string)objects[5];
-                On_property_changed("Script_writer");
                 Producer = (string)objects[6];
-                On_property_changed("Producer");
                 Budget = (int)objects[7];
                 Global_charges = (int)objects[8];
                 Time = (DateTime)objects[9];
-                Overall_rating = (string)objects[10];
-                On_property_changed("Overall_rating");
+                Overall_rating = double.Parse(objects[10].ToString());
                 Name_image = (string)objects[11];
-                On_property_changed("Name_image");
 
                 Budget_string = Budget.ToString("$### ### ### ###");
                 On_property_changed("Budget_string");
@@ -75,7 +171,7 @@ namespace TVShows.Data
         public Class_tvshow(){}
 
         public Class_tvshow(string name, int year, string country, string slogan, string script_writer,
-        string producer, int budget, int global_charges, DateTime time, string overall_rating, string link_image)
+        string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image)
         {
             Name = name;
             Year = year;
@@ -106,6 +202,15 @@ namespace TVShows.Data
             var rand = new Random();
             var i = rand.Next(0, Items.Count);
             return Items[i];
+        }
+
+        protected override void RaisePropertyChanged(string property_name)
+        {
+            base.RaisePropertyChanged(property_name);
+            if (State == ConnectionState.Closed && Name != null && Year != 0 && Country != null && Slogan != null
+                && Script_writer != null && Global_charges != 0 && Time != new DateTime(1,1,1,0,0,0) 
+                && Overall_rating != 0 && Name_image != null)
+                Update(Dtable);
         }
     }
 }

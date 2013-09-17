@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using Microsoft.Win32;
 using Syncfusion.Windows.Shared;
 using TVShows.Data;
@@ -119,12 +120,12 @@ namespace TVShows
             }
         }
 
-        public Int32 Overall_rating
+        public Double Overall_rating
         {
-            get { return Int32.Parse(TV.Overall_rating.Replace(".", "")); }
+            get { return TV.Overall_rating; }
             set
             {
-                TV.Overall_rating = value.ToString().Insert(value == 10 ? 2 : 1, ".");
+                TV.Overall_rating = value;
                 RaisePropertyChanged("Overall_rating");
             }
         }
@@ -191,7 +192,7 @@ namespace TVShows
             Global_charges = Int32.Parse(employee["Global_charges"].ToString());
             var time =  DateTime.Parse(employee["Time"].ToString());
             Time = new TimeSpan(time.Hour, time.Minute, 0);
-            Overall_rating = Int32.Parse(employee["Overall_rating"].ToString().Replace(".", ""));
+            Overall_rating = Double.Parse(employee["Overall_rating"].ToString());
             Name_image = employee["Name_image"].ToString();
         }
 

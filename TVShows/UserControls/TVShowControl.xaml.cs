@@ -18,8 +18,7 @@ namespace TVShows
         
         public void Color_rating(Class_tvshow tvshow)
         {
-            float rating;
-            float.TryParse(tvshow.Overall_rating.Replace('.', ','), out rating);
+            var rating = tvshow.Overall_rating;
             if (rating >= 7)
                 TVDockPanelControl.tbRatingValue.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 55, 0xA3, 32));
             if (rating >= 5 && rating < 7)

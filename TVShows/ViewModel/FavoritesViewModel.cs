@@ -9,9 +9,66 @@ namespace TVShows
 {
     public class FavoritesViewModel : TVShowViewModel
     {
+        #region Constructor
+
+        public FavoritesViewModel()
+        {
+            TVDtable = this.Get_tvshows();
+            _deleteFavoritesMan = new DelegateCommand<DataRowView>(DeleteFavoritesManHandler);
+        }
+        #endregion
+
+        #region Command Handler
+
+        public void DeleteFavoritesManHandler(DataRowView favorites_man)
+        {
+            if (favorites_man == null)
+                return;
+
+            foreach (var classFavoritesMan in Class_favorites_and_man.Items)
+                if (classFavoritesMan.Tvshow.Name == (string)favorites_man.Row["Name"] &&
+                    classFavoritesMan.Tvshow.Year == (int)favorites_man.Row["Year"])
+                    classFavoritesMan.Delete(Class_favorites_and_man.Dtable, classFavoritesMan.Id);
+
+            TVDtable.Rows.Remove(favorites_man.Row);
+        }
+
+        #endregion
+
+        private readonly DelegateCommand<DataRowView> _deleteFavoritesMan;
+        
+        public DelegateCommand<DataRowView> DeleteFavoritesMan
+        {
+            get { return _deleteFavoritesMan; }
+        }
+
+        #region Properties
+
+        private DataTable tvDtable;
+
+        public DataTable TVDtable
+        {
+            get { return tvDtable; }
+            set { tvDtable = value; }
+        }
+
+        private DataRowView selected_favorites_man;
+
+        public DataRowView SelectedFavoritesMan
+        {
+            get { return selected_favorites_man; }
+            set
+            {
+                selected_favorites_man = value;
+                RaisePropertyChanged("SelectedFavoritesMan");
+            }
+        }
+
+        #endregion
+
         #region Methods
 
-        public override DataTable Get_tvshows()
+        public override sealed DataTable Get_tvshows()
         {
             var ds = new DataTable();
             ds.Columns.Add("Id", typeof(int));

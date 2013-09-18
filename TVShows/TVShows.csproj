@@ -84,6 +84,7 @@
     <Compile Include="Commands\AddTVCommand.cs" />
     <Compile Include="Commands\AddUserCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\DeleteFavorManCommand.cs" />
     <Compile Include="Commands\DeleteTVCommand.cs" />
     <Compile Include="Commands\DeleteUserCommand.cs" />
     <Compile Include="Commands\EditTVCommand.cs" />

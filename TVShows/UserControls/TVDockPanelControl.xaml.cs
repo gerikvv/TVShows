@@ -90,7 +90,7 @@ namespace TVShows
         private void Favorites_click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
-            new Class_favorites_and_man(mainWindow.Man, (Class_tvshow)DataContext);
+            Class_favorites_and_man.Items.Add(new Class_favorites_and_man(mainWindow.Man, (Class_tvshow)DataContext));
         }
     }
 }

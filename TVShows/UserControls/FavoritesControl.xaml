@@ -60,7 +60,7 @@
                                             ContextMenuOptions="Custom"
                                             EnableContextMenu="True"
                                             ItemsSource="{Binding TVDtable}"
-                                            SelectedItem="{Binding SelectedTV}"
+                                            SelectedItem="{Binding SelectedFavoritesMan}"
                                             NotifyPropertyChanges="True" UpdateMode="PropertyChanged"
                                             VisualStyle="VS2010"
                                             BorderThickness="0"
@@ -212,21 +212,9 @@
 
                     <syncfusion:GridDataControl.RecordContextMenuItems>
                         <local:MenuCollection>
-                            <MenuItem Header="Add" 
-                                local:TVAddCommand.Command="{Binding AddTV}">
-                                <MenuItem.Icon>
-                                    <Image Source="/Resources/Images/Add.png" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="Edit"
-                                local:TVEditCommand.Command="{Binding EditTV}">
-                                <MenuItem.Icon>
-                                    <Image Source="/Resources/Images/Edit.png" />
-                                </MenuItem.Icon>
-                            </MenuItem>
                             <MenuItem Header="Delete"
-                                  local:TVDeleteCommand.Command="{Binding DeleteTV}"
-                                  local:TVDeleteCommand.CommandParameter="{Binding SelectedTV, Mode=TwoWay}">
+                                  local:DeleteFavorManCommand.Command="{Binding DeleteFavoritesMan}"
+                                  local:DeleteFavorManCommand.CommandParameter="{Binding SelectedFavoritesMan, Mode=TwoWay}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Delete.png" />
                                 </MenuItem.Icon>

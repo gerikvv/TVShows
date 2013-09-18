@@ -14,7 +14,7 @@
     xmlns:Globalization="clr-namespace:System.Globalization;assembly=mscorlib">
 
     <UserControl.DataContext>
-        <local:TVShowViewModel />
+        <local:FavoritesViewModel />
     </UserControl.DataContext>
 
     <UserControl.Resources>

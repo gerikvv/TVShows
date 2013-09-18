@@ -20,6 +20,7 @@ namespace TVShows
             Class_tvshow.Init_tv_show();
             Class_user.Init_user();
             Class_administrator.Init_administrator();
+            Class_favorites_and_man.Init_favorites_and_man();
 
             var tvControl = new TVShowControl();
             tvControl.Random_tv(false);

@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="ViewModel\TVShowManipulatorViewModel.cs" />
     <Compile Include="ViewModel\TVShowViewModel.cs" />
+    <Compile Include="ViewModel\FavoritesViewModel.cs" />
     <Compile Include="View\TVShowView.xaml.cs">
       <DependentUpon>TVShowView.xaml</DependentUpon>
     </Compile>

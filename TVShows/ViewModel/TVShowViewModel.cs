@@ -126,7 +126,7 @@ namespace TVShows
 
         #region Methods
 
-        public DataTable Get_tvshows()
+        public virtual DataTable Get_tvshows()
         {
             var ds = new DataTable();
             ds.Columns.Add("Id", typeof(int));

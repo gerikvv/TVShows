@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace TVShows.Data
 {
@@ -45,6 +46,15 @@ namespace TVShows.Data
             Man = user;
             Tvshow = tvshow;
             Save(Dtable);
+        }
+
+        public Class_favorites_and_man(){}
+
+        public static ObservableCollection<Class_favorites_and_man> Init_favorites_and_man()
+        {
+            var favoritesAndMan = new Class_favorites_and_man();
+            Items = favoritesAndMan.Get(Dtable);
+            return Items;
         }
     }
 }

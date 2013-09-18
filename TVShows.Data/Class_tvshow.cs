@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace TVShows.Data
 {
@@ -211,6 +213,11 @@ namespace TVShows.Data
                 && Script_writer != null && Global_charges != 0 && Time != new DateTime(1,1,1,0,0,0) 
                 && Overall_rating != 0 && Name_image != null)
                 Update(Dtable);
+        }
+
+        public static Class_tvshow Get_tv (int id)
+        {
+            return Items.FirstOrDefault(tv => tv.Id == id);
         }
     }
 }

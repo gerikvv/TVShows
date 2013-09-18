@@ -28,6 +28,9 @@ namespace TVShows
 
             control.ArrowLeft.Visibility = Visibility.Visible;
             control.ArrowRigth.Visibility = Visibility.Visible;
+
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
             Navigation(control);
         }
 

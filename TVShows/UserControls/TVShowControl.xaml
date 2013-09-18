@@ -3,11 +3,12 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:TVShows="clr-namespace:TVShows" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
 	mc:Ignorable="d"
 	x:Class="TVShows.TVShowControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398"
-    xmlns:TVShows="clr-namespace:TVShows">
+    >
 
     <Grid x:Name="LayoutRoot">
         
@@ -29,13 +30,13 @@
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>
                 </DockPanel.Background>
-                <Button Style="{StaticResource ArrowLeftButton}" Name="ArrowLeft" Click="Random_click" Focusable="False" />
+                <Button Style="{StaticResource ArrowLeftButton}" x:Name="ArrowLeft" Click="Random_click" Focusable="False" />
             </DockPanel>
             <DockPanel HorizontalAlignment="Right" x:Name="dockPanel2" Width="55" Grid.Column="1">
                 <DockPanel.Background>
                     <SolidColorBrush Color="Black"  Opacity="0.3"/>
                 </DockPanel.Background>
-                <Button Style="{StaticResource ArrowRigthButton}" Name="ArrowRigth" Click="Random_click" Focusable="False" />
+                <Button Style="{StaticResource ArrowRigthButton}" x:Name="ArrowRigth" Click="Random_click" Focusable="False" />
             </DockPanel>
         </Grid>
 	</Grid>

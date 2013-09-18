@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using TVShows.Data;
 
 namespace TVShows
 {
@@ -84,6 +85,12 @@ namespace TVShows
             contentPresenter.Content = null;
 
             Show_next_page();
+        }
+
+        private void Favorites_click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            new Class_favorites_and_man(mainWindow.Man, (Class_tvshow)DataContext);
         }
     }
 }

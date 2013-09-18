@@ -42,6 +42,9 @@ namespace TVShows
             Color_rating(tvshow, tvDockPanelControl);
             DataContext = tvshow;
 
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
+
             this.TVDockPanelControl.Show_page(tvDockPanelControl);
         }
 

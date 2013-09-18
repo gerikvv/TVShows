@@ -82,7 +82,7 @@ namespace TVShows
         private static void Navigation(UserControl control)
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.RandomTVShow.Content = control;
+            mainWindow.TVShowControl.Content = control;
         }
 
         private void Btn_logout_click(object sender, RoutedEventArgs e)

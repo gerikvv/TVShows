@@ -23,8 +23,7 @@ namespace TVShows
 
             var tvControl = new TVShowControl();
             tvControl.Random_tv(false);
-            RandomTVShow.Content = tvControl;
-
+            TVShowControl.Content = tvControl;
             //var control = TVShowsViewControl.Instance();
             //RandomTVShow.Content = control;
         }
@@ -58,8 +57,9 @@ namespace TVShows
                 var control = new TVShowControl();
                 control.Random_tv(false);
 
-                RandomTVShow.TVDockPanelControl.Star.Visibility = Visibility.Visible;
-                RandomTVShow.Content = control;
+                control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
+
+                TVShowControl.Content = control;
             }
         }
 
@@ -72,7 +72,7 @@ namespace TVShows
             Cap.BtnTVShows.Visibility = Visibility.Collapsed;
             Cap.BtnRegistration.IsEnabled = true;
             Cap.BtnLogin.IsEnabled = true;
-            RandomTVShow.TVDockPanelControl.Star.Visibility = Visibility.Collapsed;
+            TVShowControl.TVDockPanelControl.Star.Visibility = Visibility.Collapsed;
             Cap.BtnLogout.IsEnabled = false;
 
             Man = null;

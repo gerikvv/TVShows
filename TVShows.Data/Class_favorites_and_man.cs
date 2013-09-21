@@ -31,13 +31,13 @@ namespace TVShows.Data
 
         public Class_man Man
         {
-            get { return Class_man.Items[IdMan]; }
+            get { return Class_man.Get_obj(IdMan); }
             set { IdMan = value.Id; }
         }
 
         public Class_tvshow Tvshow
         {
-            get { return Class_tvshow.Items[IdTVShow]; }
+            get { return Class_tvshow.Get_obj(IdTVShow); }
             set { IdTVShow = value.Id; }
         }
 

@@ -215,9 +215,9 @@ namespace TVShows.Data
                 Update(Dtable);
         }
 
-        public static Class_tvshow Get_tv (int id)
-        {
-            return Items.FirstOrDefault(tv => tv.Id == id);
-        }
+        //public static Class_tvshow Get_tv (int id)
+        //{
+        //    return Items.FirstOrDefault(tv => tv.Id == id);
+        //}
     }
 }

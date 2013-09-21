@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.OleDb;
 using System.ComponentModel;
+using System.Linq;
 using Syncfusion.Windows.Shared;
 
 namespace TVShows.Data
@@ -29,6 +30,11 @@ namespace TVShows.Data
                 id = value;
                 RaisePropertyChanged("Id");
             }
+        }
+
+        public static T Get_obj (int id_obj)
+        {
+            return Items.FirstOrDefault(item => item.Id == id_obj);
         }
 
         private string name;

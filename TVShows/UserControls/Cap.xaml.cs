@@ -105,12 +105,15 @@ namespace TVShows
                 if (tv.Name.ToLower() == TbSearch.Text.ToLower())
                 {
                     var control = new TVShowControl();
-                    control.Color_rating(tv);
+                    control.Color_rating(tv, control.TVDockPanelControl);
                     control.DataContext = tv;
                     control.TbTitle.Text = "Поиск";
 
                     control.ArrowLeft.Visibility = Visibility.Hidden;
                     control.ArrowRigth.Visibility = Visibility.Hidden;
+
+                    var mainWindow = (Main_window)Application.Current.MainWindow;
+                    if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
 
                     Navigation(control);
                     return;

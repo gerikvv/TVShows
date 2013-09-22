@@ -5,37 +5,7 @@
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="TVShows.TVDockPanelControl"
         x:Name="UserControl" x:FieldModifier="public">
 
-    <UserControl.Resources>
-        <local:CenterConverter x:Key="centerConverter"/>
-
-        <!-- Grow and Fade -->
-        <Storyboard x:Key="GrowAndFadeIn" >
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="0.2" To="1" Duration="0:0:.35" DecelerationRatio="1.0" />
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="0.2" To="1" Duration="0:0:.35" DecelerationRatio="1.0" />
-            <DoubleAnimation Duration="0:0:.35" Storyboard.TargetProperty="Opacity" From="0" To="1" />
-        </Storyboard>
-
-        <Storyboard x:Key="GrowAndFadeOut">
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="0.2" Duration="0:0:.30" AccelerationRatio="1.0" />
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="0.2" Duration="0:0:.30" AccelerationRatio="1.0" />
-            <DoubleAnimation Duration="0:0:.30" Storyboard.TargetProperty="Opacity" To="0" />
-        </Storyboard>
-    </UserControl.Resources>
-
     <DockPanel>
-
-        <ContentControl x:Name="contentPresenter">
-            <ContentControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1" ScaleY="1"
-									CenterX="{Binding ActualWidth, Converter={StaticResource centerConverter}, RelativeSource={RelativeSource AncestorType={x:Type DockPanel}, Mode=FindAncestor}}" 
-									CenterY="{Binding ActualHeight, Converter={StaticResource centerConverter}, RelativeSource={RelativeSource AncestorType={x:Type DockPanel}, Mode=FindAncestor}}" />
-                    <SkewTransform AngleX="0" AngleY="0" 
-								   CenterX="{Binding ActualWidth, Converter={StaticResource centerConverter}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, Mode=FindAncestor}}" 
-								   CenterY="{Binding ActualHeight, Converter={StaticResource centerConverter}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, Mode=FindAncestor}}" />
-                </TransformGroup>
-            </ContentControl.RenderTransform>
-        </ContentControl>
 
         <DockPanel x:Name="stackPanel1" Margin="10,15,0,10" Width="210">
             <DockPanel.Background>

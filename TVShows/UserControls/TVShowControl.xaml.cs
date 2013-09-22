@@ -33,7 +33,7 @@ namespace TVShows
             var mainWindow = (Main_window)Application.Current.MainWindow;
             if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
 
-            this.TVDockPanelControl.Show_page(tvDockPanelControl);
+            this.PageTransitionControl.Show_page(tvDockPanelControl);
         }
 
         public void Random_tv(TVDockPanelControl dock_panel)
@@ -43,10 +43,10 @@ namespace TVShows
 
             var tvshow = Class_tvshow.Items[i];
 
-            if (tvshow == DataContext)
+            if (PageTransitionControl.Current_page != null && tvshow == PageTransitionControl.Current_page.DataContext)
                 tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
             
-            DataContext = tvshow;
+            dock_panel.DataContext = tvshow;
             Color_rating(tvshow, dock_panel);
         }
 	}

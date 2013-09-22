@@ -23,18 +23,27 @@ namespace TVShows
         private void Home_click(object sender, RoutedEventArgs e)
         {
             var control = new TVShowControl();
-            control.Random_tv(control.TVDockPanelControl);
+
+            Show_random_tv(control);
+
             control.TbTitle.Text = "Случайный фильм";
 
             control.ArrowLeft.Visibility = Visibility.Visible;
             control.ArrowRigth.Visibility = Visibility.Visible;
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
-            if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
+            //if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
             Navigation(control);
         }
 
-        private void Registration_click(object sender, RoutedEventArgs e)
+	    public void Show_random_tv(TVShowControl control)
+	    {
+	        var tvDockPanelControl = new TVDockPanelControl();
+	        control.Random_tv(tvDockPanelControl);
+	        control.PageTransitionControl.Show_page(tvDockPanelControl);
+	    }
+
+	    private void Registration_click(object sender, RoutedEventArgs e)
         {
             var control = new RegistrationControl();
             Navigation(control);
@@ -94,7 +103,7 @@ namespace TVShows
             mainWindow.Log_out();
 
             var control = new TVShowControl();
-            control.Random_tv(control.TVDockPanelControl);
+            Show_random_tv(control);
             Navigation(control);
         }
 
@@ -105,7 +114,7 @@ namespace TVShows
                 if (tv.Name.ToLower() == TbSearch.Text.ToLower())
                 {
                     var control = new TVShowControl();
-                    control.Color_rating(tv, control.TVDockPanelControl);
+                    //control.Color_rating(tv, control.TVDockPanelControl);
                     control.DataContext = tv;
                     control.TbTitle.Text = "Поиск";
 
@@ -113,7 +122,7 @@ namespace TVShows
                     control.ArrowRigth.Visibility = Visibility.Hidden;
 
                     var mainWindow = (Main_window)Application.Current.MainWindow;
-                    if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
+                    //if (mainWindow.Man != null) control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
 
                     Navigation(control);
                     return;

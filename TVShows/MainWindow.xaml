@@ -14,7 +14,7 @@
         
         <DockPanel Name="DpHome" VerticalAlignment="Stretch" Margin="0,25" HorizontalAlignment="Center">
             <TVShows:Cap VerticalAlignment="Top" DockPanel.Dock="Top" x:Name="Cap" />
-            <TVShows:TVShowControl HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,20,0,0" />
+            <TVShows:TVShowControl HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,20,0,0" x:Name="TVShowControl"/>
         </DockPanel>
     </Grid>
 </Window>

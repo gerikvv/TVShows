@@ -22,21 +22,16 @@ namespace TVShows
 
         private void Home_click(object sender, RoutedEventArgs e)
         {
-            //var control = new TVShowControl
-            //                  {
-            //                      TbTitle = {Text = "Случайный фильм"},
-            //                      ArrowLeft = {Visibility = Visibility.Visible},
-            //                      ArrowRigth = {Visibility = Visibility.Visible}
-            //                  };
-
             var control = TVShowControl.Instance();
 
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.Cap.Show_random_tv(control);
-            if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
-            Navigation(control);
+            var tvDockPanelControl = new TVDockPanelControl();
+            control.Random_tv(tvDockPanelControl);
 
-            //control.PageTransitionControl.Show_page(tvDockPanelControl);
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
+            control.PageTransitionControl.Show_page(tvDockPanelControl);
+
+            Navigation(control);
         }
 
 	    public void Show_random_tv(TVShowControl control)
@@ -96,7 +91,8 @@ namespace TVShows
         
         private static void Navigation(UserControl control)
         {
-            TVShowControl.Instance().Content = control.Content;
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            mainWindow.TVShowControl.Content = control;
         }
 
         private void Btn_logout_click(object sender, RoutedEventArgs e)

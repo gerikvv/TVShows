@@ -63,7 +63,7 @@ namespace TVShows.UserControls
 
         void Unload_page(UserControl page)
         {
-            Storyboard hidePage = ((Storyboard)Resources[string.Format("{0}Out", "Fade")]).Clone();
+            Storyboard hidePage = ((Storyboard)Resources[string.Format("{0}Out", "GrowAndFade")]).Clone();
 
             hidePage.Completed += Hide_page_completed;
 
@@ -72,7 +72,7 @@ namespace TVShows.UserControls
 
         void New_page_loaded(object sender, RoutedEventArgs e)
         {
-            Storyboard showNewPage = Resources[string.Format("{0}In", "Fade")] as Storyboard;
+            Storyboard showNewPage = Resources[string.Format("{0}In", "GrowAndFade")] as Storyboard;
 
             showNewPage.Begin(contentPresenter);
 

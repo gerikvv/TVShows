@@ -10,15 +10,15 @@
 
         <!-- Grow and Fade -->
         <Storyboard x:Key="GrowAndFadeIn" >
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="0" To="1" Duration="0:0:.75" DecelerationRatio=".9" />
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="0" To="1" Duration="0:0:.75" DecelerationRatio=".9" />
-            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="0.2" To="1" Duration="0:0:.35" DecelerationRatio="1.0" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="0.2" To="1" Duration="0:0:.35" DecelerationRatio="1.0" />
+            <DoubleAnimation Duration="0:0:.35" Storyboard.TargetProperty="Opacity" From="0" To="1" />
         </Storyboard>
 
         <Storyboard x:Key="GrowAndFadeOut">
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="0" Duration="0:0:.75" AccelerationRatio=".9" />
-            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="0" Duration="0:0:.75" AccelerationRatio=".9" />
-            <DoubleAnimation Duration="0:0:.75" Storyboard.TargetProperty="Opacity" To="0" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="0.4" Duration="0:0:.30" AccelerationRatio="1.0" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="0.4" Duration="0:0:.30" AccelerationRatio="1.0" />
+            <DoubleAnimation Duration="0:0:.30" Storyboard.TargetProperty="Opacity" To="0" />
         </Storyboard>
 
         <!-- Fade -->

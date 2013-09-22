@@ -50,7 +50,7 @@ namespace TVShows.Data
 
         public Class_favorites_and_admin() { }
 
-        public static ObservableCollection<Class_favorites_and_admin> Init_favorites_and_man()
+        public static ObservableCollection<Class_favorites_and_admin> Init_favorites_and_admin()
         {
             var favoritesAndMan = new Class_favorites_and_admin();
             Items = favoritesAndMan.Get(Dtable);

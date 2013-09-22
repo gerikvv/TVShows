@@ -86,11 +86,23 @@ namespace TVShows
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
-            var tvshows = new List<Class_tvshow>(); 
-            foreach (var favoritesAndMan in Class_favorites_and_user.Items)
+            var tvshows = new List<Class_tvshow>();
+
+            if (mainWindow.Man.GetType() == typeof(Class_user))
             {
-                if (favoritesAndMan.IdUser == mainWindow.Man.Id)
-                    tvshows.Add(Class_tvshow.Get_obj(favoritesAndMan.IdTVShow));
+                foreach (var favoritesAndUser in Class_favorites_and_user.Items)
+                {
+                    if (favoritesAndUser.IdUser == mainWindow.Man.Id)
+                        tvshows.Add(Class_tvshow.Get_obj(favoritesAndUser.IdTVShow));
+                }
+            }
+            else
+            {
+                foreach (var favoritesAndAdmin in Class_favorites_and_admin.Items)
+                {
+                    if (favoritesAndAdmin.IdAdmin== mainWindow.Man.Id)
+                        tvshows.Add(Class_tvshow.Get_obj(favoritesAndAdmin.IdTVShow));
+                }
             }
 
             foreach (var tv in tvshows)

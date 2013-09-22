@@ -27,7 +27,7 @@ namespace TVShows
             else Class_favorites_and_admin.Items.Add
                     (new Class_favorites_and_admin((Class_administrator)mainWindow.Man, (Class_tvshow)DataContext));
 
-            tvDockPanelControl.Star.IsEnabled = false;
+            Star.IsEnabled = false;
         }
     }
 }

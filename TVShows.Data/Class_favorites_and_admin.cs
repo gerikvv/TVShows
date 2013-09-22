@@ -6,7 +6,7 @@ namespace TVShows.Data
 {
     public class Class_favorites_and_admin : Class_base<Class_favorites_and_admin>
     {
-        public static string Dtable = "Favorites_and_Users";
+        public static string Dtable = "Favorites_and_Admins";
 
         public int IdAdmin;
         public int IdTVShow;

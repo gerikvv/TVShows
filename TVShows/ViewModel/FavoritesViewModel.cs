@@ -25,10 +25,22 @@ namespace TVShows
             if (favorites_man == null)
                 return;
 
-            foreach (var classFavoritesMan in Class_favorites_and_user.Items)
-                if (classFavoritesMan.Tvshow.Name == (string)favorites_man.Row["Name"] &&
-                    classFavoritesMan.Tvshow.Year.ToString() == (string)favorites_man.Row["Year"])
-                    classFavoritesMan.Delete(Class_favorites_and_user.Dtable, classFavoritesMan.Id);
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+
+            if (mainWindow.Man.GetType() == typeof(Class_user))
+            {
+                foreach (var classFavoritesMan in Class_favorites_and_user.Items)
+                    if (classFavoritesMan.Tvshow.Name == (string) favorites_man.Row["Name"] &&
+                        classFavoritesMan.Tvshow.Year.ToString() == (string) favorites_man.Row["Year"])
+                        classFavoritesMan.Delete(Class_favorites_and_user.Dtable, classFavoritesMan.Id);
+            }
+            else
+            {
+                foreach (var classFavoritesMan in Class_favorites_and_admin.Items)
+                    if (classFavoritesMan.Tvshow.Name == (string)favorites_man.Row["Name"] &&
+                        classFavoritesMan.Tvshow.Year.ToString() == (string)favorites_man.Row["Year"])
+                        classFavoritesMan.Delete(Class_favorites_and_admin.Dtable, classFavoritesMan.Id);
+            }
 
             TVDtable.Rows.Remove(favorites_man.Row);
         }

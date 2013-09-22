@@ -11,11 +11,14 @@ namespace TVShows
 	/// </summary>
 	public partial class TVShowControl : UserControl
 	{
-		public TVShowControl()
-		{
-			this.InitializeComponent();
-		}
-        
+	    private static TVShowControl tvShowControl;
+        public TVShowControl() { this.InitializeComponent(); }
+
+        public static TVShowControl Instance()
+        {
+            return tvShowControl ?? (tvShowControl = new TVShowControl());
+        }
+
         public void Color_rating(Class_tvshow tvshow, TVDockPanelControl dock_panel)
         {
             var rating = tvshow.Overall_rating;

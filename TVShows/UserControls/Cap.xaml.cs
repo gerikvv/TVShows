@@ -22,12 +22,14 @@ namespace TVShows
 
         private void Home_click(object sender, RoutedEventArgs e)
         {
-            var control = new TVShowControl
-                              {
-                                  TbTitle = {Text = "Случайный фильм"},
-                                  ArrowLeft = {Visibility = Visibility.Visible},
-                                  ArrowRigth = {Visibility = Visibility.Visible}
-                              };
+            //var control = new TVShowControl
+            //                  {
+            //                      TbTitle = {Text = "Случайный фильм"},
+            //                      ArrowLeft = {Visibility = Visibility.Visible},
+            //                      ArrowRigth = {Visibility = Visibility.Visible}
+            //                  };
+
+            var control = TVShowControl.Instance();
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Cap.Show_random_tv(control);
@@ -94,8 +96,7 @@ namespace TVShows
         
         private static void Navigation(UserControl control)
         {
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            mainWindow.TVShowControl.Content = control;
+            TVShowControl.Instance().Content = control.Content;
         }
 
         private void Btn_logout_click(object sender, RoutedEventArgs e)
@@ -103,7 +104,7 @@ namespace TVShows
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Log_out();
 
-            var control = new TVShowControl();
+            var control = TVShowControl.Instance();
             Show_random_tv(control);
             Navigation(control);
         }
@@ -114,7 +115,7 @@ namespace TVShows
             {
                 if (tv.Name.ToLower() == TbSearch.Text.ToLower())
                 {
-                    var control = new TVShowControl();
+                    var control = TVShowControl.Instance();
                     control.Color_rating(tv, TVDockPanelControl.Instance());
                     control.DataContext = tv;
                     control.TbTitle.Text = "Поиск";

@@ -51,7 +51,15 @@ namespace TVShows.Data
         {
             if (username_arg != "" && password_arg != "")
             {
-                foreach (var manItem in Items)
+                foreach (var manItem in Class_user.Items)
+                {
+                    if (manItem.Name == username_arg && manItem.Password == password_arg)
+                    {
+                        man = manItem;
+                        return "";
+                    }
+                }
+                foreach (var manItem in Class_administrator.Items)
                 {
                     if (manItem.Name == username_arg && manItem.Password == password_arg)
                     {

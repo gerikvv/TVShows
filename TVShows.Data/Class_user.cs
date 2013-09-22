@@ -1,9 +1,18 @@
-﻿using System.Data;
+﻿using System.Collections.ObjectModel;
+using System.Data;
 
 namespace TVShows.Data
 {
     public class Class_user : Class_man
     {
+        private static ObservableCollection<Class_user> items = new ObservableCollection<Class_user>();
+
+        public new static ObservableCollection<Class_user> Items
+        {
+            get { return items; }
+            set { items = value; }
+        }
+
         public static string Dtable = "Users";
         
         public Class_user(){}
@@ -66,7 +75,7 @@ namespace TVShows.Data
             var user = new Class_user();
             var collection = user.Get(Dtable);
             foreach (var itemUser in collection)
-                Items.Add(itemUser);
+                Items.Add((Class_user) itemUser);
         }
 
         protected override void RaisePropertyChanged(string property_name)
@@ -83,7 +92,7 @@ namespace TVShows.Data
             var admins = admin.Get(Class_administrator.Dtable);
 
             foreach (var item in admins)
-                Items.Add(item);
+                Class_administrator.Items.Add((Class_administrator)item);
         }
     }
 }

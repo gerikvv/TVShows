@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TVShows.Data
 {
@@ -55,6 +56,11 @@ namespace TVShows.Data
             var favoritesAndMan = new Class_favorites_and_user();
             Items = favoritesAndMan.Get(Dtable);
             return Items;
+        }
+
+        public static bool Equals(Class_user user, Class_tvshow tvshow)
+        {
+            return Items.Any(favorites_and_user => favorites_and_user.User == user && favorites_and_user.Tvshow == tvshow);
         }
     }
 }

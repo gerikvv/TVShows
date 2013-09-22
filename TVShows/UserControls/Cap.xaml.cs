@@ -35,7 +35,22 @@ namespace TVShows
             control.Random_tv(tvDockPanelControl);
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
-            if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
+            if (mainWindow.Man != null)
+            {
+                tvDockPanelControl.Star.Visibility = Visibility.Visible;
+
+                tvDockPanelControl.Star.IsEnabled = true;
+                if (mainWindow.Man.GetType() == typeof(Class_user))
+                {
+                    if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) mainWindow.TVShowControl.DataContext))
+                        tvDockPanelControl.Star.IsEnabled = false;
+                }
+                else
+                {
+                    if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow)mainWindow.TVShowControl.DataContext))
+                        tvDockPanelControl.Star.IsEnabled = false;
+                }
+            }
             control.PageTransitionControl.Show_page(tvDockPanelControl);
 	    }
 

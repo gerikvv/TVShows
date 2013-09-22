@@ -19,8 +19,8 @@
           <Border>
             <Rectangle 
               Margin="2"
-              StrokeThickness="1"
-              Stroke="#60000000"
+              StrokeThickness="0"
+              Stroke="#00000000"
               StrokeDashArray="1 2"/>
           </Border>
         </ControlTemplate>
@@ -229,27 +229,34 @@
     </Style>
 	
 	<Style x:Key="ButtonStar" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
     	<Setter Property="Template">
         	<Setter.Value>
         		<ControlTemplate TargetType="{x:Type Button}">
-        			<Grid>
-        				<ed:RegularPolygon x:Name="Star" Cursor="Hand" InnerRadius="0.47211" PointCount="5" RenderTransformOrigin="1.901,0.537" Stretch="Fill" Stroke="#FFE2970E" Focusable="False">
-        					<ed:RegularPolygon.Fill>
-        						<RadialGradientBrush x:Name="Gradient">
-        							<GradientStop x:Name="gradient1" Color="#FFDCE715" Offset="0.209"/>
-        							<GradientStop x:Name="gradient2" Color="#FFEFB171" Offset="1"/>
-        						</RadialGradientBrush>
-        					</ed:RegularPolygon.Fill>
-        				</ed:RegularPolygon>
-        				<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-        			</Grid>
-	        		<ControlTemplate.Triggers>
-	        			<Trigger Property="IsFocused" Value="True"/>
-	        			<Trigger Property="IsDefaulted" Value="True"/>
-	        			<Trigger Property="IsMouseOver" Value="True"/>
-	        			<Trigger Property="IsPressed" Value="True" />
-	        			<Trigger Property="IsEnabled" Value="False">
-	        				<Setter Property="OpacityMask" TargetName="contentPresenter" Value="{x:Null}"/>
+
+                    <ed:RegularPolygon x:Name="Star" Cursor="Hand" InnerRadius="0.5" PointCount="5" RenderTransformOrigin="1.901,0.537" Stretch="Fill" Stroke="#FFE2970E" Focusable="False">
+                        <ed:RegularPolygon.Fill>
+                            <RadialGradientBrush x:Name="Gradient">
+                                <GradientStop x:Name="gradient1" Color="#FFDCE715" Offset="0.209"/>
+                                <GradientStop x:Name="gradient2" Color="#FFEFB171" Offset="1"/>
+                            </RadialGradientBrush>
+                        </ed:RegularPolygon.Fill>
+                    </ed:RegularPolygon>
+
+                    <ControlTemplate.Triggers>                        
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Stroke" TargetName="Star" Value="#FFEF6321"/>
+                            <Setter Property="Fill" TargetName="Star">
+                                <Setter.Value>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FFE7B915" Offset="0.209"/>
+                                        <GradientStop Color="#FFF19569" Offset="0.991"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        
+                        <Trigger Property="IsEnabled" Value="False">
 	        				<Setter Property="Stroke" TargetName="Star" Value="#FFEF6321"/>
 	        				<Setter Property="Fill" TargetName="Star">
 	        					<Setter.Value>

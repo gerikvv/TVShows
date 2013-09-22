@@ -17,15 +17,17 @@ namespace TVShows
             return tvDockPanelControl ?? (tvDockPanelControl = new TVDockPanelControl());
         }
 
-        private void Favorites_click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_click(object sender, RoutedEventArgs e)
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
             if (mainWindow.Man.GetType() == typeof(Class_user))
                 Class_favorites_and_user.Items.Add
-                    (new Class_favorites_and_user((Class_user) mainWindow.Man, (Class_tvshow)DataContext));
+                    (new Class_favorites_and_user((Class_user)mainWindow.Man, (Class_tvshow)DataContext));
             else Class_favorites_and_admin.Items.Add
                     (new Class_favorites_and_admin((Class_administrator)mainWindow.Man, (Class_tvshow)DataContext));
+
+            tvDockPanelControl.Star.IsEnabled = false;
         }
     }
 }

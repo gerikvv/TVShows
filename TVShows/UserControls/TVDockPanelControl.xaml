@@ -62,24 +62,7 @@
 
                 <TextBlock x:Name="tbRating" Text="• Рейтинг" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
                 <TextBlock x:Name="tbRatingValue" Style="{StaticResource InfoValue}" Cursor="IBeam" Text="{Binding Overall_rating}" Foreground="#FFA0A0A0" TextDecorations=""/>
-                <ed:RegularPolygon Name="Star" Height="16" InnerRadius="0.47211" PointCount="5" Stretch="Fill" Stroke="#FFE2970E" Width="18" RenderTransformOrigin="1.901,0.537" HorizontalAlignment="Right" Margin="0,-15,10,0" Cursor="Hand" VerticalAlignment="Top" MouseDown="Favorites_click" Visibility="Collapsed">
-                	<ed:RegularPolygon.Fill>
-                		<RadialGradientBrush x:Name="Gradient">
-                			<GradientStop x:Name="gradient1" Color="#FFDCE715" Offset="0.209"/>
-                			<GradientStop x:Name="gradient2" Color="#FFEFB171" Offset="1"/>
-                		</RadialGradientBrush>
-                	</ed:RegularPolygon.Fill>
-                    
-                    <ed:RegularPolygon.Triggers>
-                        <Trigger Property="Control.IsFocused" Value="true">
-                            <Setter TargetName="gradient1" Property="Color" Value="FFDCE715"/>
-                            <Setter TargetName="gradient1" Property="Offset" Value="1"/>
-
-                            <Setter TargetName="gradient2" Property="Color" Value="FFEFB171"/>
-                            <Setter TargetName="gradient2" Property="Offset" Value="0.209"/>
-                        </Trigger>
-                    </ed:RegularPolygon.Triggers>
-                </ed:RegularPolygon>
+                <Button Name="Star" HorizontalAlignment="Right" Height="16" Margin="0,-15,10,0" Style="{DynamicResource ButtonStar}" VerticalAlignment="Top" Width="18" Click="Button_click" Visibility="Collapsed"/>
                 <TextBlock x:Name="tbSep10" Style="{StaticResource LineSeparator}" />
             </StackPanel>
         </ScrollViewer>

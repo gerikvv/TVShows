@@ -24,21 +24,29 @@ namespace TVShows
         {
             var control = TVShowControl.Instance();
 
-            var tvDockPanelControl = new TVDockPanelControl();
-            control.Random_tv(tvDockPanelControl);
+            Show_random_tv(control);
 
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
-            control.PageTransitionControl.Show_page(tvDockPanelControl);
+            //var tvDockPanelControl = new TVDockPanelControl();
+            //control.Random_tv(tvDockPanelControl);
+
+            //var mainWindow = (Main_window)Application.Current.MainWindow;
+            //if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
+            //control.PageTransitionControl.Show_page(tvDockPanelControl);
 
             Navigation(control);
         }
 
 	    public void Show_random_tv(TVShowControl control)
 	    {
-	        var tvDockPanelControl = TVDockPanelControl.Instance();
-	        control.Random_tv(tvDockPanelControl);
-	        control.PageTransitionControl.Show_page(tvDockPanelControl);
+            var tvDockPanelControl = new TVDockPanelControl();
+            control.Random_tv(tvDockPanelControl);
+
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
+            control.PageTransitionControl.Show_page(tvDockPanelControl);
+            //var tvDockPanelControl = TVDockPanelControl.Instance();
+            //control.Random_tv(tvDockPanelControl);
+            //control.PageTransitionControl.Show_page(tvDockPanelControl);
 	    }
 
 	    private void Registration_click(object sender, RoutedEventArgs e)

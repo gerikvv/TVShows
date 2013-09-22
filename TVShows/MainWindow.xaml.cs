@@ -47,9 +47,10 @@ namespace TVShows
 
                     Cap.TbLogin.Visibility = Visibility.Visible;
                     Cap.TbLogin.Text = "Профиль: " + man.Name;
-
-                    Man = man;
                 }
+
+                Man = man;
+
                 Cap.BtnRegistration.IsEnabled = false;
                 Cap.BtnLogin.IsEnabled = false;
 

@@ -18,7 +18,6 @@ namespace TVShows
             InitializeComponent();
         }
 
-
         Stack<UserControl> pages = new Stack<UserControl>();
 
         public UserControl Current_page { get; set; }

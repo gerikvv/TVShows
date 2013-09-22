@@ -36,11 +36,11 @@ namespace TVShows
 
         private void Random_click(object sender, RoutedEventArgs e)
         {
-            var tvshow = Random_tv(true);
             var tvDockPanelControl = new TVDockPanelControl();
+            /*var tvshow = */Random_tv(tvDockPanelControl);
 
-            Color_rating(tvshow, tvDockPanelControl);
-            DataContext = tvshow;
+            //Color_rating(tvshow, tvDockPanelControl);
+            //DataContext = tvshow;
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
             if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
@@ -48,20 +48,20 @@ namespace TVShows
             this.TVDockPanelControl.Show_page(tvDockPanelControl);
         }
 
-        public Class_tvshow Random_tv(bool is_random_click)
+        public Class_tvshow Random_tv(TVDockPanelControl dock_panel)
         {
             var rand = new Random();
             var i = rand.Next(0, Class_tvshow.Items.Count);
 
             var tvshow = Class_tvshow.Items[i];
 
-            if (tvshow.Name == TVDockPanelControl.TbName.Text)
+            if (tvshow.Name == dock_panel.TbName.Text)
                 tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
             
-            if (is_random_click) return tvshow;
+            //if (is_random_click) return tvshow;
 
             DataContext = tvshow;
-            Color_rating(tvshow, TVDockPanelControl);
+            Color_rating(tvshow, dock_panel);
 
             return null;
         }

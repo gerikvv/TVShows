@@ -23,7 +23,7 @@ namespace TVShows
             Class_favorites_and_man.Init_favorites_and_man();
 
             var tvControl = new TVShowControl();
-            tvControl.Random_tv(false);
+            tvControl.Random_tv(tvControl.TVDockPanelControl);
             TVShowControl.Content = tvControl;
             //var control = TVShowsViewControl.Instance();
             //RandomTVShow.Content = control;
@@ -56,7 +56,7 @@ namespace TVShows
                 Cap.BtnLogin.IsEnabled = false;
                 
                 var control = new TVShowControl();
-                control.Random_tv(false);
+                control.Random_tv(control.TVDockPanelControl);
 
                 control.TVDockPanelControl.Star.Visibility = Visibility.Visible;
 

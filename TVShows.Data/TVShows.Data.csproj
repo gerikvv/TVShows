@@ -58,7 +58,7 @@
     <Compile Include="Class_genre.cs" />
     <Compile Include="Class_man.cs" />
     <Compile Include="Class_member_team.cs" />
-    <Compile Include="Class_favorites_and_man.cs" />
+    <Compile Include="Class_favorites_and_user.cs" />
     <Compile Include="Class_tvshow.cs" />
     <Compile Include="Class_tvshow_and_genre.cs" />
     <Compile Include="ImageConverter.cs" />
@@ -75,6 +75,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SMonitoring_DataBaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Class_favorites_and_admin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -20,7 +20,7 @@ namespace TVShows
             Class_tvshow.Init_tv_show();
             Class_user.Init_user();
             Class_administrator.Init_administrator();
-            Class_favorites_and_man.Init_favorites_and_man();
+            Class_favorites_and_user.Init_favorites_and_man();
 
             var tvControl = TVShowControl.Instance();
             Cap.Show_random_tv(tvControl);
@@ -59,7 +59,7 @@ namespace TVShows
 
                 TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
 
-                TVShowControl.Content = control;
+                TVShowControl.Content = TVShowControl.Instance();
             }
         }
 

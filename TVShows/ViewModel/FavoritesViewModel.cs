@@ -25,10 +25,10 @@ namespace TVShows
             if (favorites_man == null)
                 return;
 
-            foreach (var classFavoritesMan in Class_favorites_and_man.Items)
+            foreach (var classFavoritesMan in Class_favorites_and_user.Items)
                 if (classFavoritesMan.Tvshow.Name == (string)favorites_man.Row["Name"] &&
                     classFavoritesMan.Tvshow.Year.ToString() == (string)favorites_man.Row["Year"])
-                    classFavoritesMan.Delete(Class_favorites_and_man.Dtable, classFavoritesMan.Id);
+                    classFavoritesMan.Delete(Class_favorites_and_user.Dtable, classFavoritesMan.Id);
 
             TVDtable.Rows.Remove(favorites_man.Row);
         }
@@ -87,9 +87,9 @@ namespace TVShows
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
             var tvshows = new List<Class_tvshow>(); 
-            foreach (var favoritesAndMan in Class_favorites_and_man.Items)
+            foreach (var favoritesAndMan in Class_favorites_and_user.Items)
             {
-                if (favoritesAndMan.IdMan == mainWindow.Man.Id)
+                if (favoritesAndMan.IdUser == mainWindow.Man.Id)
                     tvshows.Add(Class_tvshow.Get_obj(favoritesAndMan.IdTVShow));
             }
 

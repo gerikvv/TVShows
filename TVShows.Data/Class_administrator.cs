@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TVShows.Data
 {
@@ -30,6 +31,11 @@ namespace TVShows.Data
             var collection = admin.Get(Dtable);
             foreach (var itemAdmin in collection)
                 Items.Add((Class_administrator) itemAdmin);
+        }
+
+        public new static Class_administrator Get_obj(int id_obj)
+        {
+            return Items.FirstOrDefault(item => item.Id == id_obj);
         }
     }
 }

@@ -60,7 +60,13 @@ namespace TVShows.Data
 
         public static bool Equals(Class_user user, Class_tvshow tvshow)
         {
-            return Items.Any(favorites_and_user => favorites_and_user.User == user && favorites_and_user.Tvshow == tvshow);
+            //return Items.Any(favorites_and_user => favorites_and_user.User == user && favorites_and_user.Tvshow == tvshow);
+            foreach (var favoritesAndUser in Items)
+            {
+                if (favoritesAndUser.User == user && favoritesAndUser.Tvshow == tvshow)
+                    return true;
+            }
+            return false;
         }
     }
 }

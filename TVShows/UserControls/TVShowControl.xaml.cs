@@ -30,13 +30,16 @@ namespace TVShows
 
         private void Random_click(object sender, RoutedEventArgs e)
         {
-            var tvDockPanelControl = new TVDockPanelControl();
-            Random_tv(tvDockPanelControl);
+            //var tvDockPanelControl = new TVDockPanelControl();
+            //Random_tv(tvDockPanelControl);
             
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
+            //var mainWindow = (Main_window)Application.Current.MainWindow;
+            //if (mainWindow.Man != null) tvDockPanelControl.Star.Visibility = Visibility.Visible;
 
-            this.PageTransitionControl.Show_page(tvDockPanelControl);
+            //this.PageTransitionControl.Show_page(tvDockPanelControl);
+
+            var mainWindow = (Main_window)Application.Current.MainWindow;
+            mainWindow.Cap.Show_random_tv(this);
         }
 
         public void Random_tv(TVDockPanelControl dock_panel)

@@ -42,12 +42,12 @@ namespace TVShows
                 tvDockPanelControl.Star.IsEnabled = true;
                 if (mainWindow.Man.GetType() == typeof(Class_user))
                 {
-                    if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) mainWindow.TVShowControl.DataContext))
+                    if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) tvDockPanelControl.DataContext))
                         tvDockPanelControl.Star.IsEnabled = false;
                 }
                 else
                 {
-                    if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow)mainWindow.TVShowControl.DataContext))
+                    if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow) tvDockPanelControl.DataContext))
                         tvDockPanelControl.Star.IsEnabled = false;
                 }
             }

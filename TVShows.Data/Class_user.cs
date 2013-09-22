@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 
 namespace TVShows.Data
 {
@@ -93,6 +94,11 @@ namespace TVShows.Data
 
             foreach (var item in admins)
                 Class_administrator.Items.Add((Class_administrator)item);
+        }
+
+        public new static Class_user Get_obj(int id_obj)
+        {
+            return Items.FirstOrDefault(item => item.Id == id_obj);
         }
     }
 }

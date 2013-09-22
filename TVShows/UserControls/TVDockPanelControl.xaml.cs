@@ -9,9 +9,12 @@ namespace TVShows
     /// </summary>
     public partial class TVDockPanelControl : UserControl
     {
-        public TVDockPanelControl()
+        private static TVDockPanelControl tvDockPanelControl;
+        public TVDockPanelControl() { this.InitializeComponent(); }
+
+        public static TVDockPanelControl Instance()
         {
-            InitializeComponent();
+            return tvDockPanelControl ?? (tvDockPanelControl = new TVDockPanelControl());
         }
 
         private void Favorites_click(object sender, System.Windows.Input.MouseButtonEventArgs e)

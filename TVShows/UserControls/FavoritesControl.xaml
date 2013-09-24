@@ -107,9 +107,15 @@
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
-                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan   " MappingName="Slogan" Width="200">
+                        <syncfusion:GridDataVisibleColumn HeaderText="Slogan   " MappingName="Slogan" Width="220">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" TextWrapping="Wrap" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
+                        <syncfusion:GridDataVisibleColumn HeaderText="Director   " MappingName="Director" Width="140">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 

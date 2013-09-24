@@ -41,6 +41,7 @@ namespace TVShows
             row["Time"] = tv.Time;
             row["Overall_rating"] = tv.Overall_rating;
             row["Name_image"] = tv.Name_image;
+            row["Director"] = tv.Director;
             TVDtable.Rows.Add(row);
         }
 
@@ -61,6 +62,7 @@ namespace TVShows
             selected_tv.Row["Time"] = tv.Time;
             selected_tv.Row["Overall_rating"] = tv.Overall_rating;
             selected_tv.Row["Name_image"] = tv.Name_image;
+            selected_tv.Row["Director"] = tv.Director;
 
             tv.Update(Class_tvshow.Dtable);
             Class_tvshow.Items.Clear();
@@ -141,10 +143,11 @@ namespace TVShows
             ds.Columns.Add("Time", typeof(DateTime));
             ds.Columns.Add("Overall_rating");
             ds.Columns.Add("Name_image");
+            ds.Columns.Add("Director");
 
             foreach (var tv in Class_tvshow.Items)
                 ds.Rows.Add(tv.Id, tv.Name, tv.Year, tv.Country, tv.Slogan, tv.Script_writer, tv.Producer,
-                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image);
+                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image, tv.Director);
 
             return ds;
         }

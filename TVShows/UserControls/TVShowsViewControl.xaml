@@ -122,6 +122,12 @@
                             </syncfusion:GridDataVisibleColumn.HeaderStyle>
                         </syncfusion:GridDataVisibleColumn>
 
+                        <syncfusion:GridDataVisibleColumn HeaderText="Director   " MappingName="Director" Width="140">
+                            <syncfusion:GridDataVisibleColumn.HeaderStyle>
+                                <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />
+                            </syncfusion:GridDataVisibleColumn.HeaderStyle>
+                        </syncfusion:GridDataVisibleColumn>
+
                         <syncfusion:GridDataVisibleColumn HeaderText="Script writer   " MappingName="Script_writer" Width="140">
                             <syncfusion:GridDataVisibleColumn.HeaderStyle>
                                 <syncfusion:GridDataColumnStyle HorizontalAlignment="Center" />

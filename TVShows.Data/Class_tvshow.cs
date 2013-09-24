@@ -127,11 +127,22 @@ namespace TVShows.Data
 
         public string Link_image { get; set; }
 
+        private string director;
+        public string Director
+        {
+            get { return director; }
+            set
+            {
+                director = value;
+                RaisePropertyChanged("Director");
+            }
+        }
+
         public override object[] Objparams
         {
             get
             {
-                objects = new object[12];
+                objects = new object[13];
                 objects[0] = Id;
                 objects[1] = Name;
                 objects[2] = Year;
@@ -144,6 +155,7 @@ namespace TVShows.Data
                 objects[9] = Time;
                 objects[10] = Overall_rating;
                 objects[11] = Name_image;
+                objects[12] = Director;
                 return objects;
             }
             set
@@ -161,6 +173,7 @@ namespace TVShows.Data
                 Time = (DateTime)objects[9];
                 Overall_rating = double.Parse(objects[10].ToString());
                 Name_image = (string)objects[11];
+                Director = (string)objects[12];
 
                 Budget_string = Budget != 0 ? Budget.ToString("$### ### ### ###") : "";
                 On_property_changed("Budget_string");
@@ -211,13 +224,8 @@ namespace TVShows.Data
             base.RaisePropertyChanged(property_name);
             if (State == ConnectionState.Closed && Name != null && Year != 0 && Country != null && Slogan != null
                 && Script_writer != null && Global_charges != 0 && Time != new DateTime(1,1,1,0,0,0) 
-                && Overall_rating != 0 && Name_image != null)
+                && Overall_rating != 0 && Name_image != null && Director != null)
                 Update(Dtable);
         }
-
-        //public static Class_tvshow Get_tv (int id)
-        //{
-        //    return Items.FirstOrDefault(tv => tv.Id == id);
-        //}
     }
 }

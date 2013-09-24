@@ -70,6 +70,16 @@ namespace TVShows
             }
         }
 
+        public string Director
+        {
+            get { return TV.Director; }
+            set
+            {
+                TV.Director = value;
+                RaisePropertyChanged("Director");
+            }
+        }
+
         public string Script_writer
         {
             get { return TV.Script_writer; }
@@ -186,6 +196,7 @@ namespace TVShows
             Year = Int32.Parse(employee["Year"].ToString());
             Country = employee["Country"].ToString();
             Slogan = employee["Slogan"].ToString();
+            Director = employee["Director"].ToString();
             Script_writer = employee["Script_writer"].ToString();
             Producer = employee["Producer"].ToString();
             Budget = Int32.Parse(employee["Budget"].ToString());

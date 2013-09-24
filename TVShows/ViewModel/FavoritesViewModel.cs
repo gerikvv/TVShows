@@ -95,6 +95,7 @@ namespace TVShows
             ds.Columns.Add("Time", typeof(DateTime));
             ds.Columns.Add("Overall_rating");
             ds.Columns.Add("Name_image");
+            ds.Columns.Add("Director");
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
@@ -119,7 +120,7 @@ namespace TVShows
 
             foreach (var tv in tvshows)
                 ds.Rows.Add(tv.Id, tv.Name, tv.Year, tv.Country, tv.Slogan, tv.Script_writer, tv.Producer,
-                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image);
+                    tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image, tv.Director);
 
             return ds;
         }

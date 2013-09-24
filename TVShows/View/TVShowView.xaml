@@ -4,7 +4,7 @@
         xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.Wpf" 
         Title="TVShowsView" 
         Width="600"
-        Height="320"
+        Height="360"
         AllowsTransparency="True"
         Background="#FFFBFBFB"
         BorderBrush="Gray"
@@ -42,6 +42,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="55" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -162,6 +163,13 @@
                     </syncfusion:DoubleTextBox.Value>
                 </syncfusion:DoubleTextBox>
 
+                <TextBlock Margin="20,0,0,36" FontFamily="Segoe WP" Text="Director" Grid.Column="1" Grid.Row="5" />
+                <TextBox Name="Text17" Width="160" Height="23" Margin="12,14,16,13" FontFamily="Segoe WP" ToolTip="Enter the Director" ToolTipService.IsEnabled="True" Grid.Column="1" Grid.Row="5">
+                    <TextBox.Text>
+                        <Binding Path="Director" UpdateSourceTrigger="PropertyChanged"/>
+                    </TextBox.Text>
+                </TextBox>
+                
                 <TextBlock Margin="16,0,0,36" FontFamily="Segoe WP" Text="Year" Grid.Column="2" Grid.Row="1" />
                 <syncfusion:IntegerTextBox Name="Text4" Width="160" Height="23" Margin="12,14,16,13" FontFamily="Segoe WP" ToolTip="Enter the Year" ToolTipService.IsEnabled="True" Culture="en-US" NumberGroupSeparator=" " Grid.Column="2" Grid.Row="1">
                     <syncfusion:IntegerTextBox.Value>

@@ -23,6 +23,7 @@ namespace TVShows
         private void Home_click(object sender, RoutedEventArgs e)
         {
             var control = TVShowControl.Instance();
+            control.TbTitle.Text = "Случайный фильм";
 
             Show_random_tv(control);
 
@@ -34,24 +35,29 @@ namespace TVShows
             var tvDockPanelControl = new TVDockPanelControl();
             control.Random_tv(tvDockPanelControl);
 
-            var mainWindow = (Main_window)Application.Current.MainWindow;
-            if (mainWindow.Man != null)
-            {
-                tvDockPanelControl.Star.Visibility = Visibility.Visible;
+            Show_tv(control, tvDockPanelControl);
+	    }
 
-                tvDockPanelControl.Star.IsEnabled = true;
-                if (mainWindow.Man.GetType() == typeof(Class_user))
-                {
-                    if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) tvDockPanelControl.DataContext))
-                        tvDockPanelControl.Star.IsEnabled = false;
-                }
-                else
-                {
-                    if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow) tvDockPanelControl.DataContext))
-                        tvDockPanelControl.Star.IsEnabled = false;
-                }
-            }
-            control.PageTransitionControl.Show_page(tvDockPanelControl);
+        private static void Show_tv(TVShowControl control, TVDockPanelControl tv_dock_panel_control)
+	    {
+	        var mainWindow = (Main_window)Application.Current.MainWindow;
+	        if (mainWindow.Man != null)
+	        {
+	            tv_dock_panel_control.Star.Visibility = Visibility.Visible;
+
+	            tv_dock_panel_control.Star.IsEnabled = true;
+	            if (mainWindow.Man.GetType() == typeof(Class_user))
+	            {
+	                if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) tv_dock_panel_control.DataContext))
+	                    tv_dock_panel_control.Star.IsEnabled = false;
+	            }
+	            else
+	            {
+	                if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow) tv_dock_panel_control.DataContext))
+	                    tv_dock_panel_control.Star.IsEnabled = false;
+	            }
+	        }
+	        control.PageTransitionControl.Show_page(tv_dock_panel_control);
 	    }
 
 	    private void Registration_click(object sender, RoutedEventArgs e)
@@ -126,16 +132,19 @@ namespace TVShows
                 {
                     var control = TVShowControl.Instance();
                     control.Color_rating(tv, TVDockPanelControl.Instance());
-                    control.DataContext = tv;
                     control.TbTitle.Text = "Поиск";
 
-                    control.ArrowLeft.Visibility = Visibility.Hidden;
-                    control.ArrowRigth.Visibility = Visibility.Hidden;
+                    var tvDockPanelControl = new TVDockPanelControl {DataContext = tv};
+                    control.Color_rating(tv, tvDockPanelControl);
+                    Show_tv(control, tvDockPanelControl);
 
-                    var mainWindow = (Main_window)Application.Current.MainWindow;
-                    if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
+                    //control.ArrowLeft.Visibility = Visibility.Hidden;
+                    //control.ArrowRigth.Visibility = Visibility.Hidden;
 
-                    Navigation(control);
+                    //var mainWindow = (Main_window)Application.Current.MainWindow;
+                    //if (mainWindow.Man != null) TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
+
+                    //Navigation(control);
                     return;
                 }
             }

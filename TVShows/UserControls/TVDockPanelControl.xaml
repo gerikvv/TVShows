@@ -45,7 +45,7 @@
                 <TextBlock x:Name="tbSep5" Style="{StaticResource LineSeparator}" />
 
                 <TextBlock x:Name="tbProducer" Text="• Продюсер" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>
-                <TextBlock x:Name="tbProducerValue" Style="{StaticResource InfoValue}" Cursor="Hand" Text="{Binding Producer}" Foreground="#005"/>
+                <TextBlock x:Name="tbProducerValue" Style="{StaticResource InfoValue}"  Cursor="Hand" Text="{Binding Producer}" Foreground="#005"/>
                 <TextBlock x:Name="tbSep6" Style="{StaticResource LineSeparator}" />
 
                 <TextBlock x:Name="tbBudget" Text="• Бюджет" TextAlignment="Left" Margin="10,0,10,0" FontSize="10" Foreground="#FFFF6600"/>

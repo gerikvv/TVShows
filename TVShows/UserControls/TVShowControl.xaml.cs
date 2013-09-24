@@ -30,6 +30,7 @@ namespace TVShows
 
         private void Random_click(object sender, RoutedEventArgs e)
         {
+            TbTitle.Text = "Случайный фильм";
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Cap.Show_random_tv(this);
         }

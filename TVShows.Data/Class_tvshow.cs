@@ -162,9 +162,9 @@ namespace TVShows.Data
                 Overall_rating = double.Parse(objects[10].ToString());
                 Name_image = (string)objects[11];
 
-                Budget_string = Budget.ToString("$### ### ### ###");
+                Budget_string = Budget != 0 ? Budget.ToString("$### ### ### ###") : "";
                 On_property_changed("Budget_string");
-                Global_charges_string = Global_charges.ToString("$### ### ### ###");
+                Global_charges_string = Global_charges != 0 ? Global_charges.ToString("$### ### ### ###") : "";
                 On_property_changed("Global_charges_string");
                 Time_string = (Time.Hour*60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
                 On_property_changed("Time_string");

@@ -5,5 +5,5 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 ***********************************************************************************************
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\SubsetFontWPF.targets" />
+	<Import Project="$(AssemblyName)\..\SubsetFontWPF.targets" />
 </Project>

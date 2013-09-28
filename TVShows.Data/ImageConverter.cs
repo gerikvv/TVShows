@@ -22,15 +22,15 @@ namespace TVShows.Data
             if ((string) parameter == "Images")
             {
                 if (string.IsNullOrEmpty(imagename))
-                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"Images\NotAvailable.jpg";
+                    imagename = AppDomain.CurrentDomain.BaseDirectory + @"..\Images\NotAvailable.jpg";
 
-                return AppDomain.CurrentDomain.BaseDirectory + @"Images\" + imagename;
+                return AppDomain.CurrentDomain.BaseDirectory + @"..\Images\" + imagename;
             }
 
             if (string.IsNullOrEmpty(imagename))
-                imagename = AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\NotAvailable.jpg";
+                imagename = AppDomain.CurrentDomain.BaseDirectory + @"..\MiniImages\NotAvailable.jpg";
 
-            return AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + imagename;
+            return AppDomain.CurrentDomain.BaseDirectory + @"..\MiniImages\" + imagename;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

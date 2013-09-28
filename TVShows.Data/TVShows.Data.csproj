@@ -70,11 +70,6 @@
     </Compile>
     <Compile Include="Class_user.cs" />
     <Compile Include="Class_director.cs" />
-    <Compile Include="SMonitoring_DataBaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SMonitoring_DataBaseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Class_favorites_and_admin.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,17 +77,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="SMonitoring_DataBaseDataSet.xsc">
-      <DependentUpon>SMonitoring_DataBaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SMonitoring_DataBaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SMonitoring_DataBaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SMonitoring_DataBaseDataSet.xss">
-      <DependentUpon>SMonitoring_DataBaseDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup />

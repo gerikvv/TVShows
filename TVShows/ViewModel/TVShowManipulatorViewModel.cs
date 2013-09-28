@@ -225,13 +225,13 @@ namespace TVShows
                 Image image = bmp;
                 var size = new Size {Width = 120, Height = 160};
 
-                if (!System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"Images\" + Name_image))
-                    bmp.Save(AppDomain.CurrentDomain.BaseDirectory + @"Images\" + Name_image,
+                if (!System.IO.File.Exists("..\\" + AppDomain.CurrentDomain.BaseDirectory + @"Images\" + Name_image))
+                    bmp.Save("..\\" + AppDomain.CurrentDomain.BaseDirectory + @"Images\" + Name_image,
                              System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 bmp = new Bitmap(image, size);
-                if (!System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + Name_image))
-                    bmp.Save(AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + Name_image,
+                if (!System.IO.File.Exists("..\\" + AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + Name_image))
+                    bmp.Save("..\\" + AppDomain.CurrentDomain.BaseDirectory + @"MiniImages\" + Name_image,
                              System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }

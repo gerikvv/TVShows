@@ -64,7 +64,7 @@ namespace TVShows.Data
         }
 
         const string ConnectionString = @"provider = Microsoft.ACE.OLEDB.12.0; 
-                                        data source = SMonitoring DataBase.accdb";
+                                        data source = ..//..//..//db/SMonitoring DataBase.accdb"; 
 
         private static readonly OleDbConnection _connection = new OleDbConnection(ConnectionString);
         private static OleDbCommand insert;

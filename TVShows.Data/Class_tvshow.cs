@@ -212,7 +212,7 @@ namespace TVShows.Data
             Items = tvshow.Get(Dtable);
 
             foreach (var tv in Items)
-                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + tv.Name_image;
+                tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "..\\Images\\" + tv.Name_image;
 
             var rand = new Random();
             var i = rand.Next(0, Items.Count);

@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShows", "TVShows\TVShows.csproj", "{40F7FCDB-DB22-4F35-896C-10195626B4F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShows.Data", "TVShows.Data\TVShows.Data.csproj", "{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVShows.Tests", "TVShows.Tests\TVShows.Tests.csproj", "{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,16 @@ Global
 		{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4E1864E2-47B3-4494-ABEE-BE5DFEB70CCB}.Release|x86.ActiveCfg = Release|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8B6EA997-0125-4F4F-B2D6-A6D2CF1FE8B3}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

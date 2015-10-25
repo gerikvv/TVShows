@@ -15,7 +15,7 @@ namespace TVShows.Data
             Birth_place = birth_place;
             Age = age;
             Link_image = link_image;
-            Save(Dtable);
+            Save();
         }
     }
 }

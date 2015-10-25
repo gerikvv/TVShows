@@ -25,7 +25,7 @@ namespace TVShows
                 return;
 
             Class_user.Items.Add(user);
-            user.Save(Class_user.Dtable);
+            user.Save();
 
             var row = UsersDtable.NewRow();
             row["Id"] = user.Id;
@@ -46,16 +46,19 @@ namespace TVShows
             selected_user.Row["Email"] = user.Email;
         }
 
-        public void DeleteUserHandler(DataRowView user)
+        public void DeleteUserHandler(DataRowView rowUser)
         {
-            if (user == null)
+            if (rowUser == null)
                 return;
 
-            foreach (var classUser in Class_user.Items)
-                if (classUser.Id == (int) user.Row["Id"])
-                    classUser.Delete(Class_user.Dtable, classUser.Id);
+            foreach (var user in Class_user.Items)
+                if (user.Id == (int) rowUser.Row["Id"])
+                {
+                    user.Delete();
+                    break;
+                }
 
-            UsersDtable.Rows.Remove(user.Row);
+            UsersDtable.Rows.Remove(rowUser.Row);
         }
 
         #endregion

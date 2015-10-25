@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Data
 {
@@ -30,37 +31,36 @@ namespace TVShows.Data
             }
         }
 
-        public Class_user User
+        public IUser User
         {
-            get { return (Class_user) Class_user.Get_obj(IdUser); }
+            get { return Class_user.Get_obj(IdUser); }
             set { IdUser = value.Id; }
         }
 
-        public Class_tvshow Tvshow
+        public ITvShow Tvshow
         {
             get { return Class_tvshow.Get_obj(IdTVShow); }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_favorites_and_user(Class_user user, Class_tvshow tvshow)
+        public Class_favorites_and_user(){}
+
+        public Class_favorites_and_user(IUser user, ITvShow tvshow)
         {
             User = user;
             Tvshow = tvshow;
-            Save(Dtable);
+            Save();
         }
-
-        public Class_favorites_and_user(){}
 
         public static ObservableCollection<Class_favorites_and_user> Init_favorites_and_user()
         {
-            var favoritesAndMan = new Class_favorites_and_user();
-            Items = favoritesAndMan.Get(Dtable);
+            Items = Repository.GetAllObjects();
             return Items;
         }
 
-        public static bool Equals(Class_user user, Class_tvshow tvshow)
+        public static bool Equals(IUser user, ITvShow tvshow)
         {
-            return Items.Any(favorites_and_user => favorites_and_user.User == user && favorites_and_user.Tvshow == tvshow);
+            return Items.Any(favoritesAndUser => favoritesAndUser.User == user && favoritesAndUser.Tvshow == tvshow);
         }
     }
 }

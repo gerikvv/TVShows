@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Data
 {
-    public class Class_user : Class_man
+    public class Class_user : Class_man, IUser
     {
         private static ObservableCollection<Class_user> items = new ObservableCollection<Class_user>();
 
@@ -15,6 +16,8 @@ namespace TVShows.Data
         }
 
         public static string Dtable = "Users";
+
+        public static IRepository<Class_user> Repository { get; set; }
         
         public Class_user(){}
 
@@ -23,7 +26,7 @@ namespace TVShows.Data
             Name = username;
             Password = password;
             Email = email;
-            Save(Dtable);
+            Save();
         }
 
         public static string Registration(string login, string pass1, string pass2, string email, out Class_man man)
@@ -59,8 +62,7 @@ namespace TVShows.Data
                                 }
                             }
                         }
-                        user.Save(Dtable);
-                        Items.Add(user);
+                        user.Save();
                     }
                     else { man = new Class_man(); return "Длина имени и пароля должна быть больше 4 символов!"; }
                 }
@@ -73,32 +75,52 @@ namespace TVShows.Data
 
         public static void Init_user()
         {
-            var user = new Class_user();
-            var collection = user.Get(Dtable);
-            foreach (var itemUser in collection)
-                Items.Add((Class_user) itemUser);
+            Items = Repository.GetAllObjects();
         }
 
-        protected override void RaisePropertyChanged(string property_name)
+        protected override void RaisePropertyChanged(string propertyName)
         {
-            base.RaisePropertyChanged(property_name);
-            if (State == ConnectionState.Closed && Name != null && Password != null && Email != null)
-                Update(Dtable);
+            base.RaisePropertyChanged(propertyName);
+            if (!Items.Any(user => user.Id == Id)) return;
+            if (Repository.State == ConnectionState.Closed && Name != null && Password != null && Email != null)
+                Update();
         }
 
-        public override void Delete(string dtable, int id_obj)
+        public override void Save()
         {
-            base.Delete(dtable, id_obj);
-            var admin = new Class_administrator();
-            var admins = admin.Get(Class_administrator.Dtable);
-
-            foreach (var item in admins)
-                Class_administrator.Items.Add((Class_administrator)item);
+            Repository.Save(this);
+            Items.Add(this);
+            Id = Repository.GetAllObjects().Last().Id;
         }
 
-        public new static Class_user Get_obj(int id_obj)
+        public override void Delete()
         {
-            return Items.FirstOrDefault(item => item.Id == id_obj);
+            foreach (var favoriteAndUser in Class_favorites_and_user.Items)
+            {
+                if (favoriteAndUser.IdUser == Id)
+                {
+                    favoriteAndUser.Delete();
+                    break;
+                }
+            }
+            Items.Remove(this);
+            Repository.Delete(Id);
+        }
+
+        public override void Update()
+        {
+            Repository.Update(this);
+            Items[Items.IndexOf(Items.FirstOrDefault(elem => elem.Id == Id))] = this;
+        }
+
+        public new static IUser Get_obj(int idObj)
+        {
+            return Items.FirstOrDefault(item => item.Id == idObj);
+        }
+
+        public override void AddFavoriteTv(ITvShow tvshow)
+        {
+            new Class_favorites_and_user(this, tvshow);
         }
     }
 }

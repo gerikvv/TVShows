@@ -1,8 +1,9 @@
 ﻿using System;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Data
 {
-    public class Class_man : Class_base<Class_man>
+    public class Class_man : Class_base<Class_man>, IMan
     {
         private string password;
         public string Password
@@ -83,5 +84,7 @@ namespace TVShows.Data
         protected static void Search_tv_shows(params object[] list_params)
         {
         }
+
+        public virtual void AddFavoriteTv(ITvShow tvshow) { }
     }
 }

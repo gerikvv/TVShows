@@ -43,12 +43,14 @@ namespace TVShows.Data
             set { IdTVShow = value.Id; }
         }
 
+        public Class_comment(){}
+
         public Class_comment(Class_user user, Class_tvshow tvshow, string comment)
         {
             User = user;
             Tvshow = tvshow;
             Comment = comment;
-            Save(Dtable);
+            Save();
         }
     }
 }

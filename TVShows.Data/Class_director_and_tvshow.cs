@@ -40,11 +40,13 @@ namespace TVShows.Data
             set { IdTVShow = value.Id; }
         }
 
+        public Class_director_and_tvshow(){}
+
         public Class_director_and_tvshow(Class_director director, Class_tvshow tvshow)
         {
             Director = director;
             Tvshow = tvshow;
-            Save(Dtable);
+            Save();
         }
     }
 }

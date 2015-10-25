@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class_tests.cs" />
+    <Compile Include="Class_tests_lab1.cs" />
+    <Compile Include="Class_tests_lab2.cs" />
+    <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Data
 {
-    public class Class_tvshow : Class_base<Class_tvshow>
+    public class Class_tvshow : Class_base<Class_tvshow>, ITvShow
     {
         public static string Dtable = "TVShows";
 
@@ -186,7 +186,8 @@ namespace TVShows.Data
         public Class_tvshow(){}
 
         public Class_tvshow(string name, int year, string country, string slogan, string script_writer,
-        string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image)
+        string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image, 
+        string name_image, string director)
         {
             Name = name;
             Year = year;
@@ -203,29 +204,35 @@ namespace TVShows.Data
             Budget_string = budget.ToString("$### ### ### ###");
             Global_charges_string = global_charges.ToString("$### ### ### ###");
             Time_string = (Time.Hour * 60 + Time.Minute) + " мин. / " + Time.ToShortTimeString();
-            Save(Dtable);
+            Name_image = name_image;
+            Director = director;
+            Save();
         }
 
         public static Class_tvshow Init_tv_show ()
         {
-            var tvshow = new Class_tvshow();
-            Items = tvshow.Get(Dtable);
+            Items = Repository.GetAllObjects();
 
             foreach (var tv in Items)
                 tv.Link_image = AppDomain.CurrentDomain.BaseDirectory + "..\\Images\\" + tv.Name_image;
 
             var rand = new Random();
             var i = rand.Next(0, Items.Count);
-            return Items[i];
+
+            if (Items.Count > 0)
+                return Items[i];
+
+            return null;
         }
 
         protected override void RaisePropertyChanged(string property_name)
         {
             base.RaisePropertyChanged(property_name);
-            if (State == ConnectionState.Closed && Name != null && Year != 0 && Country != null && Slogan != null
+            if (!Items.Any(tvshow => tvshow.Id == Id)) return;
+            if (Repository.State == ConnectionState.Closed && Name != null && Year != 0 && Country != null && Slogan != null
                 && Script_writer != null && Global_charges != 0 && Time != new DateTime(1,1,1,0,0,0) 
                 && Overall_rating != 0 && Name_image != null && Director != null)
-                Update(Dtable);
+                Update();
         }
     }
 }

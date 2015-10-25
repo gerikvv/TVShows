@@ -3,17 +3,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using NUnit.Framework;
 using TVShows.Data;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Tests
 {
     [TestFixture]
-    public class Class_tests
+    public class Class_tests_lab1
     {
+        [SetUp]
+        public void IntitRepositories()
+        {
+            Class_user.Repository = new Access_repository<Class_user>(Class_user.Dtable);
+            Class_administrator.Repository = new Access_repository<Class_administrator>(Class_administrator.Dtable);
+            Class_tvshow.Repository = new Access_repository<Class_tvshow>(Class_tvshow.Dtable);
+
+            Class_user.Init_user();
+            Class_administrator.Init_administrator();
+        }
+
         [Test]
         public void Check_Type_Init_Users()
         {
-            var user = new Class_user();
-            var collection = user.Get(Class_user.Dtable);
+            var collection = Class_user.Repository.GetAllObjects();
             foreach (var itemUser in collection)
                 Assert.IsInstanceOf<Class_user>(itemUser, "Полученый объект User отличается от типа Class_user");
         }
@@ -21,8 +32,7 @@ namespace TVShows.Tests
         [Test]
         public void Check_Type_Init_Admins()
         {
-            var user = new Class_administrator();
-            var collection = user.Get(Class_administrator.Dtable);
+            var collection = Class_administrator.Repository.GetAllObjects();
             foreach (var itemAdmin in collection)
                 Assert.IsInstanceOf<Class_administrator>(itemAdmin, "Полученый объект Admin отличается от типа Class_administrator");
         }
@@ -58,11 +68,11 @@ namespace TVShows.Tests
             Class_user user = Construct_User();
             Class_user.Items.Add(user);
 
-            Class_user getUser = Class_user.Get_obj(user.Id);
+            var getUser = (IUser) Class_user.Get_obj(user.Id);
 
             Assert.AreEqual(getUser, user, "Метод Get_obj возвратил неверный объект user");
 
-            user.Delete(Class_user.Dtable, user.Id);
+            user.Delete();
         }
 
         [Test]
@@ -70,7 +80,7 @@ namespace TVShows.Tests
         {
             Class_user user = Construct_User();
 
-            ObservableCollection<Class_man> collection = user.Get(Class_user.Dtable);
+            var collection = Class_user.Repository.GetAllObjects();
 
             List<int> idList = new List<int>();
             List<string> names = new List<string>();
@@ -104,7 +114,7 @@ namespace TVShows.Tests
             Assert.True(isPasswordNewUserInPasswords, "Объект User не добавился в базу или метод Get работает некорректно");
             Assert.True(isEmailNewUserInEmails, "Объект User не добавился в базу или метод Get работает некорректно");
 
-            user.Delete(Class_user.Dtable, user.Id);
+            user.Delete();
         }
 
         [Test]
@@ -113,12 +123,12 @@ namespace TVShows.Tests
             Class_user user = Construct_User();
             int idNewUser = user.Id;
 
-            ObservableCollection<Class_man> collection = user.Get(Class_user.Dtable);
+            var collection = Class_user.Repository.GetAllObjects();
             int countUsersAfterAdding = collection.Count();
 
-            user.Delete(Class_user.Dtable, user.Id);
+            user.Delete();
 
-            collection = user.Get(Class_user.Dtable);
+            collection = Class_user.Repository.GetAllObjects();
             int countUsersAfterRemoving = collection.Count();
 
             Assert.Greater(countUsersAfterAdding, countUsersAfterRemoving, 

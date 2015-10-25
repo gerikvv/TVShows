@@ -40,11 +40,13 @@ namespace TVShows.Data
             set { IdGenre = value.Id; }
         }
 
+        public Class_director_and_genre(){}
+
         public Class_director_and_genre(Class_director director, Class_genre genre)
         {
             Director = director;
             Genre = genre;
-            Save(Dtable);
+            Save();
         }
     }
 }

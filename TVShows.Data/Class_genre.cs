@@ -27,7 +27,7 @@ namespace TVShows.Data
         public Class_genre(string name)
         {
             Name = name;
-            Save(Dtable);
+            Save();
         }
     }
 }

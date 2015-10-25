@@ -17,6 +17,12 @@ namespace TVShows
 
         private void Window_loaded(object sender, RoutedEventArgs e)
         {
+            Class_tvshow.Repository = new Access_repository<Class_tvshow>(Class_tvshow.Dtable);
+            Class_user.Repository = new Access_repository<Class_user>(Class_user.Dtable);
+            Class_administrator.Repository = new Access_repository<Class_administrator>(Class_administrator.Dtable);
+            Class_favorites_and_user.Repository = new Access_repository<Class_favorites_and_user>(Class_favorites_and_user.Dtable);
+            Class_favorites_and_admin.Repository = new Access_repository<Class_favorites_and_admin>(Class_favorites_and_admin.Dtable);
+
             Class_tvshow.Init_tv_show();
             Class_user.Init_user();
             Class_administrator.Init_administrator();

@@ -26,7 +26,7 @@ namespace TVShows
                 return;
 
             Class_tvshow.Items.Add(tv);
-            tv.Save(Class_tvshow.Dtable);
+            tv.Save();
 
             var row = TVDtable.NewRow();
             row["Id"] = tv.Id;
@@ -64,7 +64,7 @@ namespace TVShows
             selected_tv.Row["Name_image"] = tv.Name_image;
             selected_tv.Row["Director"] = tv.Director;
 
-            tv.Update(Class_tvshow.Dtable);
+            tv.Update();
             Class_tvshow.Items.Clear();
             Class_tvshow.Init_tv_show();
         }
@@ -75,8 +75,11 @@ namespace TVShows
                 return;
 
             foreach (var classTv in Class_tvshow.Items)
-                if (classTv.Id == (int)tv.Row["Id"])
-                    classTv.Delete(Class_tvshow.Dtable, classTv.Id);
+                if (classTv.Id == (int) tv.Row["Id"])
+                {
+                    classTv.Delete();
+                    break;
+                }
 
             TVDtable.Rows.Remove(tv.Row);
         }

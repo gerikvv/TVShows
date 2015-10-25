@@ -40,11 +40,13 @@ namespace TVShows.Data
             set { IdTVShow = value.Id; }
         }
 
+        public Class_favorite(){}
+
         public Class_favorite(Class_user user, Class_tvshow tvshow)
         {
             User = user;
             Tvshow = tvshow;
-            Save(Dtable);
+            Save();
         }
     }
 }

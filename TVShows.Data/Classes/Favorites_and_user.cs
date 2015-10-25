@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_favorites_and_user : Class_base<Class_favorites_and_user>
+    public class Favorites_and_user : Base<Favorites_and_user>
     {
         public static string Dtable = "Favorites_and_Users";
 
@@ -31,28 +31,28 @@ namespace TVShows.Data
             }
         }
 
-        public IUser User
+        public IUser UserFavor
         {
-            get { return Class_user.Get_obj(IdUser); }
+            get { return User.Get_obj(IdUser); }
             set { IdUser = value.Id; }
         }
 
-        public ITvShow Tvshow
+        public ITvShow TvFavor
         {
-            get { return Class_tvshow.Get_obj(IdTVShow); }
+            get { return Tvshow.Get_obj(IdTVShow); }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_favorites_and_user(){}
+        public Favorites_and_user(){}
 
-        public Class_favorites_and_user(IUser user, ITvShow tvshow)
+        public Favorites_and_user(IUser user, ITvShow tvshow)
         {
-            User = user;
-            Tvshow = tvshow;
+            UserFavor = user;
+            TvFavor = tvshow;
             Save();
         }
 
-        public static ObservableCollection<Class_favorites_and_user> Init_favorites_and_user()
+        public static ObservableCollection<Favorites_and_user> Init_favorites_and_user()
         {
             Items = Repository.GetAllObjects();
             return Items;
@@ -60,7 +60,7 @@ namespace TVShows.Data
 
         public static bool Equals(IUser user, ITvShow tvshow)
         {
-            return Items.Any(favoritesAndUser => favoritesAndUser.User == user && favoritesAndUser.Tvshow == tvshow);
+            return Items.Any(favoritesAndUser => favoritesAndUser.UserFavor == user && favoritesAndUser.TvFavor == tvshow);
         }
     }
 }

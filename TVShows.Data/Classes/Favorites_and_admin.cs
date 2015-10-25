@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_favorites_and_admin : Class_base<Class_favorites_and_admin>
+    public class Favorites_and_admin : Base<Favorites_and_admin>
     {
         public static string Dtable = "Favorites_and_Admins";
 
@@ -31,28 +31,28 @@ namespace TVShows.Data
             }
         }
 
-        public IAdministrator Admin
+        public IAdministrator AdminFavor
         {
-            get { return Class_administrator.Get_obj(IdAdmin); }
+            get { return Administrator.Get_obj(IdAdmin); }
             set { IdAdmin = value.Id; }
         }
 
-        public ITvShow Tvshow
+        public ITvShow TvFavor
         {
-            get { return Class_tvshow.Get_obj(IdTVShow); }
+            get { return Tvshow.Get_obj(IdTVShow); }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_favorites_and_admin(){}
+        public Favorites_and_admin(){}
 
-        public Class_favorites_and_admin(IAdministrator admin, ITvShow tvshow)
+        public Favorites_and_admin(IAdministrator admin, ITvShow tvshow)
         {
-            Admin = admin;
-            Tvshow = tvshow;
+            AdminFavor = admin;
+            TvFavor = tvshow;
             Save();
         }
 
-        public static ObservableCollection<Class_favorites_and_admin> Init_favorites_and_admin()
+        public static ObservableCollection<Favorites_and_admin> Init_favorites_and_admin()
         {
             Items = Repository.GetAllObjects();
             return Items;
@@ -60,7 +60,7 @@ namespace TVShows.Data
 
         public static bool Equals(IAdministrator admin, ITvShow tvshow)
         {
-            return Items.Any(favoritesAndAdmin => favoritesAndAdmin.Admin == admin && favoritesAndAdmin.Tvshow == tvshow);
+            return Items.Any(favoritesAndAdmin => favoritesAndAdmin.AdminFavor == admin && favoritesAndAdmin.TvFavor == tvshow);
         }
     }
 }

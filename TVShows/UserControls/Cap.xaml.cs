@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using TVShows.Data;
+using TVShows.Data.Classes;
+using TVShows.ViewModel;
 
-namespace TVShows
+namespace TVShows.UserControls
 {
 	/// <summary>
 	/// Interaction logic for Cap.xaml
@@ -46,14 +48,14 @@ namespace TVShows
 	            tv_dock_panel_control.Star.Visibility = Visibility.Visible;
 
 	            tv_dock_panel_control.Star.IsEnabled = true;
-	            if (mainWindow.Man.GetType() == typeof(Class_user))
+	            if (mainWindow.Man.GetType() == typeof(User))
 	            {
-	                if (Class_favorites_and_user.Equals((Class_user)mainWindow.Man, (Class_tvshow) tv_dock_panel_control.DataContext))
+	                if (Favorites_and_user.Equals((User)mainWindow.Man, (Tvshow) tv_dock_panel_control.DataContext))
 	                    tv_dock_panel_control.Star.IsEnabled = false;
 	            }
 	            else
 	            {
-	                if (Class_favorites_and_admin.Equals((Class_administrator)mainWindow.Man, (Class_tvshow) tv_dock_panel_control.DataContext))
+	                if (Favorites_and_admin.Equals((Administrator)mainWindow.Man, (Tvshow) tv_dock_panel_control.DataContext))
 	                    tv_dock_panel_control.Star.IsEnabled = false;
 	            }
 	        }
@@ -126,7 +128,7 @@ namespace TVShows
 
         private void Btn_search_click(object sender, RoutedEventArgs e)
         {
-            foreach (var tv in Class_tvshow.Items)
+            foreach (var tv in Tvshow.Items)
             {
                 if (tv.Name.ToLower() == TbSearch.Text.ToLower())
                 {

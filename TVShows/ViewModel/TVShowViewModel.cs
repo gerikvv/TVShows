@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using Syncfusion.Windows.Shared;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.ViewModel
 {
     public class TVShowViewModel : NotificationObject
     {
@@ -12,20 +12,20 @@ namespace TVShows
         public TVShowViewModel()
         {
             TVDtable = Get_tvshows();
-            _addTV = new DelegateCommand<Class_tvshow>(AddTVHandler);
-            _editTV = new DelegateCommand<Class_tvshow>(UpdateTVHandler);
+            _addTV = new DelegateCommand<Tvshow>(AddTVHandler);
+            _editTV = new DelegateCommand<Tvshow>(UpdateTVHandler);
             _deleteTV = new DelegateCommand<DataRowView>(DeleteTVHandler);
         }
         #endregion
 
         #region Command Handler
 
-        public void AddTVHandler(Class_tvshow tv)
+        public void AddTVHandler(Tvshow tv)
         {
             if (tv == null)
                 return;
 
-            Class_tvshow.Items.Add(tv);
+            Tvshow.Items.Add(tv);
             tv.Save();
 
             var row = TVDtable.NewRow();
@@ -45,7 +45,7 @@ namespace TVShows
             TVDtable.Rows.Add(row);
         }
 
-        public void UpdateTVHandler(Class_tvshow tv)
+        public void UpdateTVHandler(Tvshow tv)
         {
             if (tv == null)
                 return;
@@ -65,8 +65,8 @@ namespace TVShows
             selected_tv.Row["Director"] = tv.Director;
 
             tv.Update();
-            Class_tvshow.Items.Clear();
-            Class_tvshow.Init_tv_show();
+            Tvshow.Items.Clear();
+            Tvshow.Init_tv_show();
         }
 
         public void DeleteTVHandler(DataRowView tv)
@@ -74,7 +74,7 @@ namespace TVShows
             if (tv == null)
                 return;
 
-            foreach (var classTv in Class_tvshow.Items)
+            foreach (var classTv in Tvshow.Items)
                 if (classTv.Id == (int) tv.Row["Id"])
                 {
                     classTv.Delete();
@@ -86,16 +86,16 @@ namespace TVShows
 
         #endregion
 
-        private readonly DelegateCommand<Class_tvshow> _addTV;
-        private readonly DelegateCommand<Class_tvshow> _editTV;
+        private readonly DelegateCommand<Tvshow> _addTV;
+        private readonly DelegateCommand<Tvshow> _editTV;
         private readonly DelegateCommand<DataRowView> _deleteTV;
 
-        public DelegateCommand<Class_tvshow> AddTV
+        public DelegateCommand<Tvshow> AddTV
         {
             get { return _addTV; }
         }
 
-        public DelegateCommand<Class_tvshow> EditTV
+        public DelegateCommand<Tvshow> EditTV
         {
             get { return _editTV; }
         }
@@ -148,7 +148,7 @@ namespace TVShows
             ds.Columns.Add("Name_image");
             ds.Columns.Add("Director");
 
-            foreach (var tv in Class_tvshow.Items)
+            foreach (var tv in Tvshow.Items)
                 ds.Rows.Add(tv.Id, tv.Name, tv.Year, tv.Country, tv.Slogan, tv.Script_writer, tv.Producer,
                     tv.Budget, tv.Global_charges, tv.Time, tv.Overall_rating, tv.Name_image, tv.Director);
 

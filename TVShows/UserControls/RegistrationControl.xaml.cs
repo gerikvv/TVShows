@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using TVShows.Data;
+using TVShows.Data.Classes;
 
 namespace TVShows
 {
@@ -16,9 +17,9 @@ namespace TVShows
 
         private void Registration_click(object sender, RoutedEventArgs e)
         {
-            Class_man man;
+            Man man;
             Message.Text = "";
-            Message.Text = Class_user.Registration(TbLogin.Text, Password1.Password, Password2.Password, TbEmail.Text, out man);
+            Message.Text = User.Registration(TbLogin.Text, Password1.Password, Password2.Password, TbEmail.Text, out man);
             
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Log_in(man);

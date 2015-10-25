@@ -1,24 +1,22 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_comment : Class_base<Class_comment>
+    public class Favorite : Base<Favorite>
     {
-        public static string Dtable = "Comments";
+        public static string Dtable = "Favorites";
 
         public int IdUser;
         public int IdTVShow;
-        public string Comment;
 
         public override object[] Objparams
         {
             get
             {
-                objects = new object[4];
+                objects = new object[3];
                 objects[0] = Id;
                 objects[1] = IdUser;
                 objects[2] = IdTVShow;
-                objects[3] = Comment;
                 return objects;
             }
             set
@@ -27,29 +25,27 @@ namespace TVShows.Data
                 Id = (Int32)objects[0];
                 IdUser = (int)objects[1];
                 IdTVShow = (int)objects[2];
-                Comment = (string) objects[3];
             }
         }
 
-        public Class_user User
+        public User User
         {
-            get { return (Class_user) Class_user.Items[IdUser]; }
+            get { return (User) User.Items[IdUser]; }
             set { IdUser = value.Id; }
         }
 
-        public Class_tvshow Tvshow
+        public Tvshow Tvshow
         {
-            get { return Class_tvshow.Items[IdTVShow]; }
+            get { return Tvshow.Items[IdTVShow]; }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_comment(){}
+        public Favorite(){}
 
-        public Class_comment(Class_user user, Class_tvshow tvshow, string comment)
+        public Favorite(User user, Tvshow tvshow)
         {
             User = user;
             Tvshow = tvshow;
-            Comment = comment;
             Save();
         }
     }

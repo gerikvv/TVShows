@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using TVShows.Data;
+using TVShows.Data.Classes;
 
 namespace TVShows
 {
@@ -21,10 +22,10 @@ namespace TVShows
         {
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
-            if (mainWindow.Man.GetType() == typeof(Class_user))
-                new Class_favorites_and_user((Class_user)mainWindow.Man, (Class_tvshow)DataContext);
+            if (mainWindow.Man.GetType() == typeof(User))
+                new Favorites_and_user((User)mainWindow.Man, (Tvshow)DataContext);
             else 
-                new Class_favorites_and_admin((Class_administrator)mainWindow.Man, (Class_tvshow)DataContext);
+                new Favorites_and_admin((Administrator)mainWindow.Man, (Tvshow)DataContext);
 
             Star.IsEnabled = false;
         }

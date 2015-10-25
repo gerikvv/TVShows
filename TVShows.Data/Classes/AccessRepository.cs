@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.OleDb;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
     public class Access_repository<T> : IRepository<T> where T : IBase, new()
     {

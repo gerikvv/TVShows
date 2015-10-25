@@ -5,7 +5,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
 	mc:Ignorable="d"
-	x:Class="TVShows.Cap"
+	x:Class="TVShows.UserControls.Cap"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="130">
     

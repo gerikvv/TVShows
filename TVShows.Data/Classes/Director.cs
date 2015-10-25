@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_director : Class_member_team
+    public class Director : Member_team
     {
         public static string Dtable = "Directors";
         
-        public Class_director(){}
+        public Director(){}
 
-        public Class_director(string name_director, DateTime birth_day, string birth_place, int age, string link_image)
+        public Director(string name_director, DateTime birth_day, string birth_place, int age, string link_image)
         {
             Name = name_director;
             Birth_day = birth_day;

@@ -1,11 +1,13 @@
 ﻿using System.Windows;
-using TVShows.Data;
+using TVShows.Data.Classes;
+using TVShows.View;
+using TVShows.ViewModel;
 
-namespace TVShows
+namespace TVShows.Commands
 {
     #region Add Command
 
-    public class TVAddBehavior : CommandBehaviour<Class_tvshow>
+    public class TVAddBehavior : CommandBehaviour<Tvshow>
     {
         public TVAddBehavior()
             : base((s, e) =>
@@ -26,7 +28,7 @@ namespace TVShows
         { }
     }
 
-    public class TVAddCommand : Command<Class_tvshow, TVAddBehavior>
+    public class TVAddCommand : Command<Tvshow, TVAddBehavior>
     { }
 
     #endregion

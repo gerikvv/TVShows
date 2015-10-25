@@ -52,25 +52,25 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessRepository.cs" />
-    <Compile Include="Class_actor.cs" />
-    <Compile Include="Class_actor_and_genre.cs" />
-    <Compile Include="Class_actor_and_tvshow.cs" />
-    <Compile Include="Class_administrator.cs" />
-    <Compile Include="Class_base.cs" />
-    <Compile Include="Class_comment.cs" />
-    <Compile Include="Class_director_and_genre.cs" />
-    <Compile Include="Class_director_and_tvshow.cs" />
-    <Compile Include="Class_favorite.cs" />
-    <Compile Include="Class_genre.cs" />
-    <Compile Include="Class_man.cs" />
-    <Compile Include="Class_member_team.cs" />
-    <Compile Include="Class_favorites_and_user.cs" />
-    <Compile Include="Class_tvshow.cs" />
-    <Compile Include="Class_tvshow_and_genre.cs" />
+    <Compile Include="Classes\AccessRepository.cs" />
+    <Compile Include="Classes\Actor.cs" />
+    <Compile Include="Classes\Actor_and_genre.cs" />
+    <Compile Include="Classes\Actor_and_tvshow.cs" />
+    <Compile Include="Classes\Administrator.cs" />
+    <Compile Include="Classes\Base.cs" />
+    <Compile Include="Classes\Comment.cs" />
+    <Compile Include="Classes\Director_and_genre.cs" />
+    <Compile Include="Classes\Director_and_tvshow.cs" />
+    <Compile Include="Classes\Favorite.cs" />
+    <Compile Include="Classes\Genre.cs" />
+    <Compile Include="Classes\Man.cs" />
+    <Compile Include="Classes\Member_team.cs" />
+    <Compile Include="Classes\Favorites_and_user.cs" />
+    <Compile Include="Classes\Tvshow.cs" />
+    <Compile Include="Classes\Tvshow_and_genre.cs" />
     <Compile Include="Interfaces\IAdministrator.cs" />
     <Compile Include="Interfaces\IBase.cs" />
-    <Compile Include="ImageConverter.cs" />
+    <Compile Include="Classes\ImageConverter.cs" />
     <Compile Include="Interfaces\IMan.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUser.cs" />
@@ -81,9 +81,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Class_user.cs" />
-    <Compile Include="Class_director.cs" />
-    <Compile Include="Class_favorites_and_admin.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Director.cs" />
+    <Compile Include="Classes\Favorites_and_admin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

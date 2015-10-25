@@ -1,7 +1,8 @@
 ﻿<Window x:Class="TVShows.Main_window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:TVShows="clr-namespace:TVShows" 
+        xmlns:TVShows="clr-namespace:TVShows"
+        xmlns:userControls="clr-namespace:TVShows.UserControls"
         Title="Smonitoring" Height="700" Width="700" MinWidth="700"
         Icon="/TVShows;component/Resources/Images/favicon.ico" 
         Loaded="Window_loaded">
@@ -13,8 +14,8 @@
     <Grid Background="{x:Null}">
         
         <DockPanel Name="DpHome" VerticalAlignment="Stretch" Margin="0,25" HorizontalAlignment="Center">
-            <TVShows:Cap VerticalAlignment="Top" DockPanel.Dock="Top" x:Name="Cap" />
-            <TVShows:TVShowControl HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,20,0,0" x:Name="TVShowControl"/>
+            <userControls:Cap VerticalAlignment="Top" DockPanel.Dock="Top" x:Name="Cap" />
+            <userControls:TVShowControl HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,20,0,0" x:Name="TVShowControl"/>
         </DockPanel>
     </Grid>
 </Window>

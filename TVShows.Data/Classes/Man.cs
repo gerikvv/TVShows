@@ -1,9 +1,9 @@
 ﻿using System;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_man : Class_base<Class_man>, IMan
+    public class Man : Base<Man>, IMan
     {
         private string password;
         public string Password
@@ -48,11 +48,11 @@ namespace TVShows.Data
             }
         }
 
-        public static string Login (string username_arg, string password_arg, out Class_man man)
+        public static string Login (string username_arg, string password_arg, out Man man)
         {
             if (username_arg != "" && password_arg != "")
             {
-                foreach (var manItem in Class_user.Items)
+                foreach (var manItem in User.Items)
                 {
                     if (manItem.Name == username_arg && manItem.Password == password_arg)
                     {
@@ -60,7 +60,7 @@ namespace TVShows.Data
                         return "";
                     }
                 }
-                foreach (var manItem in Class_administrator.Items)
+                foreach (var manItem in Administrator.Items)
                 {
                     if (manItem.Name == username_arg && manItem.Password == password_arg)
                     {
@@ -68,9 +68,9 @@ namespace TVShows.Data
                         return "";
                     }
                 }
-                { man = new Class_man(); return "Неправильная комбинация имени пользователя и пароля!"; }
+                { man = new Man(); return "Неправильная комбинация имени пользователя и пароля!"; }
             }
-            man = new Class_man(); return "Все поля должны быть заполнены!";
+            man = new Man(); return "Все поля должны быть заполнены!";
         }
 
         protected static void Logout(string username_arg, string password_arg)

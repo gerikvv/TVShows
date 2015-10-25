@@ -2,13 +2,13 @@
 using System.Linq;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_administrator : Class_man, IAdministrator
+    public class Administrator : Man, IAdministrator
     {
-        private static ObservableCollection<Class_administrator> items = new ObservableCollection<Class_administrator>();
+        private static ObservableCollection<Administrator> items = new ObservableCollection<Administrator>();
 
-        public new static ObservableCollection<Class_administrator> Items
+        public new static ObservableCollection<Administrator> Items
         {
             get { return items; }
             set { items = value; }
@@ -16,11 +16,11 @@ namespace TVShows.Data
 
         public static string Dtable = "Administrators";
 
-        public static IRepository<Class_administrator> Repository { get; set; }
+        public static IRepository<Administrator> Repository { get; set; }
         
-        public Class_administrator(){}
+        public Administrator(){}
 
-        public Class_administrator(string username, string password, string email)
+        public Administrator(string username, string password, string email)
         {
             Name = username;
             Password = password;
@@ -42,7 +42,7 @@ namespace TVShows.Data
 
         public override void Delete()
         {
-            foreach (var favoriteAndAdmin in Class_favorites_and_admin.Items)
+            foreach (var favoriteAndAdmin in Favorites_and_admin.Items)
             {
                 if (favoriteAndAdmin.IdAdmin == Id)
                 {
@@ -68,7 +68,7 @@ namespace TVShows.Data
 
         public override void AddFavoriteTv(ITvShow tvshow)
         {
-            new Class_favorites_and_admin(this, tvshow);
+            new Favorites_and_admin(this, tvshow);
         }
     }
 }

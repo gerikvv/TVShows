@@ -4,7 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TVShows="clr-namespace:TVShows" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" xmlns:UserControls="clr-namespace:TVShows.UserControls" mc:Ignorable="d"
-	x:Class="TVShows.TVShowControl"
+	x:Class="TVShows.UserControls.TVShowControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398"
     >

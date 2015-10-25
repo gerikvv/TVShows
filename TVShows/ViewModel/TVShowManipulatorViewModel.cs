@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using Microsoft.Win32;
 using Syncfusion.Windows.Shared;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.ViewModel
 {
     public class TVShowManipulatorViewModel : NotificationObject
     {
         #region Properties
 
-        Class_tvshow tv = new Class_tvshow();
+        Tvshow tv = new Tvshow();
 
-        public Class_tvshow TV
+        public Tvshow TV
         {
             get { return tv; }
             set { tv = value; }
@@ -181,8 +180,8 @@ namespace TVShows
 
         public TVShowManipulatorViewModel(DataRowView employee, bool is_in_edit)
         {
-            SaveCommand = new DelegateCommand<Class_tvshow>(Save);
-            AddImageCommand = new DelegateCommand<Class_tvshow>(AddImage);
+            SaveCommand = new DelegateCommand<Tvshow>(Save);
+            AddImageCommand = new DelegateCommand<Tvshow>(AddImage);
             SaveButtonContent = is_in_edit ? "Save" : "Add";
             if (is_in_edit)
                 CloneCustomers(employee);
@@ -211,7 +210,7 @@ namespace TVShows
 
         #region Save Command
 
-        public DelegateCommand<Class_tvshow> SaveCommand
+        public DelegateCommand<Tvshow> SaveCommand
         {
             get;
             set;
@@ -236,7 +235,7 @@ namespace TVShows
             }
         }
 
-        public DelegateCommand<Class_tvshow> AddImageCommand
+        public DelegateCommand<Tvshow> AddImageCommand
         {
             get; 
             set;

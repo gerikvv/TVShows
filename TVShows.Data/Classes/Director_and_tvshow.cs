@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_director_and_tvshow : Class_base<Class_director_and_tvshow>
+    public class Director_and_tvshow : Base<Director_and_tvshow>
     {
         public static string Dtable = "Directors_and_TVShows";
 
@@ -28,21 +28,21 @@ namespace TVShows.Data
             }
         }
 
-        public Class_director Director
+        public Director Director
         {
-            get { return (Class_director) Class_director.Items[IdDirector]; }
+            get { return (Director) Director.Items[IdDirector]; }
             set { IdDirector = value.Id; }
         }
 
-        public Class_tvshow Tvshow
+        public Tvshow Tvshow
         {
-            get { return Class_tvshow.Items[IdTVShow]; }
+            get { return Tvshow.Items[IdTVShow]; }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_director_and_tvshow(){}
+        public Director_and_tvshow(){}
 
-        public Class_director_and_tvshow(Class_director director, Class_tvshow tvshow)
+        public Director_and_tvshow(Director director, Tvshow tvshow)
         {
             Director = director;
             Tvshow = tvshow;

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_genre : Class_base<Class_genre>
+    public class Genre : Base<Genre>
     {
         public static string Dtable = "Genres";
 
@@ -22,9 +22,9 @@ namespace TVShows.Data
                 Name = (string)objects[1];
             }
         }
-        public Class_genre(){}
+        public Genre(){}
 
-        public Class_genre(string name)
+        public Genre(string name)
         {
             Name = name;
             Save();

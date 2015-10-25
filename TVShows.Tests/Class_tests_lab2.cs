@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using TVShows.Data;
+using TVShows.Data.Classes;
 
 namespace TVShows.Tests
 {
@@ -13,64 +14,64 @@ namespace TVShows.Tests
         [SetUp]
         public void IntitRepositories()
         {
-            Class_tvshow.Repository = new Fake_repository<Class_tvshow>();
-            Class_user.Repository = new Fake_repository<Class_user>();
-            Class_administrator.Repository = new Fake_repository<Class_administrator>();
-            Class_favorites_and_user.Repository = new Fake_repository<Class_favorites_and_user>();
-            Class_favorites_and_admin.Repository = new Fake_repository<Class_favorites_and_admin>();
+            Tvshow.Repository = new Fake_repository<Tvshow>();
+            User.Repository = new Fake_repository<User>();
+            Administrator.Repository = new Fake_repository<Administrator>();
+            Favorites_and_user.Repository = new Fake_repository<Favorites_and_user>();
+            Favorites_and_admin.Repository = new Fake_repository<Favorites_and_admin>();
         }
 
         [SetUp]
         public void ClearItems()
         {
-            Class_tvshow.Items.Clear();
-            Class_user.Items.Clear();
-            Class_administrator.Items.Clear();
-            Class_favorites_and_user.Items.Clear();
-            Class_favorites_and_admin.Items.Clear();
+            Tvshow.Items.Clear();
+            User.Items.Clear();
+            Administrator.Items.Clear();
+            Favorites_and_user.Items.Clear();
+            Favorites_and_admin.Items.Clear();
         }
 
         [Test]
         public void AddFavoriteTv_CreateUserAndTv_FavoriteTvAddedToUser()
         {
             // Arrange
-            var user = new Class_user();
+            var user = new User();
 
             // Act
-            user.AddFavoriteTv(new Class_tvshow());
-            user.AddFavoriteTv(new Class_tvshow());
+            user.AddFavoriteTv(new Tvshow());
+            user.AddFavoriteTv(new Tvshow());
 
             //Assert
-            Assert.AreEqual(Class_favorites_and_user.Items.Count, 2, "К пользователю не добавился избранный фильм");
+            Assert.AreEqual(Favorites_and_user.Items.Count, 2, "К пользователю не добавился избранный фильм");
         }
 
         [Test]
         public void AddFavoriteTv_CreateAdminAndTv_FavoriteTvAddedToAdmin()
         {
             // Arrange
-            var admin = new Class_administrator();
+            var admin = new Administrator();
 
             // Act
-            admin.AddFavoriteTv(new Class_tvshow());
-            admin.AddFavoriteTv(new Class_tvshow());
+            admin.AddFavoriteTv(new Tvshow());
+            admin.AddFavoriteTv(new Tvshow());
 
             //Assert
-            Assert.AreEqual(Class_favorites_and_admin.Items.Count, 2, "К администратору не добавился избранный фильм");
+            Assert.AreEqual(Favorites_and_admin.Items.Count, 2, "К администратору не добавился избранный фильм");
         }
 
         [Test]
         public void Delete_CreateLinkUserTvAndDeleteUser_LinkUserTvRemoved()
         {
             // Arrange
-            var user = new Class_user(){Id = 0};
-            user.AddFavoriteTv(new Class_tvshow());
-            new Class_favorites_and_user (new Class_user(){Id = 1}, new Class_tvshow());
+            var user = new User(){Id = 0};
+            user.AddFavoriteTv(new Tvshow());
+            new Favorites_and_user (new User(){Id = 1}, new Tvshow());
 
             // Act
             user.Delete();
 
             //Assert
-            bool isContains = Class_favorites_and_user.Items.Any(favorUser => favorUser.IdUser == user.Id);
+            bool isContains = Favorites_and_user.Items.Any(favorUser => favorUser.IdUser == user.Id);
             Assert.False(isContains, "Не удалилась связь пользователь-фильм");
         }
 
@@ -78,15 +79,15 @@ namespace TVShows.Tests
         public void Delete_CreateLinkAdminTvAndDeleteAdmin_LinkAdminTvRemoved()
         {
             // Arrange
-            var admin = new Class_administrator() { Id = 0 };
-            admin.AddFavoriteTv(new Class_tvshow());
-            new Class_favorites_and_admin(new Class_administrator() {Id = 1}, new Class_tvshow());
+            var admin = new Administrator() { Id = 0 };
+            admin.AddFavoriteTv(new Tvshow());
+            new Favorites_and_admin(new Administrator() {Id = 1}, new Tvshow());
 
             // Act
             admin.Delete();
 
             //Assert
-            bool isContains = Class_favorites_and_admin.Items.Any(favorAdmin => favorAdmin.IdAdmin == admin.Id);
+            bool isContains = Favorites_and_admin.Items.Any(favorAdmin => favorAdmin.IdAdmin == admin.Id);
             Assert.False(isContains, "Не удалилась связь администратор-фильм");
         }
 
@@ -94,19 +95,19 @@ namespace TVShows.Tests
         public void Delete_CreateLinkUserTvAndDeleteLink_LinkUserTvRemoved()
         {
             // Arrange
-            new Class_favorites_and_user(new Class_user(), new Class_tvshow()) {Id = 0};
-            new Class_favorites_and_user(new Class_user(), new Class_tvshow()) {Id = 1};
+            new Favorites_and_user(new User(), new Tvshow()) {Id = 0};
+            new Favorites_and_user(new User(), new Tvshow()) {Id = 1};
 
-            var favoritesAndUser = new Class_favorites_and_user(new Class_user(), new Class_tvshow()) {Id = 2};
+            var favoritesAndUser = new Favorites_and_user(new User(), new Tvshow()) {Id = 2};
 
             // Act
             favoritesAndUser.Delete();
 
             //Assert
-            bool isContains = Class_favorites_and_user.Items.Contains(favoritesAndUser);
+            bool isContains = Favorites_and_user.Items.Contains(favoritesAndUser);
             Assert.False(isContains, "Не удалилась связь пользователь-фильм");
 
-            Assert.AreEqual(Class_favorites_and_user.Items.Count, 2, "Не удалилась связь пользователь-фильм");
+            Assert.AreEqual(Favorites_and_user.Items.Count, 2, "Не удалилась связь пользователь-фильм");
         }
     }
 }

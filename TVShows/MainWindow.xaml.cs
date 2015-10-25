@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TVShows.Data;
+using TVShows.Data.Classes;
 
 namespace TVShows
 {
@@ -13,32 +14,32 @@ namespace TVShows
             InitializeComponent();
         }
 
-        public Class_man Man;
+        public Man Man;
 
         private void Window_loaded(object sender, RoutedEventArgs e)
         {
-            Class_tvshow.Repository = new Access_repository<Class_tvshow>(Class_tvshow.Dtable);
-            Class_user.Repository = new Access_repository<Class_user>(Class_user.Dtable);
-            Class_administrator.Repository = new Access_repository<Class_administrator>(Class_administrator.Dtable);
-            Class_favorites_and_user.Repository = new Access_repository<Class_favorites_and_user>(Class_favorites_and_user.Dtable);
-            Class_favorites_and_admin.Repository = new Access_repository<Class_favorites_and_admin>(Class_favorites_and_admin.Dtable);
+            Tvshow.Repository = new Access_repository<Tvshow>(Tvshow.Dtable);
+            User.Repository = new Access_repository<User>(User.Dtable);
+            Administrator.Repository = new Access_repository<Administrator>(Administrator.Dtable);
+            Favorites_and_user.Repository = new Access_repository<Favorites_and_user>(Favorites_and_user.Dtable);
+            Favorites_and_admin.Repository = new Access_repository<Favorites_and_admin>(Favorites_and_admin.Dtable);
 
-            Class_tvshow.Init_tv_show();
-            Class_user.Init_user();
-            Class_administrator.Init_administrator();
-            Class_favorites_and_user.Init_favorites_and_user();
-            Class_favorites_and_admin.Init_favorites_and_admin();
+            Tvshow.Init_tv_show();
+            User.Init_user();
+            Administrator.Init_administrator();
+            Favorites_and_user.Init_favorites_and_user();
+            Favorites_and_admin.Init_favorites_and_admin();
 
-            var tvControl = TVShowControl.Instance();
+            var tvControl = UserControls.TVShowControl.Instance();
             Cap.Show_random_tv(tvControl);
             TVShowControl.Content = tvControl;
         }
 
-        public void Log_in(Class_man man)
+        public void Log_in(Man man)
         {
             if (man.Name != null)
             {
-                if (man.GetType() == typeof(Class_administrator))
+                if (man.GetType() == typeof(Administrator))
                 {
                     Cap.ComboAdd.Visibility = Visibility.Visible;
                     Cap.BtnUsers.Visibility = Visibility.Visible;
@@ -61,12 +62,12 @@ namespace TVShows
                 Cap.BtnRegistration.IsEnabled = false;
                 Cap.BtnLogin.IsEnabled = false;
 
-                var control = TVShowControl.Instance();
+                var control = UserControls.TVShowControl.Instance();
                 Cap.Show_random_tv(control);
 
                 TVDockPanelControl.Instance().Star.Visibility = Visibility.Visible;
 
-                TVShowControl.Content = TVShowControl.Instance();
+                TVShowControl.Content = UserControls.TVShowControl.Instance();
             }
         }
 

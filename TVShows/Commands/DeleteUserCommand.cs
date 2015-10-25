@@ -1,13 +1,13 @@
-﻿using TVShows.Data;
+﻿using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.Commands
 {
     #region Delete Command
 
-    public class UserDeleteBehavior : CommandBehaviour<Class_user>
+    public class UserDeleteBehavior : CommandBehaviour<User>
     { }
 
-    public class UserDeleteCommand : Command<Class_user, UserDeleteBehavior>
+    public class UserDeleteCommand : Command<User, UserDeleteBehavior>
     { }
 
     #endregion

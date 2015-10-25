@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_actor_and_tvshow : Class_base<Class_actor_and_tvshow>
+    public class Actor_and_tvshow : Base<Actor_and_tvshow>
     {
         public static string Dtable = "Actors_and_TVShows";
 
@@ -28,21 +28,21 @@ namespace TVShows.Data
             }
         }
 
-        public Class_actor Actor
+        public Actor Actor
         {
-            get { return (Class_actor) Class_actor.Items[IdActor]; }
+            get { return (Actor) Actor.Items[IdActor]; }
             set { IdActor = value.Id; }
         }
 
-        public Class_tvshow Tvshow
+        public Tvshow Tvshow
         {
-            get { return Class_tvshow.Items[IdTVShow]; }
+            get { return Tvshow.Items[IdTVShow]; }
             set { IdTVShow = value.Id; }
         }
 
-        public Class_actor_and_tvshow(){}
+        public Actor_and_tvshow(){}
 
-        public Class_actor_and_tvshow(Class_actor actor, Class_tvshow tvshow)
+        public Actor_and_tvshow(Actor actor, Tvshow tvshow)
         {
             Actor = actor;
             Tvshow = tvshow;

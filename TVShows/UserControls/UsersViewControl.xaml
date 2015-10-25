@@ -4,14 +4,16 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-	x:Class="TVShows.UsersViewControl"
+	x:Class="TVShows.UserControls.UsersViewControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:local="clr-namespace:TVShows">
+    xmlns:local="clr-namespace:TVShows"
+    xmlns:commands="clr-namespace:TVShows.Commands"
+    xmlns:viewModel="clr-namespace:TVShows.ViewModel">
 
     <UserControl.DataContext>
-        <local:UserViewModel />
+        <viewModel:UserViewModel />
     </UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot">
@@ -85,20 +87,20 @@
                     <syncfusion:GridDataControl.RecordContextMenuItems>
                         <local:MenuCollection>
                             <MenuItem Header="Add" 
-                                local:UserAddCommand.Command="{Binding AddUser}">
+                                commands:UserAddCommand.Command="{Binding AddUser}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Add.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Edit"
-                                local:UserEditCommand.Command="{Binding EditUser}">
+                                commands:UserEditCommand.Command="{Binding EditUser}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Edit.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Delete"
-                                  local:UserDeleteCommand.Command="{Binding DeleteUser}"
-                                  local:UserDeleteCommand.CommandParameter="{Binding SelectedUser, Mode=TwoWay}">
+                                  commands:UserDeleteCommand.Command="{Binding DeleteUser}"
+                                  commands:UserDeleteCommand.CommandParameter="{Binding SelectedUser, Mode=TwoWay}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Delete.png" />
                                 </MenuItem.Icon>

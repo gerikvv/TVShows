@@ -1,13 +1,13 @@
-﻿using TVShows.Data;
+﻿using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.Commands
 {
     #region Delete Command
 
-    public class TVDeleteBehavior : CommandBehaviour<Class_tvshow>
+    public class TVDeleteBehavior : CommandBehaviour<Tvshow>
     { }
 
-    public class TVDeleteCommand : Command<Class_tvshow, TVDeleteBehavior>
+    public class TVDeleteCommand : Command<Tvshow, TVDeleteBehavior>
     { }
 
     #endregion

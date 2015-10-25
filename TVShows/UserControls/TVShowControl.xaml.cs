@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.UserControls
 {
 	/// <summary>
 	/// Interaction logic for RandomTVShow.xaml
@@ -19,7 +19,7 @@ namespace TVShows
             return tvShowControl ?? (tvShowControl = new TVShowControl());
         }
 
-        public void Color_rating(Class_tvshow tvshow, TVDockPanelControl dock_panel)
+        public void Color_rating(Tvshow tvshow, TVDockPanelControl dock_panel)
         {
             var rating = tvshow.Overall_rating;
             if (rating >= 7)
@@ -38,12 +38,12 @@ namespace TVShows
         public void Random_tv(TVDockPanelControl dock_panel)
         {
             var rand = new Random();
-            var i = rand.Next(0, Class_tvshow.Items.Count);
+            var i = rand.Next(0, Tvshow.Items.Count);
 
-            var tvshow = Class_tvshow.Items[i];
+            var tvshow = Tvshow.Items[i];
 
             if (PageTransitionControl.Current_page != null && tvshow == PageTransitionControl.Current_page.DataContext)
-                tvshow = i + 1 < Class_tvshow.Items.Count ? Class_tvshow.Items[i + 1] : Class_tvshow.Items[0];
+                tvshow = i + 1 < Tvshow.Items.Count ? Tvshow.Items[i + 1] : Tvshow.Items[0];
             
             dock_panel.DataContext = tvshow;
             Color_rating(tvshow, dock_panel);

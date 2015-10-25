@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Data;
 using Syncfusion.Windows.Shared;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.ViewModel
 {
     public class UserManipulatorViewModel : NotificationObject
     {
         #region Properties
 
-        Class_user user = new Class_user();
+        User user = new User();
 
-        public Class_user User
+        public User User
         {
             get { return user; }
             set { user = value; }
@@ -74,7 +74,7 @@ namespace TVShows
 
         public UserManipulatorViewModel(DataRowView employee, bool is_in_edit)
         {
-            SaveCommand = new DelegateCommand<Class_user>(Save);
+            SaveCommand = new DelegateCommand<User>(Save);
             SaveButtonContent = is_in_edit ? "Save" : "Add";
             if (is_in_edit)
                 CloneCustomers(employee);
@@ -92,7 +92,7 @@ namespace TVShows
 
         #region Save Command
 
-        public DelegateCommand<Class_user> SaveCommand
+        public DelegateCommand<User> SaveCommand
         {
             get;
             set;

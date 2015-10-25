@@ -5,9 +5,9 @@ using System.Linq;
 using Syncfusion.Windows.Shared;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_base<T> : NotificationObject, IBase, INotifyPropertyChanged where T : Class_base<T>, new()
+    public class Base<T> : NotificationObject, IBase, INotifyPropertyChanged where T : Base<T>, new()
     {
         private static ObservableCollection<T> _items = new ObservableCollection<T>();
         private static IRepository<T> _repository;
@@ -45,11 +45,11 @@ namespace TVShows.Data
             }
         }
 
-        protected Class_base()
+        protected Base()
         {
         }
 
-        protected Class_base(string name)
+        protected Base(string name)
             : this()
         {
             //Items.Add((T)this);

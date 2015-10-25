@@ -4,21 +4,24 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-	x:Class="TVShows.TVShowsViewControl"
+	x:Class="TVShows.UserControls.TVShowsViewControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398" 
     xmlns:I="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:local="clr-namespace:TVShows" 
     xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data" 
-    xmlns:Globalization="clr-namespace:System.Globalization;assembly=mscorlib">
+    xmlns:Globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+    xmlns:classes="clr-namespace:TVShows.Data.Classes;assembly=TVShows.Data"
+    xmlns:commands="clr-namespace:TVShows.Commands"
+    xmlns:viewModel="clr-namespace:TVShows.ViewModel">
 
     <UserControl.DataContext>
-        <local:TVShowViewModel />
+        <viewModel:TVShowViewModel />
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <Data:StringToImageConverter x:Key="Imageconverter" />
+        <classes:StringToImageConverter x:Key="Imageconverter" />
         
         <DataTemplate x:Key="imageTemplate">
             <Border>
@@ -228,20 +231,20 @@
                     <syncfusion:GridDataControl.RecordContextMenuItems>
                         <local:MenuCollection>
                             <MenuItem Header="Add" 
-                                local:TVAddCommand.Command="{Binding AddTV}">
+                                commands:TVAddCommand.Command="{Binding AddTV}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Add.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Edit"
-                                local:TVEditCommand.Command="{Binding EditTV}">
+                                commands:TVEditCommand.Command="{Binding EditTV}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Edit.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Delete"
-                                  local:TVDeleteCommand.Command="{Binding DeleteTV}"
-                                  local:TVDeleteCommand.CommandParameter="{Binding SelectedTV, Mode=TwoWay}">
+                                  commands:TVDeleteCommand.Command="{Binding DeleteTV}"
+                                  commands:TVDeleteCommand.CommandParameter="{Binding SelectedTV, Mode=TwoWay}">
                                 <MenuItem.Icon>
                                     <Image Source="/Resources/Images/Delete.png" />
                                 </MenuItem.Icon>

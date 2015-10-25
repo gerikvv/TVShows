@@ -3,9 +3,9 @@ using System.Data;
 using System.Linq;
 using TVShows.Data.Interfaces;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_tvshow : Class_base<Class_tvshow>, ITvShow
+    public class Tvshow : Base<Tvshow>, ITvShow
     {
         public static string Dtable = "TVShows";
 
@@ -183,9 +183,9 @@ namespace TVShows.Data
                 On_property_changed("Time_string");
             }
         }
-        public Class_tvshow(){}
+        public Tvshow(){}
 
-        public Class_tvshow(string name, int year, string country, string slogan, string script_writer,
+        public Tvshow(string name, int year, string country, string slogan, string script_writer,
         string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image, 
         string name_image, string director)
         {
@@ -209,7 +209,7 @@ namespace TVShows.Data
             Save();
         }
 
-        public static Class_tvshow Init_tv_show ()
+        public static Tvshow Init_tv_show ()
         {
             Items = Repository.GetAllObjects();
 

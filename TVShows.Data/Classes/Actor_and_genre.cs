@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_tvshow_and_genre : Class_base<Class_tvshow_and_genre>
+    public class Actor_and_genre : Base<Actor_and_genre>
     {
-        public static string Dtable = "TVShows_and_Genres";
+        public static string Dtable = "Actors_and_Genres";
 
-        public int IdTVShow;
+        public int IdActor;
         public int IdGenre;
 
         public override object[] Objparams
@@ -15,7 +15,7 @@ namespace TVShows.Data
             {
                 objects = new object[3];
                 objects[0] = Id;
-                objects[1] = IdTVShow;
+                objects[1] = IdActor;
                 objects[2] = IdGenre;
                 return objects;
             }
@@ -23,28 +23,28 @@ namespace TVShows.Data
             {
                 objects = value;
                 Id = (Int32)objects[0];
-                IdTVShow = (int)objects[1];
+                IdActor = (int)objects[1];
                 IdGenre = (int)objects[2];
             }
         }
 
-        public Class_tvshow Tvshow
+        public Actor Actor
         {
-            get { return Class_tvshow.Items[IdTVShow]; }
-            set { IdTVShow = value.Id; }
+            get { return (Actor) Actor.Items[IdActor]; }
+            set { IdActor = value.Id; }
         }
 
-        public Class_genre Genre
+        public Genre Genre
         {
-            get { return Class_genre.Items[IdGenre]; }
+            get { return Genre.Items[IdGenre]; }
             set { IdGenre = value.Id; }
         }
 
-        public Class_tvshow_and_genre(){}
+        public Actor_and_genre(){}
 
-        public Class_tvshow_and_genre(Class_tvshow tvshow, Class_genre genre)
+        public Actor_and_genre(Actor actor, Genre genre)
         {
-            Tvshow = tvshow;
+            Actor = actor;
             Genre = genre;
             Save();
         }

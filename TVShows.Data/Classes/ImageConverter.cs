@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
     public class StringToImageConverter : IValueConverter
     {

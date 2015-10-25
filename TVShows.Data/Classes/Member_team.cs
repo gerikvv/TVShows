@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TVShows.Data
+namespace TVShows.Data.Classes
 {
-    public class Class_member_team : Class_base<Class_member_team>
+    public class Member_team : Base<Member_team>
     {
         public DateTime Birth_day { get; set; }
         public string Birth_place { get; set; }

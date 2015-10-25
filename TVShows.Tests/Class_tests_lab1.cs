@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using NUnit.Framework;
 using TVShows.Data;
+using TVShows.Data.Classes;
 using TVShows.Data.Interfaces;
 
 namespace TVShows.Tests
@@ -13,35 +13,35 @@ namespace TVShows.Tests
         [SetUp]
         public void IntitRepositories()
         {
-            Class_user.Repository = new Access_repository<Class_user>(Class_user.Dtable);
-            Class_administrator.Repository = new Access_repository<Class_administrator>(Class_administrator.Dtable);
-            Class_tvshow.Repository = new Access_repository<Class_tvshow>(Class_tvshow.Dtable);
+            User.Repository = new Access_repository<User>(User.Dtable);
+            Administrator.Repository = new Access_repository<Administrator>(Administrator.Dtable);
+            Tvshow.Repository = new Access_repository<Tvshow>(Tvshow.Dtable);
 
-            Class_user.Init_user();
-            Class_administrator.Init_administrator();
+            User.Init_user();
+            Administrator.Init_administrator();
         }
 
         [Test]
         public void Check_Type_Init_Users()
         {
-            var collection = Class_user.Repository.GetAllObjects();
+            var collection = User.Repository.GetAllObjects();
             foreach (var itemUser in collection)
-                Assert.IsInstanceOf<Class_user>(itemUser, "Полученый объект User отличается от типа Class_user");
+                Assert.IsInstanceOf<User>(itemUser, "Полученый объект User отличается от типа Class_user");
         }
 
         [Test]
         public void Check_Type_Init_Admins()
         {
-            var collection = Class_administrator.Repository.GetAllObjects();
+            var collection = Administrator.Repository.GetAllObjects();
             foreach (var itemAdmin in collection)
-                Assert.IsInstanceOf<Class_administrator>(itemAdmin, "Полученый объект Admin отличается от типа Class_administrator");
+                Assert.IsInstanceOf<Administrator>(itemAdmin, "Полученый объект Admin отличается от типа Administrator");
         }
 
         [Test]
         public void Check_Is_Null_Initialized_TVShow()
         {
-            Class_tvshow.Init_tv_show();
-            foreach (var tvshow in Class_tvshow.Items)
+            Tvshow.Init_tv_show();
+            foreach (var tvshow in Tvshow.Items)
                 Assert.IsNotNull(tvshow, "Полученый объект TVshow ссылается на нулевую ячейку памяти, " +
                                          "загрузка объектов с базы происходит некорректно");
         }
@@ -49,26 +49,26 @@ namespace TVShows.Tests
         [Test]
         public void Check_Type_Of_Link_Image_Initialized_TVShow()
         {
-            Class_tvshow randomTvshow = Class_tvshow.Init_tv_show();
+            Tvshow randomTvshow = Tvshow.Init_tv_show();
             Assert.IsInstanceOf<string>(randomTvshow.Link_image, "Полученый объект Link_image отличается от типа string");
         }
 
-        private Class_user Construct_User()
+        private User Construct_User()
         {
             string login = "gerik";
             string password = "qwerty123";
             string email = "gerik@gmail.com";
 
-            return new Class_user(login, password, email);
+            return new User(login, password, email);
         }
 
         [Test]
         public void Add_User_To_Items_Get_User_By_ID_And_Compare()
         {
-            Class_user user = Construct_User();
-            Class_user.Items.Add(user);
+            User user = Construct_User();
+            User.Items.Add(user);
 
-            var getUser = (IUser) Class_user.Get_obj(user.Id);
+            var getUser = (IUser) User.Get_obj(user.Id);
 
             Assert.AreEqual(getUser, user, "Метод Get_obj возвратил неверный объект user");
 
@@ -78,9 +78,9 @@ namespace TVShows.Tests
         [Test]
         public void Add_User_To_DataBase_And_Check_Contains()
         {
-            Class_user user = Construct_User();
+            User user = Construct_User();
 
-            var collection = Class_user.Repository.GetAllObjects();
+            var collection = User.Repository.GetAllObjects();
 
             List<int> idList = new List<int>();
             List<string> names = new List<string>();
@@ -120,15 +120,15 @@ namespace TVShows.Tests
         [Test]
         public void User_Not_Deleted()
         {
-            Class_user user = Construct_User();
+            User user = Construct_User();
             int idNewUser = user.Id;
 
-            var collection = Class_user.Repository.GetAllObjects();
+            var collection = User.Repository.GetAllObjects();
             int countUsersAfterAdding = collection.Count();
 
             user.Delete();
 
-            collection = Class_user.Repository.GetAllObjects();
+            collection = User.Repository.GetAllObjects();
             int countUsersAfterRemoving = collection.Count();
 
             Assert.Greater(countUsersAfterAdding, countUsersAfterRemoving, 

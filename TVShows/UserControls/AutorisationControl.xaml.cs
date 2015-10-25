@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.UserControls
 {
 	/// <summary>
 	/// Interaction logic for AutorisationContol.xaml
@@ -16,9 +16,9 @@ namespace TVShows
 
         private void Btn_login_click(object sender, RoutedEventArgs e)
         {
-            Class_man man;
+            Man man;
             Message.Text = "";
-            Message.Text = Class_man.Login(TbLogin.Text, Password.Password, out man);
+            Message.Text = Man.Login(TbLogin.Text, Password.Password, out man);
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
             mainWindow.Log_in(man);

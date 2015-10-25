@@ -4,8 +4,9 @@ using System.Data;
 using System.Windows;
 using Syncfusion.Windows.Shared;
 using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.ViewModel
 {
     public class FavoritesViewModel : TVShowViewModel
     {
@@ -27,11 +28,11 @@ namespace TVShows
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
-            if (mainWindow.Man.GetType() == typeof(Class_user))
+            if (mainWindow.Man.GetType() == typeof(User))
             {
-                foreach (var classFavoritesMan in Class_favorites_and_user.Items)
-                    if (classFavoritesMan.Tvshow.Name == (string) favorites_man.Row["Name"] &&
-                        classFavoritesMan.Tvshow.Year.ToString() == (string) favorites_man.Row["Year"])
+                foreach (var classFavoritesMan in Favorites_and_user.Items)
+                    if (classFavoritesMan.TvFavor.Name == (string) favorites_man.Row["Name"] &&
+                        classFavoritesMan.TvFavor.Year.ToString() == (string) favorites_man.Row["Year"])
                     {
                         classFavoritesMan.Delete();
                         break;
@@ -39,9 +40,9 @@ namespace TVShows
             }
             else
             {
-                foreach (var classFavoritesMan in Class_favorites_and_admin.Items)
-                    if (classFavoritesMan.Tvshow.Name == (string) favorites_man.Row["Name"] &&
-                        classFavoritesMan.Tvshow.Year.ToString() == (string) favorites_man.Row["Year"])
+                foreach (var classFavoritesMan in Favorites_and_admin.Items)
+                    if (classFavoritesMan.TvFavor.Name == (string) favorites_man.Row["Name"] &&
+                        classFavoritesMan.TvFavor.Year.ToString() == (string) favorites_man.Row["Year"])
                     {
                         classFavoritesMan.Delete();
                         break;
@@ -105,22 +106,22 @@ namespace TVShows
 
             var mainWindow = (Main_window)Application.Current.MainWindow;
 
-            var tvshows = new List<Class_tvshow>();
+            var tvshows = new List<Tvshow>();
 
-            if (mainWindow.Man.GetType() == typeof(Class_user))
+            if (mainWindow.Man.GetType() == typeof(User))
             {
-                foreach (var favoritesAndUser in Class_favorites_and_user.Items)
+                foreach (var favoritesAndUser in Favorites_and_user.Items)
                 {
                     if (favoritesAndUser.IdUser == mainWindow.Man.Id)
-                        tvshows.Add(Class_tvshow.Get_obj(favoritesAndUser.IdTVShow));
+                        tvshows.Add(Tvshow.Get_obj(favoritesAndUser.IdTVShow));
                 }
             }
             else
             {
-                foreach (var favoritesAndAdmin in Class_favorites_and_admin.Items)
+                foreach (var favoritesAndAdmin in Favorites_and_admin.Items)
                 {
                     if (favoritesAndAdmin.IdAdmin== mainWindow.Man.Id)
-                        tvshows.Add(Class_tvshow.Get_obj(favoritesAndAdmin.IdTVShow));
+                        tvshows.Add(Tvshow.Get_obj(favoritesAndAdmin.IdTVShow));
                 }
             }
 

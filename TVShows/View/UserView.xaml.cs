@@ -1,8 +1,7 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using TVShows.Data;
+using TVShows.ViewModel;
 
-namespace TVShows
+namespace TVShows.View
 {
     /// <summary>
     /// Логика взаимодействия для UserControl1.xaml

@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using Syncfusion.Windows.Shared;
-using TVShows.Data;
+using TVShows.Data.Classes;
 
-namespace TVShows
+namespace TVShows.ViewModel
 {
     public class UserViewModel : NotificationObject
     {
@@ -11,20 +11,20 @@ namespace TVShows
         public UserViewModel()
         {
             UsersDtable = Get_users();
-            _addUser = new DelegateCommand<Class_user>(AddUserHandler);
-            _editUser = new DelegateCommand<Class_user>(UpdateUserHandler);
+            _addUser = new DelegateCommand<User>(AddUserHandler);
+            _editUser = new DelegateCommand<User>(UpdateUserHandler);
             _deleteUser = new DelegateCommand<DataRowView>(DeleteUserHandler);
         }
         #endregion
 
         #region Command Handler
         
-        public void AddUserHandler(Class_user user)
+        public void AddUserHandler(User user)
         {
             if (user == null)
                 return;
 
-            Class_user.Items.Add(user);
+            User.Items.Add(user);
             user.Save();
 
             var row = UsersDtable.NewRow();
@@ -35,7 +35,7 @@ namespace TVShows
             UsersDtable.Rows.Add(row);
         }
 
-        public void UpdateUserHandler(Class_user user)
+        public void UpdateUserHandler(User user)
         {
             if (user == null)
                 return;
@@ -51,7 +51,7 @@ namespace TVShows
             if (rowUser == null)
                 return;
 
-            foreach (var user in Class_user.Items)
+            foreach (var user in User.Items)
                 if (user.Id == (int) rowUser.Row["Id"])
                 {
                     user.Delete();
@@ -63,16 +63,16 @@ namespace TVShows
 
         #endregion
 
-        private readonly DelegateCommand<Class_user> _addUser;
-        private readonly DelegateCommand<Class_user> _editUser;
+        private readonly DelegateCommand<User> _addUser;
+        private readonly DelegateCommand<User> _editUser;
         private readonly DelegateCommand<DataRowView> _deleteUser;
 
-        public DelegateCommand<Class_user> AddUser
+        public DelegateCommand<User> AddUser
         {
             get { return _addUser; }
         }
 
-        public DelegateCommand<Class_user> EditUser
+        public DelegateCommand<User> EditUser
         {
             get { return _editUser; }
         }
@@ -116,9 +116,9 @@ namespace TVShows
             ds.Columns.Add("Password");
             ds.Columns.Add("Email");
 
-            foreach (var user in Class_user.Items)
+            foreach (var user in User.Items)
             {
-                if (user.GetType() == typeof(Class_user))
+                if (user.GetType() == typeof(User))
                     ds.Rows.Add(user.Id, user.Name, user.Password, user.Email);
             }
             return ds;

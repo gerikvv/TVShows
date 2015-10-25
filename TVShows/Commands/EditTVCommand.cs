@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using TVShows.Data;
+using TVShows.Data.Classes;
+using TVShows.UserControls;
+using TVShows.View;
+using TVShows.ViewModel;
 
-namespace TVShows
+namespace TVShows.Commands
 {
     #region Edit Command
 
-    public class TVEditBehavior : CommandBehaviour<Class_tvshow>
+    public class TVEditBehavior : CommandBehaviour<Tvshow>
     {
         public TVEditBehavior()
             : base((s, e) =>
@@ -31,7 +30,7 @@ namespace TVShows
         { }
     }
 
-    public class TVEditCommand : Command<Class_tvshow, TVEditBehavior>
+    public class TVEditCommand : Command<Tvshow, TVEditBehavior>
     { }
 
     #endregion

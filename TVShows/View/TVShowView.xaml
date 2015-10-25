@@ -1,4 +1,4 @@
-﻿<Window x:Class="TVShows.TVShowView"
+﻿<Window x:Class="TVShows.View.TVShowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.Wpf" 

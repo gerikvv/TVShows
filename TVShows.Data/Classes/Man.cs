@@ -56,7 +56,7 @@ namespace TVShows.Data.Classes
                 {
                     if (manItem.Name == username_arg && manItem.Password == password_arg)
                     {
-                        man = manItem;
+                        man = (Man) manItem;
                         return "";
                     }
                 }

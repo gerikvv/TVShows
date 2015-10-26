@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Syncfusion.Linq.Base, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.MVVM.WPF, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dll\Syncfusion.Shared.MVVM.WPF.dll</HintPath>
@@ -66,8 +67,10 @@
     <Compile Include="Classes\Man.cs" />
     <Compile Include="Classes\Member_team.cs" />
     <Compile Include="Classes\Favorites_and_user.cs" />
+    <Compile Include="Classes\Rating.cs" />
     <Compile Include="Classes\Tvshow.cs" />
     <Compile Include="Classes\Tvshow_and_genre.cs" />
+    <Compile Include="Classes\User_and_Rating.cs" />
     <Compile Include="Interfaces\IAdministrator.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Classes\ImageConverter.cs" />

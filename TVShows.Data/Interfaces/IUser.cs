@@ -1,7 +1,10 @@
-﻿namespace TVShows.Data.Interfaces
+﻿using TVShows.Data.Classes;
+
+namespace TVShows.Data.Interfaces
 {
     public interface IUser : IMan
     {
         void AddFavoriteTv(ITvShow tvshow);
+        Rating Rate();
     }
 }

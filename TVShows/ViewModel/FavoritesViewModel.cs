@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using Syncfusion.Windows.Shared;
-using TVShows.Data;
 using TVShows.Data.Classes;
 
 namespace TVShows.ViewModel
@@ -14,7 +13,7 @@ namespace TVShows.ViewModel
 
         public FavoritesViewModel()
         {
-            TVDtable = this.Get_tvshows();
+            TVDtable = Get_tvshows();
             _deleteFavoritesMan = new DelegateCommand<DataRowView>(DeleteFavoritesManHandler);
         }
         #endregion

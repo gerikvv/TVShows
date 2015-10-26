@@ -5,7 +5,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:Data="clr-namespace:TVShows.Data;assembly=TVShows.Data" 
     mc:Ignorable="d"
-    x:Class="TVShows.FavoritesControl"
+    x:Class="TVShows.UserControls.FavoritesControl"
 	x:Name="UserControl"
 	d:DesignWidth="570" d:DesignHeight="398"
     xmlns:I="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"

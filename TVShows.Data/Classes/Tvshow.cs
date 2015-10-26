@@ -138,6 +138,8 @@ namespace TVShows.Data.Classes
             }
         }
 
+        public double Rating { get; set; }
+
         public override object[] Objparams
         {
             get
@@ -183,12 +185,16 @@ namespace TVShows.Data.Classes
                 On_property_changed("Time_string");
             }
         }
-        public Tvshow(){}
+        public Tvshow()
+        {
+            Rating = 0;
+        }
 
         public Tvshow(string name, int year, string country, string slogan, string script_writer,
         string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image, 
         string name_image, string director)
         {
+            Rating = 0;
             Name = name;
             Year = year;
             Country = country;

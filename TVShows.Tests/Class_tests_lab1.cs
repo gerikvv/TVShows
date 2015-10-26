@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using TVShows.Data;
 using TVShows.Data.Classes;
 using TVShows.Data.Interfaces;
 
@@ -68,7 +67,7 @@ namespace TVShows.Tests
             User user = Construct_User();
             User.Items.Add(user);
 
-            var getUser = (IUser) User.Get_obj(user.Id);
+            var getUser = User.Get_obj(user.Id);
 
             Assert.AreEqual(getUser, user, "Метод Get_obj возвратил неверный объект user");
 

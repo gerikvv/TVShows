@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using NUnit.Framework;
-using TVShows.Data;
 using TVShows.Data.Classes;
 
 namespace TVShows.Tests
@@ -29,6 +25,7 @@ namespace TVShows.Tests
             Administrator.Items.Clear();
             Favorites_and_user.Items.Clear();
             Favorites_and_admin.Items.Clear();
+            User_and_Rating.Items.Clear();
         }
 
         [Test]
@@ -38,8 +35,8 @@ namespace TVShows.Tests
             var user = new User();
 
             // Act
-            user.AddFavoriteTv(new Tvshow());
-            user.AddFavoriteTv(new Tvshow());
+            user.AddFavoriteTv(new Dummy());
+            user.AddFavoriteTv(new Dummy());
 
             //Assert
             Assert.AreEqual(Favorites_and_user.Items.Count, 2, "К пользователю не добавился избранный фильм");
@@ -52,8 +49,8 @@ namespace TVShows.Tests
             var admin = new Administrator();
 
             // Act
-            admin.AddFavoriteTv(new Tvshow());
-            admin.AddFavoriteTv(new Tvshow());
+            admin.AddFavoriteTv(new Dummy());
+            admin.AddFavoriteTv(new Dummy());
 
             //Assert
             Assert.AreEqual(Favorites_and_admin.Items.Count, 2, "К администратору не добавился избранный фильм");
@@ -63,9 +60,9 @@ namespace TVShows.Tests
         public void Delete_CreateLinkUserTvAndDeleteUser_LinkUserTvRemoved()
         {
             // Arrange
-            var user = new User(){Id = 0};
-            user.AddFavoriteTv(new Tvshow());
-            new Favorites_and_user (new User(){Id = 1}, new Tvshow());
+            var user = new User {Id = 0};
+            user.AddFavoriteTv(new Dummy());
+            new Favorites_and_user(new User { Id = 1 }, new Dummy());
 
             // Act
             user.Delete();
@@ -79,9 +76,9 @@ namespace TVShows.Tests
         public void Delete_CreateLinkAdminTvAndDeleteAdmin_LinkAdminTvRemoved()
         {
             // Arrange
-            var admin = new Administrator() { Id = 0 };
-            admin.AddFavoriteTv(new Tvshow());
-            new Favorites_and_admin(new Administrator() {Id = 1}, new Tvshow());
+            var admin = new Administrator { Id = 0 };
+            admin.AddFavoriteTv(new Dummy());
+            new Favorites_and_admin(new Administrator { Id = 1 }, new Dummy());
 
             // Act
             admin.Delete();
@@ -95,10 +92,10 @@ namespace TVShows.Tests
         public void Delete_CreateLinkUserTvAndDeleteLink_LinkUserTvRemoved()
         {
             // Arrange
-            new Favorites_and_user(new User(), new Tvshow()) {Id = 0};
-            new Favorites_and_user(new User(), new Tvshow()) {Id = 1};
+            new Favorites_and_user(new Dummy(), new Dummy());
+            new Favorites_and_user(new Dummy(), new Dummy());
 
-            var favoritesAndUser = new Favorites_and_user(new User(), new Tvshow()) {Id = 2};
+            var favoritesAndUser = new Favorites_and_user(new Dummy(), new Dummy());
 
             // Act
             favoritesAndUser.Delete();
@@ -108,6 +105,55 @@ namespace TVShows.Tests
             Assert.False(isContains, "Не удалилась связь пользователь-фильм");
 
             Assert.AreEqual(Favorites_and_user.Items.Count, 2, "Не удалилась связь пользователь-фильм");
+        }
+
+        [Test]
+        public void Rate_CreateUserTvAndRateTv_CreatedTvRating()
+        {
+            // Arrange
+            var userStub = new UserStub();
+            var tv = new Tvshow {Id = 1};
+            
+            // Act
+            var rating = userStub.Rate(); 
+            new User_and_Rating(userStub, tv, rating);
+
+            //Assert
+            Assert.NotNull(tv.Rating, "Рейтинг фильма не обновился");
+        }
+
+        [Test]
+        public void CalculateNewRating_CreateUsersTvAndRateTv_AverageTvRating()
+        {
+            // Arrange
+            var userStub = new UserStub();
+            var userStub1 = new UserStub();
+
+            var tv = new Tvshow {Id = 1};
+
+            // Act
+            var rating = userStub.Rate();
+            var rating1 = userStub1.Rate();
+            new User_and_Rating(userStub, tv, rating);
+            new User_and_Rating(userStub1, tv, rating1);
+
+            //Assert
+            Assert.AreEqual( tv.Rating, rating.TvRating, "Рейтинг фильма посчитан неверно");
+        }
+
+        [Test]
+        public void IsRated_CreateUserTvAndRateTv_IsRatedEqualTrue()
+        {
+            // Arrange
+            var user = new UserStub {Id = 1};
+            var tv = new Tvshow {Id = 1};
+
+            // Act
+            var rating = user.Rate();
+            new User_and_Rating(user, tv, rating);
+
+            //Assert
+            Assert.True(User_and_Rating.IsRated(user, tv), "Фильм не был оценен");
         }
     }
 }

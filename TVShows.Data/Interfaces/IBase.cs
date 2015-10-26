@@ -8,5 +8,9 @@ namespace TVShows.Data.Interfaces
          string Name { get; set; }
 
          Object[] Objparams { get; set; }
-    }
+
+         void Save();
+         void Delete();
+         void Update();
+     }
 }

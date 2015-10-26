@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TVShows.Data;
 using TVShows.Data.Classes;
+using TVShows.Data.Interfaces;
 
 namespace TVShows
 {

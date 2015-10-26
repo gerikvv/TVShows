@@ -1,4 +1,5 @@
 ﻿using System;
+using TVShows.Data.Interfaces;
 
 namespace TVShows.Data.Classes
 {
@@ -31,13 +32,13 @@ namespace TVShows.Data.Classes
             }
         }
 
-        public User User
+        public IUser Usercomment
         {
             get { return User.Items[IdUser]; }
             set { IdUser = value.Id; }
         }
 
-        public Tvshow Tvshow
+        public Tvshow Tvshowcommnet
         {
             get { return Tvshow.Items[IdTVShow]; }
             set { IdTVShow = value.Id; }
@@ -47,8 +48,8 @@ namespace TVShows.Data.Classes
 
         public Comment(User user, Tvshow tvshow, string comment)
         {
-            User = user;
-            Tvshow = tvshow;
+            Usercomment = user;
+            Tvshowcommnet = tvshow;
             Commentary = comment;
             Save();
         }

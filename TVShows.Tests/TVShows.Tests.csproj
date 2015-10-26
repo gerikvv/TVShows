@@ -47,8 +47,10 @@
   <ItemGroup>
     <Compile Include="Class_tests_lab1.cs" />
     <Compile Include="Class_tests_lab2.cs" />
+    <Compile Include="Dummy.cs" />
     <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserStub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TVShows.Data\TVShows.Data.csproj">
@@ -58,9 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using TVShows.Data.Interfaces;
@@ -113,7 +114,7 @@ namespace TVShows.Data.Classes
             Items[Items.IndexOf(Items.FirstOrDefault(elem => elem.Id == Id))] = this;
         }
 
-        public new static IUser Get_obj(int idObj)
+        public new static User Get_obj(int idObj)
         {
             return Items.FirstOrDefault(item => item.Id == idObj);
         }
@@ -121,6 +122,12 @@ namespace TVShows.Data.Classes
         public override void AddFavoriteTv(ITvShow tvshow)
         {
             new Favorites_and_user(this, tvshow);
+        }
+
+        public Rating Rate()
+        {
+            var random = new Random();
+            return new Rating(random.Next(1, 10));
         }
     }
 }

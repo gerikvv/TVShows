@@ -124,10 +124,15 @@ namespace TVShows.Data.Classes
             new Favorites_and_user(this, tvshow);
         }
 
-        public Rating Rate()
+        public Rating GetRating()
         {
             var random = new Random();
             return new Rating(random.Next(1, 10));
+        }
+
+        public void Rate(ITvShow tvshow)
+        {
+            new User_and_Rating(this, tvshow, GetRating());
         }
     }
 }

@@ -32,28 +32,28 @@ namespace TVShows.Tests
         public void AddFavoriteTv_CreateUserAndTv_FavoriteTvAddedToUser()
         {
             // Arrange
-            var user = new User();
+            var userSpy = new UserSpy();
 
             // Act
-            user.AddFavoriteTv(new Dummy());
-            user.AddFavoriteTv(new Dummy());
+            userSpy.AddFavoriteTv(new Dummy());
+            userSpy.AddFavoriteTv(new Dummy());
 
             //Assert
-            Assert.AreEqual(Favorites_and_user.Items.Count, 2, "К пользователю не добавился избранный фильм");
+            Assert.AreEqual(2, userSpy.Calls.Count, "К пользователю не добавился избранный фильм");
         }
 
         [Test]
         public void AddFavoriteTv_CreateAdminAndTv_FavoriteTvAddedToAdmin()
         {
             // Arrange
-            var admin = new Administrator();
+            var admin = new AdministratorSpy();
 
             // Act
             admin.AddFavoriteTv(new Dummy());
             admin.AddFavoriteTv(new Dummy());
 
             //Assert
-            Assert.AreEqual(Favorites_and_admin.Items.Count, 2, "К администратору не добавился избранный фильм");
+            Assert.AreEqual(2, admin.Calls.Count, "К администратору не добавился избранный фильм");
         }
 
         [Test]
@@ -115,8 +115,7 @@ namespace TVShows.Tests
             var tv = new Tvshow {Id = 1};
             
             // Act
-            var rating = userStub.Rate(); 
-            new User_and_Rating(userStub, tv, rating);
+            userStub.Rate(tv);
 
             //Assert
             Assert.NotNull(tv.Rating, "Рейтинг фильма не обновился");
@@ -132,13 +131,28 @@ namespace TVShows.Tests
             var tv = new Tvshow {Id = 1};
 
             // Act
-            var rating = userStub.Rate();
-            var rating1 = userStub1.Rate();
-            new User_and_Rating(userStub, tv, rating);
-            new User_and_Rating(userStub1, tv, rating1);
+            userStub.Rate(tv);
+            userStub1.Rate(tv);
 
             //Assert
-            Assert.AreEqual( tv.Rating, rating.TvRating, "Рейтинг фильма посчитан неверно");
+            Assert.AreEqual( tv.Rating, userStub.GetRating().TvRating, "Рейтинг фильма посчитан неверно");
+        }
+
+        [Test]
+        public void Rate_CreateUsersTvAndRateTv_TwoUsersRated()
+        {
+            // Arrange
+            var userStub = new UserStub();
+            var userStub1 = new UserStub();
+
+            var tv = new TvSpy() { Id = 1 };
+
+            // Act
+            userStub.Rate(tv);
+            userStub1.Rate(tv);
+
+            //Assert
+            Assert.AreEqual(2, tv.Calls.Count, "Rate работает неверно, оценка не добавляется к фильму");
         }
 
         [Test]
@@ -149,8 +163,7 @@ namespace TVShows.Tests
             var tv = new Tvshow {Id = 1};
 
             // Act
-            var rating = user.Rate();
-            new User_and_Rating(user, tv, rating);
+            user.Rate(tv);
 
             //Assert
             Assert.True(User_and_Rating.IsRated(user, tv), "Фильм не был оценен");

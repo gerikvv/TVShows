@@ -18,10 +18,8 @@ namespace TVShows.Tests
         public string Email { get; set; }
 
         public void AddFavoriteTv(ITvShow tvshow){}
-        public Rating Rate()
-        {
-            return null;
-        }
+        public Rating GetRating(){return null;}
+        public void Rate(ITvShow tvshow){}
 
         public int Year { get; set; }
         public string Country { get; set; }

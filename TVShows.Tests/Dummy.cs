@@ -18,7 +18,8 @@ namespace TVShows.Tests
         public string Email { get; set; }
 
         public void AddFavoriteTv(ITvShow tvshow){}
-        public Rating GetRating(){return null;}
+        public Rating GetRatingFromWindow(){return null;}
+
         public void Rate(ITvShow tvshow){}
 
         public int Year { get; set; }
@@ -33,6 +34,12 @@ namespace TVShows.Tests
         public string Name_image { get; set; }
         public string Link_image { get; set; }
         public string Director { get; set; }
-        public double Rating { get; set; }
+
+        public void SetRating(double newRating){}
+
+        double ITvShow.GetRating()
+        {
+            return new double();
+        }
     }
 }

@@ -118,7 +118,7 @@ namespace TVShows.Tests
             userStub.Rate(tv);
 
             //Assert
-            Assert.NotNull(tv.Rating, "Рейтинг фильма не обновился");
+            Assert.NotNull(tv.GetRating(), "Рейтинг фильма не обновился");
         }
 
         [Test]
@@ -135,7 +135,7 @@ namespace TVShows.Tests
             userStub1.Rate(tv);
 
             //Assert
-            Assert.AreEqual( tv.Rating, userStub.GetRating().TvRating, "Рейтинг фильма посчитан неверно");
+            Assert.AreEqual( tv.GetRating(), userStub.GetRatingFromWindow().TvRating, "Рейтинг фильма посчитан неверно");
         }
 
         [Test]

@@ -65,7 +65,7 @@ namespace TVShows.Data.Classes
         {
             Repository.Save((T)this);
             Items.Add((T)this);
-            Id = Repository.GetAllObjects().Last().Id;
+            Id = Repository.GetId();
         }
 
         public virtual void Delete()

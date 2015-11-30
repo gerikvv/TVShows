@@ -35,7 +35,7 @@ namespace TVShows.Tests
             new Favorites_and_user(this, tvshow);
         }
 
-        public Rating GetRating()
+        public Rating GetRatingFromWindow()
         {
             Calls.Add(new Call<IUser>("GetRating", this));
             return new Rating(5);
@@ -44,7 +44,7 @@ namespace TVShows.Tests
         public void Rate(ITvShow tvshow)
         {
             Calls.Add(new Call<IUser>("Rate", this));
-            new User_and_Rating(this, tvshow, GetRating());
+            new User_and_Rating(this, tvshow, GetRatingFromWindow());
         }
     }
 }

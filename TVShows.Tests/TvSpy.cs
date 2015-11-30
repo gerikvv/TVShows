@@ -22,6 +22,18 @@ namespace TVShows.Tests
         public string Link_image { get; set; }
         public string Director { get; set; }
 
+        public double GetRating()
+        {
+            Calls.Add(new Call<ITvShow>("GetRating", this));
+            return _rating;
+        }
+
+        public void SetRating(double newRating)
+        {
+            Calls.Add(new Call<ITvShow>("SetRating", this));
+            _rating = newRating;
+        }
+
         private double _rating;
         public double Rating
         {

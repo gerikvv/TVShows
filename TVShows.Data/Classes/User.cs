@@ -91,7 +91,7 @@ namespace TVShows.Data.Classes
         {
             Repository.Save(this);
             Items.Add(this);
-            Id = Repository.GetAllObjects().Last().Id;
+            Id = Repository.GetId();
         }
 
         public override void Delete()
@@ -124,7 +124,7 @@ namespace TVShows.Data.Classes
             new Favorites_and_user(this, tvshow);
         }
 
-        public Rating GetRating()
+        public Rating GetRatingFromWindow()
         {
             var random = new Random();
             return new Rating(random.Next(1, 10));
@@ -132,7 +132,7 @@ namespace TVShows.Data.Classes
 
         public void Rate(ITvShow tvshow)
         {
-            new User_and_Rating(this, tvshow, GetRating());
+            new User_and_Rating(this, tvshow, GetRatingFromWindow());
         }
     }
 }

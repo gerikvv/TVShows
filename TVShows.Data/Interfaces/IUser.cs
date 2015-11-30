@@ -5,7 +5,7 @@ namespace TVShows.Data.Interfaces
     public interface IUser : IMan
     {
         void AddFavoriteTv(ITvShow tvshow);
-        Rating GetRating();
+        Rating GetRatingFromWindow();
         void Rate(ITvShow tvshow);
     }
 }

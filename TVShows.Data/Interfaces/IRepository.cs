@@ -9,6 +9,7 @@ namespace TVShows.Data.Interfaces
         ConnectionState State { get; set; }
 
         ObservableCollection<T> GetAllObjects();
+        int GetId();
 
         void Update(T obj);
 

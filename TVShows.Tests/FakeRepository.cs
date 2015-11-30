@@ -18,6 +18,11 @@ namespace TVShows.Tests
             return new ObservableCollection<T>(_items);
         }
 
+        public int GetId()
+        {
+            return _items.Count - 1;
+        }
+
         public void Update(T obj)
         {
             _items[_items.IndexOf(_items.FirstOrDefault(elem => elem.Id == obj.Id))] = obj;

@@ -138,7 +138,17 @@ namespace TVShows.Data.Classes
             }
         }
 
-        public double Rating { get; set; }
+        private double rating;
+
+        public virtual double GetRating()
+        {
+            return rating;
+        }
+
+        public virtual void SetRating(double newRating)
+        {
+            rating = newRating;
+        }
 
         public override object[] Objparams
         {
@@ -187,14 +197,14 @@ namespace TVShows.Data.Classes
         }
         public Tvshow()
         {
-            Rating = 0;
+            SetRating(0); 
         }
 
         public Tvshow(string name, int year, string country, string slogan, string script_writer,
         string producer, int budget, int global_charges, DateTime time, double overall_rating, string link_image, 
         string name_image, string director)
         {
-            Rating = 0;
+            SetRating(0);
             Name = name;
             Year = year;
             Country = country;

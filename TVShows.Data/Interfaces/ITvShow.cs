@@ -16,6 +16,8 @@ namespace TVShows.Data.Interfaces
         string Name_image { get; set; }
         string Link_image { get; set; }
         string Director { get; set; }
-        double Rating { get; set; }
+
+        double GetRating();
+        void SetRating(double newRating);
     }
 }

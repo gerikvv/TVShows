@@ -45,6 +45,7 @@ namespace TVShows
                     Cap.ComboAdd.Visibility = Visibility.Visible;
                     Cap.BtnUsers.Visibility = Visibility.Visible;
                     Cap.BtnFavorites.Visibility = Visibility.Visible;
+                    Cap.BtnFavorites.IsEnabled = true;
                     Cap.BtnTVShows.Visibility = Visibility.Visible;
                     
                     Cap.TbLogin.Visibility = Visibility.Visible;
@@ -53,6 +54,7 @@ namespace TVShows
                 else
                 {
                     Cap.BtnFavorites.Visibility = Visibility.Visible;
+                    Cap.BtnFavorites.IsEnabled = true;
 
                     Cap.TbLogin.Visibility = Visibility.Visible;
                     Cap.TbLogin.Text = "Профиль: " + man.Name;
@@ -77,6 +79,7 @@ namespace TVShows
             Cap.ComboAdd.Visibility = Visibility.Collapsed;
             Cap.BtnUsers.Visibility = Visibility.Collapsed;
             Cap.BtnFavorites.Visibility = Visibility.Collapsed;
+            Cap.BtnFavorites.IsEnabled = false;
             Cap.TbLogin.Visibility = Visibility.Collapsed;
             Cap.BtnTVShows.Visibility = Visibility.Collapsed;
             Cap.BtnRegistration.IsEnabled = true;

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Linq;
 using TVShows.Data.Interfaces;
 
 namespace TVShows.Data.Classes
@@ -79,6 +80,11 @@ namespace TVShows.Data.Classes
                 State = _connection.State;
             }
             return tcoll;
+        }
+
+        public int GetId()
+        {
+            return GetAllObjects().Last().Id;
         }
 
         public void Update(T obj)

@@ -37,7 +37,7 @@ namespace TVShows.Data.Classes
         {
             Repository.Save(this);
             Items.Add(this);
-            Id = Repository.GetAllObjects().Last().Id;
+            Id = Repository.GetId();
         }
 
         public override void Delete()

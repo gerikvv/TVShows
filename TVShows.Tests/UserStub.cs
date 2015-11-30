@@ -18,14 +18,14 @@ namespace TVShows.Tests
 
         public void AddFavoriteTv(ITvShow tvshow){}
 
-        public Rating GetRating()
+        public Rating GetRatingFromWindow()
         {
             return new Rating(5);
         }
 
         public void Rate(ITvShow tvshow)
         {
-            new User_and_Rating(this, tvshow, GetRating());
+            new User_and_Rating(this, tvshow, GetRatingFromWindow());
         }
     }
 }

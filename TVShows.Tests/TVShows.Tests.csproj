@@ -35,6 +35,10 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Syncfusion.Shared.Wpf, Version=11.104.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,6 +59,7 @@
     <Compile Include="UserSpy.cs" />
     <Compile Include="UserStub.cs" />
     <Compile Include="AdministratorSpy.cs" />
+    <Compile Include="Class_tests_lab3.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TVShows.Data\TVShows.Data.csproj">

@@ -140,7 +140,7 @@
             <DockPanel Height="20" x:Name="Middle_panel" Width="570" HorizontalAlignment="Center" Margin="0,100,0,0">
                 <Button Content="Главная" Height="20" x:Name="BtnHome" Width="60" Style="{StaticResource DBButton}" Click="Home_click" />
                 <Button Content="Поиск!" Height="20" x:Name="BtnSearch" Style="{StaticResource DBButton}" Width="60" DockPanel.Dock="Right" Click="Btn_search_click" />
-                <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" Visibility="Collapsed" />
+                <Button Content="Избранное" Height="20" Name="BtnFavorites" Style="{StaticResource SimpleButton}" Width="60" Click="Favorites_click" Visibility="Collapsed" IsEnabled="False"/>
                 <Button Content="Users" Height="20" Name="BtnUsers" Style="{StaticResource SimpleButton}" Width="60" Click="Users_view_click" Visibility="Collapsed" />
                 <Button Content="TVShows" Height="20" Name="BtnTVShows" Style="{StaticResource SimpleButton}" Width="60" Click="Tv_shows_click" Visibility="Collapsed" />
                 <ComboBox Height="23" Name="ComboAdd" Width="75" Focusable="False" SelectionChanged="Combo_add_selection_changed" Visibility="Collapsed">

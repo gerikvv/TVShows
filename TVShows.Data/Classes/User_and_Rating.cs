@@ -43,7 +43,7 @@ namespace TVShows.Data.Classes
 
             var new_rating = ratings.Average();
 
-            TvRate.Rating = new_rating;
+            TvRate.SetRating(new_rating); 
         }
     }
 }
